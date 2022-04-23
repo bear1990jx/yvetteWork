@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>HTML Notes and Practices</title>
+        <meta name="author" content="Yvette">
+        <meta name="keywords" content="html">
+        <!--css table border-->
+        <style type="text/css">
+            table, tr, td{border: 1px solid silver;}
+        </style>
+    </head>
+    <body>
+        <h1>HTML Notes and Practices</h1>
+        <h3>&lt;meta&gt; </h3>
+        <p>
+            Meta data: data to describle data. <br/>
+            Meta data is for chrome to catch important information.
+        </p>
+        <h3>html转义字符</h3>
+        <p>基本格式：&xxxx;
+            <ul>
+                <li> &lt;: &amp;lt;</li>
+                <li>&gt;: &amp;gt;</li>
+                <li>blankspace: &amp;nbsp;，是英文空格连续多个空白字符会被浏览器看作一个空格。</li>
+                <li>&: &amp;amp;</li>
+                <li>copyright &copy;: &amp;copy;</li>
+                <li>trademark&trade;: &amp;trade;</li>
+                <li>版权所有&reg;: &amp;reg;</li>
+            </ul>
+        </p>
+        <h3>html注释：不需要浏览器处理或显示，用于以后调试，或源码读取方便</h3>
+        <p>&lt;!----&gt;里面可以包括源码，表示这段源码暂不删除但不显示。<br/>
+            注释不能嵌套，不能在一个注释里放另一个注释，否则功能知道第一个结束标签。
+        </p>
+        <h3>html元素类型</h3>
+        <ol>
+            <li>区块元素 block：必须处于独立一行中，不能和其他内容在一行</li>
+            <li>内联元素 inline：可以与内容其他出现在一行中</li>
+        </ol>
+        <h3>html文本样式标签</h3>
+        <ul>
+            <li><b>加粗bold：</b>&lt;b&gt;&lt;/b&gt;描述样式，描述样式的标签在xhtml中已废弃，样式用css实现</li>
+            <li><strong>加粗strong：</strong>&lt;strong&gt;&lt;/strong&gt;描述语义</li>
+            <li><i>斜体italic</i>：&lt;i&gt;&lt;/i&gt;</li>
+            <li><u>下划线underline</u>：&lt;u&gt;&lt;/u&gt;</li>
+            <li><s>删除线strike</s>: &lt;s&gt;&lt;/s&gt;</li>
+            <li>下标<sub>1</sub>：&lt;sub&gt;&lt;/sub&gt;</li>
+            <li>上标<sup>1</sup>：&lt;sup&gt;&lt;/sup&gt;</li>
+        </ul>        
+        <h3 id="title">html标题元素</h3>
+        <h1>一级标题</h1>
+        <h2>二级标题</h2>
+        <h3>三级标题</h3>
+        <h4>四级标题</h4>
+        <h5>五级标题</h5>
+        <h6>六级标题</h6>
+        <h3>段落</h3>
+        <p>这是第一段话这是第一段话这是第一段话这是第一段话这是第一段话这是第一段话这是第一段话这是第一段话这是第一段话这是第一段话这是第一段话这是第一段话</p>
+        <p>这是第二段话这是第二段话这是第二段话这是第二段话这是第二段话这是第二段话这是第二段话这是第二段话这是第二段话这是第二段话这是第二段话这是第二段话</p>
+        <p>自动换行，段与段之间有间距</p>
+        <h3>快捷键</h3>
+        <ul>
+            <li>向下复制一行：cmd+d</li>
+            <li>删除整行：cmd+delete</li>
+            <li>恢复：cmd+z</li>
+        </ul>
+        <h3>html分区元素</h3>
+        <ul>
+            <li>分区元素用于元素分组，常用于页面布局</li>
+            <li>块分区元素：&lt;div&gt;&lt;/div&gt;，单独仅显示独占一行</li>
+            <li>行内分区元素：&lt;span&gt;&lt;/span&gt;，设置同一行文字内的不同格式，单独没有任何效果，和css、js搭配使用</li>
+            <li>页面在<span style="color: red;">3</span>秒钟后，将自动跳转</li>
+            <li>这是一段内容这是一段内容这是一段<div>内容</div>这是一段内容这是一段内容这是一段内容这是一段内容</li>
+            <li>
+                <div style="color: blue;">
+                    <p>first</p>
+                    <p>second</p>
+                </div>
+                <p>一周畅销<span style="color: blueviolet;">榜</span></p>
+            </li>
+        </ul>
+        <h3>分隔线</h3>
+        <p>不同属性：width宽度, color, align对齐方式(left, right, center)。没有高度，高度需要css调。一般分隔线用border做，更容易调整。</p>
+        <hr width="500px" color="red" align="center"/>
+        <hr width="50%" color="green" align="center" size="3"/>
+        <h3>预格式化</h3>
+        <p>保留源文档中的格式，即保留原来的换行和文本中的空白。</p>
+        JavaScript采用如下语法定义函数：
+        <pre>
+        function funName (){
+            //fun body
+            for () {
+                console.log ('');
+            }
+        }
+        </pre>  
+        <h3>图片</h3>
+        <ul>
+            <li>通知浏览器此刻应该向服务器发起一个图片请求</li>
+            <li>请求会先请求html，浏览器解析到img，会再次请求图片</li>
+            <li>inline，不会自动换行</li>
+            <li>width设置为百分比，改变浏览器窗口宽度会自适应，比如width50%是浏览器宽度的50%</li>
+            <li>设置了width，height会自适应，反之同理。强行设置宽高可能导致图片变形</li>
+            <li>alt：图片无法显示的替代文字，title：鼠标放上面显示的文字</li>
+            <li>绝对路径：以协议名开头的路径</li>
+            <li>相对路径：不以协议名开头的路径，如Micky.jpg, ./Micky.jpg, images/g.jpg, ../g.jpg, ../../../images/g.jpg</li>
+        </ul>
+        a<img src="Micky.jpeg" width="100px" alt="this is Micky" />b<br/>
+        <img src="Micky.jpeg" width="50%" /><br/>
+        <img src="Micky.jpeg" width="200px" title="Micky" />
+        <img src="Micky.jpeg" width="200px" height="100px" />
+        <img src="http:www.google.com/logo.png" alt="google logo">
+        <h3>超链接</h3>
+        <p>./：当前目录，同一文件夹下也可不加./<br/>
+            ../：上一个文件夹<br/>
+        </p>
+        <a href="www.google.com" target="_blank">go google网站</a><br/>
+        <a href="./page.html">go page其他页面</a><br/>
+        给<a href="mailto: yvettewang@outlook.com">管理员</a>发邮件<br/>
+        <a href="javascript:void(0)">链接到JS功能</a><br/>
+        跳转到<a href="#title">同一页面标题</a><br/>
+        <a href="#">回到最顶部，返回顶部的空链接</a><br/>
+        <a href="page.html#questionary">查看不同页面page.html中的问卷</a><br/>
+        <a href="Day.zip">下载资源</a>
+        <h3>表格</h3>
+        <ol>
+            <li>显示批量的数据</li>
+            <li>作页面布局——过时</li>
+        </ol>
+        <pre>
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        </pre>
+        <table border="1" width="500px" height="100px">
+            <tr>
+                <td style="text-align:center" valign="top" colspan="3" >0-0</td>
+            </tr>
+            <tr>
+                <td colspan="2">1-0</td>
+                <td>1-1</td>
+            </tr>
+            <tr>
+                <td>2-0</td>
+                <td>2-1</td>
+                <td rowspan="2">2-2</td>
+            </tr>
+            <tr>
+                <td>3-0</td>
+                <td>3-1</td>
+            </tr>
+        </table>
+        <h4>My Profil</h4>
+        <table border="1" width="500px">
+            <tr >
+                <td align="center" colspan="5"><h2>Mianpang</h2></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td>12345678</td>
+                <td>Email:</td>
+                <td>mianpang@gmail.com</td>
+                <td rowspan="2"><img src="IMG31.jpeg" alt="mianpang" width="100px"></td>
+            </tr>
+            <tr>
+                <td>Major:</td>
+                <td>Cute</td>
+                <td>Birthday:</td>
+                <td>2016.07.29</td>
+            </tr>
+            <tr>
+                <td colspan="5" height="150px" valign="top">Skill: </td>
+            </tr>
+            <tr>
+                <td colspan="5" height="150px" valign="top">Experience: </td>
+            </tr>
+        </table>
+        <h4>页面布局</h4>
+        <ol>
+            <li>table作布局：表格嵌套可能导致页面很复杂不易编辑，浏览体验不好，要么一片空白，要么一次性全部出来</li>
+            <li>div+css：当前主流</li>
+            <li>html5布局标签：未来趋势</li>
+        </ol>
+        <table width="980px" align="center" border="1">
+            <tr bgcolor="#ffaaaa">
+                <td height="100px" align="center">LOGO Welcome</td>
+            </tr>
+            <tr bgcolor="#aaffaa">
+                <td height="50px" align="center">HOME 丨 News 丨 Moments 丨 Recrutment</td>
+            </tr>
+            <tr>
+                <td>
+                    <!--td中嵌套了一个表格-->
+                    <table width="100%" border="1" height="350px">
+                        <tr>
+                            <td bgcolor="#aaaaff">Main</td>
+                            <td width="200px" bgcolor="#ffffaa">Sideboard</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td height="80px" bgcolor="#aaffff" align="center">Foot</td>
+            </tr>
+        </table>
+        <h4>表格最完整的形式</h4>
+            <table border="1" width="500px">
+                <caption>2022部门绩效表</caption>
+                <thead>
+                    <tr>
+                        <th>部门编号</th>
+                        <th>部门名称</th>
+                        <th>部门产出</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1001</td>
+                        <td>研发部</td>
+                        <td>1000000</td>
+                        <td><a href="#">详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>1002</td>
+                        <td>市场部</td>
+                        <td>2000000</td>
+                        <td><a href="#">详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>1003/td>
+                        <td>审计部</td>
+                        <td>2000000</td>
+                        <td><a href="#">详情</a></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">制表时间：2022.04</td>
+                    </tr>
+                </tfoot>
+            </table>
+        <!--tag table-->
+        <hr/>
+        <h3>标签表格</h3>
+        <table>
+            <caption>标签表格</caption>
+            <thead>
+                <tr></tr>
+                    <th>标签名</th>
+                    <th>含义</th>
+                    <th>常用属性</th>
+                    <th>类型</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>html</td>
+                </tr>
+                <tr>
+                    <td>head</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                </tr>
+                <tr>
+                    <td>&lt;meta /&gt;</td>
+                    <td>定义网页的元数据</td>
+                </tr>
+                <tr>
+                    <td>body</td>
+                </tr>
+                <tr>
+                    <td>&lt;b&gt;&lt;/b&gt;</td>
+                    <td>加粗bold</td>
+                    <td>描述样式</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>&lt;strong&gt;&lt;/strong&gt;</td>
+                    <td>加粗strong</td>
+                    <td>描述语义</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>&lt;i&gt;&lt;/i&gt;</td>
+                    <td>斜体italic</td>
+                    <td>描述样式</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>&lt;em&gt;&lt;/en&gt;</td>
+                    <td>斜体emphasized</td>
+                    <td>描述语义</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>&lt;u&gt;&lt;/u&gt;</td>
+                    <td>下划线underline</td>
+                    <td>描述样式</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>&lt;s&gt;&lt;/s&gt;</td>
+                    <td>删除线strike</td>
+                    <td>描述样式</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>&lt;sub&gt;&lt;/sub&gt;</td>
+                    <td>下标subscript</td>
+                    <td>描述样式</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>&lt;sup&gt;&lt;/sup&gt;</td>
+                    <td>上标superscript</td>
+                    <td>描述样式</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>h1, h2...h6</td>
+                    <td>标题header</td>
+                    <td>描述语义，注意：标题字在不同浏览器中默认字体高度、间距都是不同的</td>
+                    <td>block</td>
+                </tr>
+                <tr>
+                    <td>&lt;p&gt;&lt;/p&gt;</td>
+                    <td>段落paragraph</td>
+                    <td>描述语义</td>
+                    <td>block</td>
+                </tr>
+                <tr>
+                    <td>&lt;br/&gt;</td>
+                    <td>换行break</td>
+                    <td>描述语义，html中/可以省略，xhtml不允许省略，html5允许</td>
+                    <td>block</td>
+                </tr>
+                <tr>
+                    <td>&lt;div&gt;&lt;/div&gt;</td>
+                    <td>元素分组工具division，层，常用于内容分层和页面布局，是一个最简单的block元素</td>
+                    <td>配合css使用(div+css布局)</td>
+                    <td>block</td>
+                </tr>
+                <tr>
+                    <td>&lt;span&gt;&lt;/span&gt;</td>
+                    <td>行内分区工具，是一个最简单的inline元素</td>
+                    <td>必须配合css或js才能有效果</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>&lt;hr/&gt;</td>
+                    <td>分隔线horizontal rule，描述样式</td>
+                    <td>width, color, align, size</td>
+                    <td>block</td>
+                </tr>
+                <tr>
+                    <td>&lt;pre&gt;&lt;/pre&gt;</td>
+                    <td>预格式化，使用源代码中的效果呈现内容</td>
+                    <td></td>
+                    <td>block</td>
+                </tr>
+                <tr>
+                    <td>&lt;img /&gt;</td>
+                    <td>通知浏览器此刻应该向服务器发起一个图片请求</td>
+                    <td>src指定图片的URL，width/height：像素、百分比，alt：若图片无法显示则显示此替代文字，title</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>&lt;a&gt;&lt;/a&gt;</td>
+                    <td>anchor锚</td>
+                    <td>href置顶要跳转的url、邮箱、要执行的js函数，target指定在你哪个页面中打开_self/_blank, id指定可供停靠的锚定</td>
+                    <td>inline</td>
+                </tr>
+                <tr>
+                    <td>&lt;table&gt;&lt;/table&gt;</td>
+                    <td></td>
+                    <td></td>
+                    <td>block</td>
+                </tr>
+                <tr>
+                    <td>&lt;tr&gt;&lt;/tr&gt;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>&lt;td&gt;&lt;/td&gt;</td>
+                    <td></td>
+                    <td>align水平对齐: left/center/right, valign垂直对齐: left/middle/bottom, rowspan: 跨越的行数, colspan: 跨越的列数</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr/>
+        <!--question-->
+        <h3>question</h3>
+        <ul>
+            <li></li>
+        </ul>
+    </body>
+</html>
