@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width,initial-scale=1.0>" />
+    <title>CSS Notes</title>
+</head>
+
+<body>
+    <div>
+        <h3>CSS引入方式</h3>
+        <h4>外部样式表</h4>
+        <div>
+            在head中使用link标签来引用<br />
+            &lt;link rel="stylesheet" type="text/css" href="文件路径" /&gt;<br />
+            rel: relative的缩写, 取值固定即stylesheet, 表示引入的是一个样式表文件, 即CSS文件.<br />
+            type属性取值也是固定的, 即"text/css", 表示这是标准的CSS.
+        </div>
+        <h4>内部样式表</h4>
+        <div>
+            CSS代码放在style标签内, style标签是放在head标签内部. type="text/css"是必须添加的, 表示这是标准的CSS.<br />
+            <pre>
+        &lt;style&gt;
+            div{color: red;}
+        &lt;/style&gt;
+        </pre>
+        </div>
+        <h4>行内样式表</h4>
+        <div>
+            内部样式表的CSS是在“style标签”内定义的, 而行内样式表的CSS是在“标签的style属性”中定义的. 每一个元素内部定义, 可读性和维护性很差.
+        </div>
+    </div>
+    <hr />
+    <div>
+        <h3>CSS选择器</h3>
+        <h4>id属性: 唯一性</h4>
+        <h4>class属性</h4>
+        <div>
+            类: 为同一个页面的相同元素或者不同元素设置相同的class, 然后使得具有相同class的元素具有相同的CSS样式.
+        </div>
+        <h4>CSS选择器</h4>
+        <div>
+            <ul>
+                <li>元素选择器<br />
+                    div{color:red;}
+                </li>
+                <li>id选择器: id名前必须加前缀#, #表这是一个id选择器<br />
+                    #name{color:red;}
+                </li>
+                <li>class选择器: class名前必须加前缀., .表这是一个class选择器<br />
+                    .gender{color:red;}
+                </li>
+                <li>后代选择器: 选择元素内部中所有的某一种元素, 包括子元素和其他后代元素(如孙元素, 选中孙元素(中间不用再写父元素, 直接写孙元素), 父元素不会一起被选中). 父元素和后代元素必须要用空格隔开,
+                    从而表示选中某个元素内部的后代元素.<br />
+                    #father1 div{color:red;}<br />
+                    #father2 span{color:blue;}
+                </li>
+                <li>群组选择器: 指的是同时对几个选择器进行相同的操作. 两个选择器之间必须要用,隔开.<br />
+                    #name,.gender,span{color:blue;}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <pre>
+            选择器{
+                属性:值;
+                ...
+                属性:值;
+            }
+            </pre>
+        </div>
+    </div>
+    <hr />
+    <div>
+        <h3>字体样式</h3>
+        <div>
+            <ul>
+                <li>font-family<br />
+                    多种字体用逗号隔开, 从左往右.<br />
+                    如果字体类型只有一个英文单词, 则不需要加上双引号; 如果字体类型是多个英文单词或者是中文, 则需要加上双引号.
+                </li>
+                <li>font-size<br />
+                    一般用px像素值, 不用关键字.
+                </li>
+                <li>font-weight<br />
+                    100~900的9个数值或4个关键字.
+                    <ul>
+                        <li>normal = 400</li>
+                        <li>lighter = 1--</li>
+                        <li>bold = 700</li>
+                        <li>bolder = 900 </li>
+                    </ul>
+                </li>
+                <li>font-style
+                    <ul>
+                        <li>normal</li>
+                        <li>italic 斜体</li>
+                        <li>oblique 斜体(没有italic属性的字体用oblique实现斜体效果)</li>
+                    </ul>
+                </li>
+                <li>color<br />
+                    关键字或16进制RGB值.<br />
+                    #000000是黑色, #FFFFFF是白色
+                </li>
+            </ul>
+        </div>
+        <h4>CSS注释: /*注释的内容*/</h4>
+        <hr/>
+        <div>
+            <h3>文本样式</h3>
+            <p>字体样式注重个体(文字本身), 文本样式注重整体(整个段落)</p>
+            <ul>
+                <li>text-indent<br />
+                    首行缩进: p首行不会自动缩进. 初级可使用px像素值. 中文段落缩进两个字符, text-indent就是font-size的两倍.
+                </li>
+                <li>text-align<br />
+                    水平对齐:
+                    <ul>
+                        <li>left</li>
+                        <li>center</li>
+                        <li>right</li>
+                    </ul>
+                    text-align不仅对文本有效, 对图片(img元素)也有效.
+                </li>
+                <li>text-decoration<br />
+                    文本修饰:
+                    <ul>
+                        <li>none 默认值, 去除所有划线效果</li>
+                        <li>underline 下划线</li>
+                        <li>line-through 中划线</li>
+                        <li>overline 顶划线</li>
+                    </ul>
+                    去除超链接a元素的下划线: text-decoration:none;
+                </li>
+                <li>text-transform<br />
+                    大小写:
+                    <ul>
+                        <li>none 默认值, 无转化</li>
+                        <li>uppercase 转换为大写</li>
+                        <li>lowercase 转换为小写</li>
+                        <li>captalize 只将每个英文单词首字母转换为大写</li>
+                    </ul>
+                </li>
+                <li>line-height<br />
+                    行高: 像素值
+                </li>
+                <li>letter-spacing/ word-spacing<br />
+                    字间距(英文字母, 中文字)/词间距(只针对英文单词): 像素值
+                </li>
+            </ul>
+        </div>
+        <hr />
+        <div>
+            <h3>边框样式</h3>
+            <div>
+                不管是整体样式, 还是局部样式, 必须要同时设置border-width、border-style、border color这三个属性才会有效果.</div>
+            <h4>整体样式</h4>
+            <div>
+                <ul>
+                    <li>border-width<br />
+                        边框宽度: px
+                    </li>
+                    <li>border-style<br />
+                        边框外观:
+                        <ul>
+                            <li>none 无样式</li>
+                            <li>dashed 虚线</li>
+                            <li>solid 实线</li>
+                        </ul>
+                    </li>
+                    <li>border-color<br />
+                        边框颜色: 取关键字或16进制RGB值
+                    </li>
+                    简写形式: border: 1px solid red;<br />
+                    等价于: border-width:1px;border-style:solid;border-color:red;
+                </ul>
+            </div>
+            <h4>局部样式</h4>
+            <div>
+                <ul>
+                    <li>border-top</li>
+                    <li>border-bottom</li>
+                    <li>border-left</li>
+                    <li>border-right</li>
+                </ul>
+            </div>
+            <div>
+                去除单条边框: 宽度设为0px, 如border-bottom:0px, 不用写外观和颜色.<br />
+                border-bottom:0px; = border-bottom:0; = border-bottom:none;
+            </div>
+        </div>
+        <hr />
+        <div>
+            <h3>列表样式</h3>
+            <h4>list-style-type 列表项符号</h4>
+            <div>
+                list-style-type属性是针对ol或者ul元素的, 而不是li元素.
+            </div>
+            <div>有序列表取值:
+                <ul>
+                    <li>decimal 默认值1 2 3</li>
+                    <li>lower-roman 小写罗马数字i ii iii</li>
+                    <li>upper-roman 大写罗马数字I II III</li>
+                    <li>lower-alpha 小写英文字母a b c</li>
+                    <li>upper-alpha 小写英文字母A B C</li>
+                </ul>
+            </div>
+            <div>无序列表取值:
+                <ul>
+                    <li>disc 默认值 实心圆</li>
+                    <li>circle 空心圆</li>
+                    <li>square 正方形</li>
+                </ul>
+            </div>
+            <div>
+                去除列表项符号: list-style-type:none;<br />
+                比如, 去除整个页面有序和无序列表项符号: ol,ul{list-style-type:none;}
+            </div>
+            <h4>list-style-image 列表项图片</h4>
+            <div>
+                list-style-image: url; 自定义列表项符号, 用图片替代列表项符号(不需要先去除列表项符号, 可直接替代).
+            </div>
+        </div>
+        <hr />
+        <div>
+            <h3>表格样式</h3>
+            <h4>caption-side:top(默认)/bottom 表格标题位置</h4>
+            <div>
+                如果想要定义表格标题的位置, 在table或caption这两个元素的CSS中定义caption-side属性, 效果是一样的. 不过一般情况下我们都只在table元素中定义就可以了.
+            </div>
+            <h4>border-collapse 表格边框合并, 在table元素中定义</h4>
+            <div>
+                <ul>
+                    <li>seperate 默认, 边框分开有空隙</li>
+                    <li>collapse 边框合并无空隙</li>
+                </ul>
+            </div>
+            <h4>border-spacing:px; 表格边框间距, 在table元素中定义</h4>
+            <h4>注意: 表格的样式要应用到特定的标签上, 比如table/th/td/tf</h4>
+        </div>
+        <div>
+            <h3>图片样式</h3>
+            <h4>图片大小</h4>
+            <div>
+                width: px;<br />
+                height: px;<br />
+                需要多大图, 就制作多大图. 不建议使用大图片, 再用width和height改变大小.
+            </div>
+            <h4>图片边框 border: 1px solid red;</h4>
+            <h4>图片对齐 text-align: left(默认)/center/right</h4>
+            <div>text-align属性一般只用于两个地方: 文本水平对齐和图片水平对齐.<br />
+                注意: 水平对齐不是在img元素定义, 而是在其父元素中定义.
+            </div>
+            <h4>图片垂直对齐 vertical-align</h4>
+            <div>
+                <ul>
+                    <li>top</li>
+                    <li>middle</li>
+                    <li>baseline 基线对齐</li>
+                    <li>bottom</li>
+                </ul>
+            </div>
+            <div>注意: vertical-align属性定义周围的行内元素或文本相对于该元素的垂直方式, 所以要在img元素上定义</div>
+        </div>
+</body>
+
+</html>

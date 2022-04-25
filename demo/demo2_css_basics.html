@@ -5,29 +5,183 @@
     <meta charset="utf-8" />
     <meta name="viewpoint" content="width=device-width,initial-scale=1.0>" />
     <title>CSS Basics Demo</title>
-    <style>
-        body{
-            padding: 10px;
-            font-size: 14px;
-            background: red;
-        }
-        body.body{
-            font-size: 20px;
-            background: red;
-        }
-        #body{
-            background: blue;
-        }
-        .body div .hello{
+    <style type="text/css">
+        div,
+        p {
             color: red;
+        }
+
+        #p1 {
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        #p2 {
+            font-size: 20px;
+            font-weight: 100;
+        }
+
+        #p3 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: blue;
+        }
+
+        #p4 {
+            border-top: 1px solid #000;
+            padding-top: 0.1em;
+        }
+
+        #p5 {
+            text-decoration: overline;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #p6,
+        #p7 {
+            font-size: 14px;
+            text-indent: 28px;
+        }
+
+        #p6 span {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        #p7 {
+            text-transform: uppercase;
+            border: 1px solid blueviolet;
+        }
+
+        #div2 {
+            width: 600px;
+            height: 100px;
+            border-top: 2px solid red;
+            border-right: 2px solid yellow;
+            border-bottom: 2px solid green;
+            border-left: 2px solid blue;
+        }
+
+        #div3 ul,
+        #div3 a {
+            text-decoration: none;
+            list-style-type: none;
+            color: pink;
+        }
+        #div4 table, #div4 td, #div4 th{
+            border: 1px solid goldenrod;
+            caption-side: bottom;
+            border-spacing: 2px;
+        }
+        div img {
+            width: 100px;
+            height: 100px;
+        }
+        #div5 {
+            width: 300px;
+            border: 1px solid silver;
+        }
+        #div5{
+            text-align: right;
+        }
+        #img1 {
+            vertical-align: top;
+        }
+        #img2 {
+            vertical-align: middle;
+        }
+        #img3 {
+            vertical-align: bottom;
+        }
+        #img4 {
+            vertical-align: baseline;
         }
     </style>
 </head>
 
 <body class="body" id="body">
     Hello Mianpang
-    <div>
-        <a class="hello">aaa</a>
+    <div>div</div>
+    <p id="p1">p1</p>
+    <p id="p2">p2</p>
+    <strong>strong</strong>
+    <span>span</span>
+    <p id="p3">有规划的人生叫蓝图, 没规划的人生叫拼图</p>
+    <p id="p4">有规划的人生叫蓝图, 没规划的人生叫拼图</p>
+    <p id="p5">有规划的人生叫蓝图, 没规划的人生叫拼图</p>
+    <a href="../css/css_notes.html">css notes</a>
+    <div id="div2">
+        <p id="p6">
+            很多人喜欢用战术上的勤奋来掩盖战略上的懒惰, 事实上这种"<span>低水平的勤奋</span>"远远比懒惰更可怕.
+        </p>
+        <p id="p7">
+            remember: no pain, no Gain!
+        </p>
     </div>
+    <div id="div3">
+        <ul>
+            <li><a href="x" target="_blank">Top1: Baidu</a></li>
+            <li><a href="x" target="_blank">Top2: Taobao</a></li>
+            <li><a href="x" target="_blank">Top3: Sina</a></li>
+            <li><a href="x" target="_blank">Top4: Wangyi</a></li>
+            <li><a href="x" target="_blank">Top5: Souhu</a></li>
+        </ul>
+    </div>
+
+    <div id="div4">
+        <table>
+            <caption>Table</caption>
+            <thead>
+                <tr>
+                    <th>HTML4</th>
+                    <th>XHTML</th>
+                    <th>HTML5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>标签允许不结束, br不加/</td>
+                    <td>标签必须结束, img必须加/</td>
+                    <td>标签允许不结束</td>
+                </tr>
+                <tr>
+                    <td>属性不用带引号</td>
+                    <td>属性必须带引号</td>
+                    <td>属性不用带引号</td>
+                </tr>
+                <tr>
+                    <td>标签属性可大写</td>
+                    <td>标签属性必须小写</td>
+                    <td>标签属性可大写</td>
+                </tr>
+                <tr>
+                    <td>Boolean属性可省略值</td>
+                    <td>Boolean属性必须写值</td>
+                    <td>Boolean属性可省略值</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="div5">
+        demo<img id="img1" src="../Micky.jpeg" alt="" />demo top<hr/>
+        demo<img id="img2" src="../Micky.jpeg" alt="" />demo middle<hr/>
+        demo<img id="img3" src="../Micky.jpeg" alt="" />demo bottom<hr/>
+        demo<img id="img4" src="../Micky.jpeg" alt="" />demo baseline
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </body>
+
 </html>
