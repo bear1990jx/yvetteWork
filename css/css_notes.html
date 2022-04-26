@@ -87,7 +87,7 @@
                     100~900的9个数值或4个关键字.
                     <ul>
                         <li>normal = 400</li>
-                        <li>lighter = 1--</li>
+                        <li>lighter = 100</li>
                         <li>bold = 700</li>
                         <li>bolder = 900 </li>
                     </ul>
@@ -106,7 +106,7 @@
             </ul>
         </div>
         <h4>CSS注释: /*注释的内容*/</h4>
-        <hr/>
+        <hr />
         <div>
             <h3>文本样式</h3>
             <p>字体样式注重个体(文字本身), 文本样式注重整体(整个段落)</p>
@@ -239,13 +239,19 @@
             <h4>border-spacing:px; 表格边框间距, 在table元素中定义</h4>
             <h4>注意: 表格的样式要应用到特定的标签上, 比如table/th/td/tf</h4>
         </div>
+        <hr />
         <div>
             <h3>图片样式</h3>
             <h4>图片大小</h4>
             <div>
-                width: px;<br />
-                height: px;<br />
-                需要多大图, 就制作多大图. 不建议使用大图片, 再用width和height改变大小.
+                <pre>
+                    img {
+                        width: px;
+                        height: px;
+                    }
+                </pre>
+            </div>
+            <div>注意: 需要多大图, 就制作多大图. 不建议使用大图片, 再用width和height改变大小.
             </div>
             <h4>图片边框 border: 1px solid red;</h4>
             <h4>图片对齐 text-align: left(默认)/center/right</h4>
@@ -255,14 +261,151 @@
             <h4>图片垂直对齐 vertical-align</h4>
             <div>
                 <ul>
-                    <li>top</li>
-                    <li>middle</li>
+                    <li>top 顶部对齐</li>
+                    <li>middle 中线对齐</li>
                     <li>baseline 基线对齐</li>
-                    <li>bottom</li>
+                    <li>bottom 底线对齐</li>
                 </ul>
             </div>
             <div>注意: vertical-align属性定义周围的行内元素或文本相对于该元素的垂直方式, 所以要在img元素上定义</div>
+            <h4>float: left/right; 文字环绕</h4>
         </div>
+        <hr />
+        <div>
+            <h3>背景样式</h3>
+            <div>
+                <ul>
+                    <li>背景颜色</li>
+                    <li>背景图片
+                        <div>背景图片样式属性
+                            <ul>
+                                <li>background-image 定义背景图片地址</li>
+                                <li>background-repeat 定义背景图片重复, 如横向/纵向重复</li>
+                                <li>background-positon 定义背景图片位置</li>
+                                <li>background-attachment 定义背景图片固定</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <h4>background-color:关键字/RGB; 背景颜色</h4>
+            <div>注意: color属性用于定义"文本颜色", 而background-color属性用于定义"背景颜色"</div>
+            <h4>background-image:url(图片路径); 背景图片样式, 还要设置div的宽高</h4>
+            <div>背景图片跟图片是不一样的, 背景图片是使用CSS来实现, 而图片是使用HTML来实现.</div>
+            <h4>background-repeat 背景图片重复</h4>
+            <div>
+                <ul>
+                    <li>repeat 默认, 在水平方向和垂直方向上同时平铺</li>
+                    <li>repeat-x 只在水平方向(x轴)上平铺</li>
+                    <li>repeat-y 只在垂直方向(y轴)上平铺<< /li>
+                    <li>no-repeat 不平铺</li>
+                </ul>
+            </div>
+            <h4>background-position 背景图片位置</h4>
+            <div>
+                <ul>
+                    <li>像素值<br />
+                        同时设置水平方向和垂直方向, 如background-position:12px 24px;, 相对于左上角, 图片水平左间距12px, 垂直上方间距24px.
+                    </li>
+                    <li>关键字<br />
+                        同时设置水平方向(left, center, right)和垂直方向(top, center, bottom).
+                    </li>
+                </ul>
+            </div>
+            <div>在实际开发中, background-position一般用于实现CSS Spirit(精灵图片).</div>
+            <h4>background-attachment 背景图片固定</h4>
+            <div>
+                <ul>
+                    <li>scroll 默认, 水元素一起滚动</li>
+                    <li>fixed 固定不动</li>
+                </ul>
+            </div>
+            <h4>背景图铺满整个页面</h4>
+            <pre>
+                &lt;style type="text/css"&gt;
+                    *{
+                        margin: 0;
+                        padding: 0;
+                    }
+                    body {
+                        width: 100%;
+                        height: 100%;
+                        background-image: url(../cat.jpeg);
+                    }
+                &lt;/style&gt;
+            </pre>
+            <div>若加上background-size: 100%;, 这张图就会撑满整个页面, 不会平铺.</div>
+        </div>
+        <hr />
+        <div>
+            <h3>超链接样式</h3>
+            <h4>超链接伪类</h4>
+            <div>
+                定义超链接在鼠标点击的不同时期的样式.<br />
+                a:hover {...} 鼠标经过状态(主要使用).<br />
+                对于未访问时状态, 直接针对a元素定义a {...} 就行了, 没必要使用a:link.<br />
+                注意: :hover伪类可以定义任何一个元素在鼠标经过时的样式, 如div, img.
+            </div>
+            <h4>cursor 鼠标样式</h4>
+            <h5>常用属性值以下3个:</h5>>
+            <div>
+                <ul>
+                    <li>default 默认</li>
+                    <li>pointer</li>
+                    <li>text</li>
+                </ul>
+            </div>
+            <div>如: #div_pointer {cursor: pointer;}</div>
+            <h5>自定义鼠标样式: cursor: url(图片地址), 属性值;</h5>
+            <div>
+                鼠标图片后缀名一般都是.cur, "属性值"一般为default、pointer、text这三种.
+            </div>
+        </div>
+        <hr />
+        <div>
+            <h3>盒子模型</h3>
+            <div>所有的元素都可以视为一个盒子</div>
+            <div>
+                <ul>
+                    <li>content 内容<br />
+                        属性: width/height/overflow<br />
+                        width和height这两个属性是针对内容区content而言的, 并不包括padding部分.<br />
+                        当内容过多超出width和height时, 可以使用overflow属性来指定溢出处理方法.
+                    </li>
+                    <li>padding 内边距, 内容到边框之间的距离<br />
+                        属性: padding-top、padding-bottom、padding-left、padding-right以及综合了以上四个方向的简写内边距属性padding.<br />
+                        可用padding实现一个元素内部居中<br />
+                        简写:<br />
+                        <div>
+                            <ul>
+                                <li>padding: 20px; 四个方向20px</li>
+                                <li>padding: 20px 40px; 上下20px, 左右40px</li>
+                                <li>padding: 20px 40px 60px 80px; 上右下左, 顺时针</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>margin 外边距, 当前元素和其他元素之间的距离<br />
+                        两个盒子之间的距离.<br />
+                        属性: margin-top、margin-bottom、margin-left、margin-right以及综合了以上四个方向的简写外边距属性margin.<br />
+                        负margin技术: 外边距为负值, 盒子重叠效果.
+                    </li>
+                    <li>border 边框
+                        属性: border-width、border-style、border-color以及综合了三类属性的简写边框属性border.
+                        简写: border:1pxsolid gray;
+                    </li>
+                </ul>
+            </div>
+            <h4>width/height</h4>
+            <div>
+                元素的宽度(width)和高度(height)针对内容, 不包括padding.<br />
+                只有块元素可以设置width和height, 行内元素无法设置width和height(这里不考虑inline-block元素). 如div和span.<br />
+                没有给块元素设置width, 块元素就会延伸到整行.
+            </div>
+            <h4>border</h4>
+        </div>
+        <br />
+        <br />
+        <br />
 </body>
 
 </html>
