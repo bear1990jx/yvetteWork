@@ -6,6 +6,10 @@
     <meta name="viewpoint" content="width=device-width,initial-scale=1.0>" />
     <title>CSS Basics Demo</title>
     <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
         div,
         p {
             color: red;
@@ -114,7 +118,86 @@
         #div4 {
             cursor: pointer;
         }
-
+        #father {
+            width: 800px;
+            height: 600px;
+            border: 1px solid brown;
+            margin: 10px;
+        }
+        #father div {
+            border: 1px solid brown;
+        }
+        #son1 {
+            height: 100px;
+            background-color: #F75C2F;
+            margin: 4px 4px 2px 4px;
+        }
+        #son2 {
+            width: 595px;
+            height: 377px;
+            float: left;
+            background-color: #FC9F4D;
+            margin: 2px 2px 2px 4px;
+        }
+        #son3 {
+            width: 189px;
+            height: 377px; 
+            float: left;  
+            background-color: #FC9F4D;
+            margin: 2px 4px 2px 2px;
+        }
+        #son4 {
+            clear: both;
+            height: 100px;
+            background-color: #F75C2F;
+            margin: 2px 4px 4px 4px;
+        }
+        /*#father {
+            display: flex;
+            flex-wrap: wrap;
+            width: 800px;
+            height: 600px;
+            border: 1px solid brown;
+            margin: 10px;
+        }
+        #father div {
+            border: 1px solid brown;
+            margin: 5px;
+        }
+        #son1 {
+            height: 100px;
+            background-color: #F75C2F;
+            width: 100%;
+        }
+        #son2 {
+            width: 595px;
+            height: 365px;
+            background-color: #FC9F4D;
+        }
+        #son3 {
+            width: 181px;
+            height: 365px; 
+            background-color: #FC9F4D;
+        }
+        #son4 {
+            height: 100px;
+            width: 100%;
+            background-color: #F75C2F;
+        }*/
+        #father2 {
+            margin-top: 30px;
+            margin-left: 30px;
+            border: 1px solid silver;
+            background-color: lightskyblue;
+        }
+        #father2 div {
+            width: 100px;
+            height: 60px;
+            margin: 10px;
+            background-color: hotpink;
+            color: white;
+            border: 1px solid white;
+        }
     </style>
 </head>
 
@@ -187,8 +270,22 @@
         demo<img id="img3" src="../Micky.jpeg" alt="" />demo bottom<hr/>
         demo<img id="img4" src="../Micky.jpeg" alt="" />demo baseline
     </div>
+    <br>
     <div id="div6"></div>
     <br>
+    <div id="father">
+        <div id="son1">box1</div>
+        <div id="son2">box2</div>
+        <div id="son3">box3</div>
+        <div id="son4">box4</div>
+    </div>
+    <br>
+    <div id="father2">
+        <div id="son21">box1</div>
+        <div id="son22">box2</div>
+        <div id="son23">box3</div>
+        <div id="son24">box4</div>
+    </div>
     <br>
     <br>
     <br>

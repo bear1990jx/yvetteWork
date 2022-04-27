@@ -387,7 +387,15 @@
                     <li>margin 外边距, 当前元素和其他元素之间的距离<br />
                         两个盒子之间的距离.<br />
                         属性: margin-top、margin-bottom、margin-left、margin-right以及综合了以上四个方向的简写外边距属性margin.<br />
-                        负margin技术: 外边距为负值, 盒子重叠效果.
+                        负margin技术: 外边距为负值, 盒子重叠效果.<br />
+                        简写:<br />
+                        <div>
+                            <ul>
+                                <li>padding: 20px; 四个方向20px</li>
+                                <li>padding: 20px 40px; 上下20px, 左右40px</li>
+                                <li>padding: 20px 40px 60px 80px; 上右下左, 顺时针</li>
+                            </ul>
+                        </div>
                     </li>
                     <li>border 边框
                         属性: border-width、border-style、border-color以及综合了三类属性的简写边框属性border.
@@ -401,7 +409,47 @@
                 只有块元素可以设置width和height, 行内元素无法设置width和height(这里不考虑inline-block元素). 如div和span.<br />
                 没有给块元素设置width, 块元素就会延伸到整行.
             </div>
-            <h4>border</h4>
+            <hr/>
+            <h3>浮动布局</h3>
+            <div>
+                normal flow 普通文档流/普通流<br />
+                脱离文档流: 浮动/定位
+            </div>
+            <h4>浮动 float: left/right;</h4>
+            <div>
+                浮动最常用于实现水平方向上的并排布局, 例如两列布局、多列布局.
+            </div>
+            <h4>clear: left/right/both; 清除浮动</h4>
+            <div>我们一般都是在浮动元素后面再增加一个空元素, 然后为这个空元素定义clear:both;来清除浮动. 在实际开发中，使用浮动之后如果发现有什么不对劲的地方, 首先检查有没有清除浮动.</div>
+            <hr/>
+            <h3>定位布局</h3>
+            <div>
+                <ul>
+                    <li>fixed 固定定位<br>
+                        <div>
+                            被固定的元素不会随着滚动条的拖动而改变位置, 如返回首页button.<br>
+                            通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个. 注意, 这四个值的参考对象是浏览器的四条边.</div>
+                        <div>
+                            <pre>
+                                position: fixed;
+                                top: px;
+                                bottom: px;
+                                left: px;
+                                right: px;
+                            </pre>
+        
+                    </li>
+                    <li>relative 相对定位
+                        <div>
+                            该元素的位置是相对于它的原始位置计算而来.<br>
+                            通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个. 这四个值的参考对象是该元素的原始位置.</div>
+                        <div>
+                    </li>
+                    <li> absolute 绝对定位</li>
+                    <li>static 默认, 静态定位</li>
+                </ul>
+            </div>
+            </div>
         </div>
         <br />
         <br />
