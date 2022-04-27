@@ -387,7 +387,7 @@
                     <li>margin 外边距, 当前元素和其他元素之间的距离<br />
                         两个盒子之间的距离.<br />
                         属性: margin-top、margin-bottom、margin-left、margin-right以及综合了以上四个方向的简写外边距属性margin.<br />
-                        负margin技术: 外边距为负值, 盒子重叠效果.<br />
+                        负margin技术: 外边距为负值, 盒子重叠效果. margin值可以取负, padding不行<br />
                         简写:<br />
                         <div>
                             <ul>
@@ -399,7 +399,7 @@
                     </li>
                     <li>border 边框
                         属性: border-width、border-style、border-color以及综合了三类属性的简写边框属性border.
-                        简写: border:1pxsolid gray;
+                        简写: border:1px solid gray;
                     </li>
                 </ul>
             </div>
@@ -422,6 +422,7 @@
             <h4>clear: left/right/both; 清除浮动</h4>
             <div>我们一般都是在浮动元素后面再增加一个空元素, 然后为这个空元素定义clear:both;来清除浮动. 在实际开发中，使用浮动之后如果发现有什么不对劲的地方, 首先检查有没有清除浮动.</div>
             <hr/>
+            <h4>注意: float布局产生的margin有的折叠有的相加的问题, 涉及BFC概论, 避免使用float, 可使用flex布局.</h4>
             <h3>定位布局</h3>
             <div>
                 <ul>
@@ -442,10 +443,16 @@
                     <li>relative 相对定位
                         <div>
                             该元素的位置是相对于它的原始位置计算而来.<br>
-                            通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个. 这四个值的参考对象是该元素的原始位置.</div>
+                            通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个. 这四个值的参考对象是该元素的原始位置.<br>
                         <div>
                     </li>
-                    <li> absolute 绝对定位</li>
+                    <li> absolute 绝对定位
+                        <div>
+                            一个元素变成了绝对定位元素, 这个元素就完全脱离文档流了, 绝对定位元素的前面或者后面的元素会认为这个元素并不存在, 即这个元素浮于其他元素上面, 它是独立出来的.
+                            通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个. 这四个值的参考对象是浏览器的四条边.<br>
+                            默认情况下, 固定定位和绝对定位的位置是相对于浏览器而言, 而相对定位的位置是相对原始位置而言.
+                        </div>
+                    </li>
                     <li>static 默认, 静态定位</li>
                 </ul>
             </div>
