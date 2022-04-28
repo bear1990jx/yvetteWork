@@ -203,6 +203,30 @@
             top: 20px;
             left: 20px;
         }
+        #div7 {
+            height: 90px;
+            /* background: -webkit-linear-gradient(left, pink, red); */
+            /* background: linear-gradient(to right, hotpink, pink); */
+            /* background: linear-gradient(45deg, hotpink, green); */
+            /* background: linear-gradient(135deg, hotpink 0, green 10%, blue 50%, yellow 100%);  */
+            background: linear-gradient(135deg, transparent 0, transparent 49.5%, green 49.5%, green 50.5%, transparent 50.5%, transparent 100%), linear-gradient(45deg, transparent 0, transparent 49.5%, green 49.5%, green 50.5%, transparent 50.5%, transparent 100%);
+            background-size: 30px 30px;
+        }
+        #div8 {
+            width: 400px;
+            height: 200px;
+            border: 30px solid transparent;
+            border-image: url(../border.png) 30 round;
+        }
+        #div9 {
+            width: 0px;
+            height: 200px;
+            border-bottom: 30px solid red;
+            /* border-right: 30px solid blue; */
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent; 
+            border-radius: 40px; /* 变成扇形*/
+        }
     </style>
 </head>
 
@@ -292,6 +316,10 @@
         <div id="son24">box4</div>
     </div>
     <br>
+    <div id="div7"></div>
+    <br>
+    <div id="div8"></div>
+    <div id="div9"></div>
     <br>
     <br>
     <br>

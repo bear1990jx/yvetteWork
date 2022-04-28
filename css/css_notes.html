@@ -423,6 +423,35 @@
             <div>我们一般都是在浮动元素后面再增加一个空元素, 然后为这个空元素定义clear:both;来清除浮动. 在实际开发中，使用浮动之后如果发现有什么不对劲的地方, 首先检查有没有清除浮动.</div>
             <hr/>
             <h4>注意: float布局产生的margin有的折叠有的相加的问题, 涉及BFC概论, 避免使用float, 可使用flex布局.</h4>
+            <h4>多个div并排居中显示</h4>
+            <pre>
+                &lt;div class="div0"&gt;
+                    &lt;div class="div1"&gt;1&lt;/div&gt;
+                    &lt;div class="div2"&gt;2&lt;/div&gt;
+                &lt;/div&gt;
+            </pre>
+            <div>
+                <ol>
+                    <li>使用flex
+                        <pre>
+                            .div0 {
+                                display: flex;
+                                justify-content: center;
+                            }
+                        </pre>
+                    </li>
+                    <li>使用inline-block
+                        <pre>
+                            .div0 {
+                                text-align: center;
+                            }
+                            .div1, .div2 {
+                                display: inline-block;
+                            }
+                        </pre>
+                    </li>
+                </ol>
+            </div>
             <h3>定位布局</h3>
             <div>
                 <ul>
