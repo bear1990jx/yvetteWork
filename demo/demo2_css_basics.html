@@ -10,6 +10,15 @@
             margin: 0px;
             padding: 0px;
         }
+
+        #choose ul {
+            list-style-type: none;
+        }
+
+        #choose span+span {
+            border-left: 4px solid red;
+        }
+
         div,
         p {
             color: red;
@@ -69,69 +78,88 @@
             border-bottom: 2px solid green;
             border-left: 2px solid blue;
         }
+
         #div3 ul,
         #div3 a {
             text-decoration: none;
             list-style-type: none;
             color: pink;
         }
+
         #div3 a:hover {
             text-decoration: underline;
             color: blue;
         }
-        #div4 table, #div4 td, #div4 th{
+
+        #div4 table,
+        #div4 td,
+        #div4 th {
             border: 1px solid goldenrod;
             caption-side: bottom;
             border-spacing: 2px;
         }
+
         div img {
             width: 100px;
             height: 100px;
         }
+
         #div5 {
             width: 300px;
             border: 1px solid silver;
         }
-        #div5{
+
+        #div5 {
             text-align: right;
         }
+
         #img1 {
             vertical-align: top;
         }
+
         #img2 {
             vertical-align: middle;
         }
+
         #img3 {
             vertical-align: bottom;
         }
+
         #img4 {
             vertical-align: baseline;
         }
+
         #div6 {
             width: 300px;
             height: 300px;
             background-image: url(../cat.jpeg);
         }
+
         #a1:hover {
             color: red;
         }
+
         #div4 {
             cursor: pointer;
         }
+
         #father {
             width: 800px;
             height: 600px;
             border: 1px solid brown;
             margin: 10px;
         }
+
         #father div {
             border: 1px solid brown;
         }
+
         #son1 {
             height: 100px;
             background-color: #F75C2F;
             margin: 4px 4px 2px 4px;
         }
+
         #son2 {
             width: 595px;
             height: 377px;
@@ -139,19 +167,22 @@
             background-color: #FC9F4D;
             margin: 2px 2px 2px 4px;
         }
+
         #son3 {
             width: 189px;
-            height: 377px; 
-            float: left;  
+            height: 377px;
+            float: left;
             background-color: #FC9F4D;
             margin: 2px 4px 2px 2px;
         }
+
         #son4 {
             clear: both;
             height: 100px;
             background-color: #F75C2F;
             margin: 2px 4px 4px 4px;
         }
+
         /*#father {
             display: flex;
             flex-wrap: wrap;
@@ -190,6 +221,7 @@
             border: 1px solid silver;
             background-color: lightskyblue;
         }
+
         #father2 div {
             width: 100px;
             height: 60px;
@@ -198,11 +230,13 @@
             color: white;
             border: 1px solid white;
         }
+
         #son22 {
             position: relative;
             top: 20px;
             left: 20px;
         }
+
         #div7 {
             height: 90px;
             /* background: -webkit-linear-gradient(left, pink, red); */
@@ -212,20 +246,29 @@
             background: linear-gradient(135deg, transparent 0, transparent 49.5%, green 49.5%, green 50.5%, transparent 50.5%, transparent 100%), linear-gradient(45deg, transparent 0, transparent 49.5%, green 49.5%, green 50.5%, transparent 50.5%, transparent 100%);
             background-size: 30px 30px;
         }
+
         #div8 {
             width: 400px;
             height: 200px;
             border: 30px solid transparent;
             border-image: url(../border.png) 30 round;
         }
+
         #div9 {
             width: 0px;
             height: 200px;
             border-bottom: 30px solid red;
             /* border-right: 30px solid blue; */
             border-left: 30px solid transparent;
-            border-right: 30px solid transparent; 
-            border-radius: 40px; /* 变成扇形*/
+            border-right: 30px solid transparent;
+            border-radius: 40px;
+            /* 变成扇形*/
+        }
+
+        #div10 {
+            background-color: pink;
+            height: 200px;
+            overflow: auto;
         }
     </style>
 </head>
@@ -294,9 +337,12 @@
         </table>
     </div>
     <div id="div5">
-        demo<img id="img1" src="../Micky.jpeg" alt="" />demo top<hr/>
-        demo<img id="img2" src="../Micky.jpeg" alt="" />demo middle<hr/>
-        demo<img id="img3" src="../Micky.jpeg" alt="" />demo bottom<hr/>
+        demo<img id="img1" src="../Micky.jpeg" alt="" />demo top
+        <hr />
+        demo<img id="img2" src="../Micky.jpeg" alt="" />demo middle
+        <hr />
+        demo<img id="img3" src="../Micky.jpeg" alt="" />demo bottom
+        <hr />
         demo<img id="img4" src="../Micky.jpeg" alt="" />demo baseline
     </div>
     <br>
@@ -321,8 +367,36 @@
     <div id="div8"></div>
     <div id="div9"></div>
     <br>
+    <div id="div10">
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+    </div>
     <br>
+    <input id="cbk" type="checkbox" /><label>checkbox</label><br>
+    <label>checkbox</label><input id="cbk" type="checkbox" /><br>
     <br>
+    <div id="choose">
+        <span>关于我们</span>
+        <span>联系我们</span>
+        <span>版权声明</span>
+        <span>免责声明</span>
+        <span>广告服务</span>
+        <span>意见反馈</span>
+    </div>
     <br>
     <br>
     <br>

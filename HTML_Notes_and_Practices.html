@@ -109,9 +109,17 @@
         <li>inline, 不会自动换行</li>
         <li>width设置为百分比, 改变浏览器窗口宽度会自适应, 比如width50%是浏览器宽度的50%</li>
         <li>设置了width, height会自适应, 反之同理. 强行设置宽高可能导致图片变形</li>
-        <li>alt: 图片无法显示的替代文字, title: 鼠标放上面显示的文字</li>
+        <li>alt: 图片无法显示的替代文字, title: 鼠标放上面显示的文字. alt属性是img标签必需属性, 一定要添加; title属性是img标签可选属性, 可加可不加.</li>
         <li>绝对路径: 以协议名开头的路径</li>
         <li>相对路径: 不以协议名开头的路径, 如Micky.jpg, ./Micky.jpg, images/g.jpg, ../g.jpg, ../../../images/g.jpg</li>
+        <li>图片+图注释, 引入figure和figcaption两个元素来增强图片的语义化
+            <pre>
+                &lt;figure&gt;
+                    &lt;img src="" alt="" /&gt;
+                    &lt;figcaption&gt;&lt;/figcaption&gt;
+                &lt;/figure&gt;
+            </pre>
+        </li>
     </ul>
     a<img src="Micky.jpeg" width="100px" alt="this is Micky" />b<br />
     <img src="Micky.jpeg" width="50%" /><br />
@@ -304,15 +312,16 @@
         表单form是block, 里面的元素都是inline<br />
         默认情况下地址栏？后的查询字符串显示了密码, 添加method请求方法解决, get和post, 前者把请求数据追加在地址栏查询字符串中(有长度限制1024个字节),
         后者把数据以单独的数据包发送给服务器(无长度限制、<span style="color: red">且可用于文件上传</span>)<br />
-        input必须有name属性, 不然提交不了. <br />
+        input必须有name属性, 不然提交不了.<br />
         readonly不可更改但能提交给服务器, disabled不可更改不能提交<br />
         textarea是纯文本编辑框, 输入各种样式的文本、图片、表格等需要使用富文本编辑框rich text, 可使用第三方工具实现此效果<br />
+        fieldset和legend标签给表单元素分组, legend用于定义某一组表单的标题.
         表单中实现文件上传必须满足:
-    <ol>
-        <li>表单中使用<span style="color: red;">&lt;input type="file" name="" //gt;</span>选择文件</li>
-        <li>表单必须使用POST提交<span style="color: red;">method="POST"</span></li>
-        <li>表单的编码类型必须声明为<span style="color: red;">enctype="multipart/form-data"</span></li>
-    </ol>
+        <ol>
+            <li>表单中使用<span style="color: red;">&lt;input type="file" name="" //gt;</span>选择文件</li>
+            <li>表单必须使用POST提交<span style="color: red;">method="POST"</span></li>
+            <li>表单的编码类型必须声明为<span style="color: red;">enctype="multipart/form-data"</span></li>
+        </ol>
     </p>
     <form action="4.php" method="post" enctype="multipart/form-data">
         <!--提交给4.php这个页面处理, 没有这个页面就显示404-->
