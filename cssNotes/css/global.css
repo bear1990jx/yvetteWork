@@ -1,0 +1,54 @@
+/* 负margin例子, 开始 */
+#wrapper div {
+    width: 300px;
+    height: 60px;
+    /* height和line-height相同, 文字居中 */
+    line-height: 60px;
+    font-size: 21px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+#first,
+#first2 {
+    background-color: red;
+}
+
+#second {
+    background-color: purple;
+    margin-top: -30px;
+    margin-bottom: -30px;
+}
+
+#third,
+#third2 {
+    background-color: blue;
+}
+
+#second2 {
+    background-color: purple;
+    margin-left: -30px;
+}
+
+/* 去除inline-block元素之间的间距 */
+#wrapper2 {
+    font-size: 0;
+}
+
+#wrapper2 div {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 21px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+/* 负margin例子, 结束 */
+
+#googleLogo {
+    margin: 0 3px -3px 0;
+}

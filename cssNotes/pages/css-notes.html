@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewpoint" content="width=device-width,initial-scale=1.0>" />
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
     <title>CSS Notes</title>
 </head>
 
@@ -80,7 +81,7 @@
             <li>M+N 相邻选择器: 选择M元素相邻的下一个元素, M N是同级元素.</li>
         </ur>
         <p>注意: 兄弟选择器选取元素后面"所有"的某一类元素, 相邻选择器选取元素后面"相邻"的某一个元素.</p>
-        <p>技巧: 使用相邻选择器, 在两个元素之间实现什么效果(border, margin等)</p>
+        <p>技巧: 使用相邻选择器, 可在两个元素之间实现一些效果(border, margin等)</p>
     </div>
     <hr />
     <h3>字体样式</h3>
@@ -408,10 +409,15 @@
                         </ul>
                     </div>
                 </li>
-                <li>border 边框
-                    属性: border-width、border-style、border-color以及综合了三类属性的简写边框属性border.
+                <li>border 边框</li>
+                <p>
+                    属性: border-width、border-style、border-color以及综合了三类属性的简写边框属性border.<br>
                     简写: border:1px solid gray;
-                </li>
+                </p>
+                <p>
+                    border:0, border定义为0px, 浏览器会对border渲染, 占用内存.<br>
+                    border:none, 浏览器解析时不会作出渲染, 不占用内存.
+                </p>
             </ul>
         </div>
         <h4>width/height</h4>
@@ -420,6 +426,78 @@
             只有块元素可以设置width和height, 行内元素无法设置width和height(这里不考虑inline-block元素). 如div和span.<br />
             没有给块元素设置width, 块元素就会延伸到整行.
         </div>
+        <h4>overflow: 当内容信息太多而超出内容区所占范围时, 可以使用overflow溢出属性来指定处理方法.</h4>
+        <h4>外边距叠加: 当两个垂直外边距相遇时, 这两个外边距将会合并为一个外边距, 等于发生叠加之前的两个外边距中的最大值.</h4>
+        <ul>
+            <li>同级元素</li>
+            <p>
+                当一个元素出现在另外一个元素上面的时候, 第一个元素的下边距margin-bottom将会与第二个元素的上边距margin-top会发生合并.
+            </p>
+            <li>父级元素</li>
+            <p>
+                一个元素包含另一个元素, 假如没有内边距padding或边框border把外边距分隔开的话, 父元素和子元素的相邻上下外边距也会发生合并. 左右边距不会合并.
+            </p>
+            <li>空元素</li>
+            <p>
+                空元素指没有子元素或者没有文字内容的元素, 例如&lt;br/&gt;/&lt;hr/&gt;等.<br>
+                当一个空元素有上下外边距时, 如果没有border或者padding, 则元素的上外边距与下外边距会发生合并.<br>
+                如果空元素的外边距碰到另外一个元素的外边距, 它们也会发生合并.
+            </p>
+        </ul>
+        <p>
+            注意:
+        <ul>
+            <li>水平外边距不会叠加.</li>
+            <li>垂直外边距只要在以上三种情况下叠加.</li>
+            <li>外边距叠加之后的外边距高度等于发生叠加之前的两个外边距中的最大值.</li>
+            <li>外边距叠加针对的是block以及inline-块元素, 不包括inline元素. 因为inline元素的margin-top和margin-bottom设置无效.</li>
+            <li>最好统一使用margin-top或margin-bottom, 不要混合使用, 从而降低出现问题的风险.</li>
+            <li>外边距叠加的原理比较复杂, 跟BFC(块级格式上下文)有着密切的关系.</li>
+        </ul>
+        </p>
+        <h4>负margin</h4>
+        <p>对普通文档流元素的影响:</p>
+        <ul>
+            <li>margin-top或者margin-left为负数时, "当前元素"会被拉向指定方向, 覆盖"其他元素".</li>
+            <li>margin-bottom或者margin-right为负数时, "后续元素"会被拉向指定方向, 覆盖"当前元素".</li>
+        </ul>
+        <p>对浮动元素的影响类似, 浮动元素可以向左也可以向右, 使用负margin时要关注浮动元素的流动方向.</p>
+        <br>
+        <div id="wrapper">
+            <div id="first">1</div>
+            <div id="second">2</div>
+            <div id="third">3</div>
+        </div>
+        <br>
+        <div id="wrapper2">
+            <div id="first2">1</div>
+            <div id="second2">2</div>
+            <div id="third2">3</div>
+        </div>
+        <p>此处父元素font-size: 0;可以去除inline元素或inline-block元素之间的间距, 比如span或div变为inline-block后之间的空隙.</p>
+        <h4>负margin技巧</h4>
+        <ul>
+            <li>图片与文字对齐</li>
+            <p>
+                图片与文字默认是基线对齐(vertical-align:baseline).<br>
+                实现图片与文字底部水平方向对齐, 除了vertical-align:text-bottom, 还可以使用兼容性比较好的负margin来实现.<br>
+                img{margin:0 3px -3px 0; }
+            </p>
+            <img id="googleLogo" src="../images/googleLogo.png" alt="" />Google<br><br>
+            <li>自适应两列布局</li>
+            <p>
+                左右两列, 一列宽度为自适应, 另一列宽度固定.<br>
+                float一般只能实现固定的左右两列布局, 不能其中一列自适应.
+            </p>
+            <div id="margin-content">
+                <p>主体部分, 自适应宽度</p>
+            </div>
+            <div id="margin-sidebar">
+                <p>侧边栏部分, 固定宽度</p>
+            </div>
+            <li>元素垂直居中</li>
+            <li>tab选项卡</li>
+        </ul>
     </div>
     <hr />
     <h3>浮动布局</h3>
@@ -591,7 +669,8 @@
             <p>如何覆盖!important:</p>
             <ul>
                 <li>使用相同的选择器, 再添加一条!important的CSS语句, 要放在后面.</li>
-                <li>使用更高级的选择器, 再添加一条!important的CSS语句, 可以将样式提升到最高等级, 不管这个样式在哪个样式表还是在哪个选择器中. 如果在同一样式中出现了多个!important, 则遵循后来者居上原则.</li>
+                <li>使用更高级的选择器, 再添加一条!important的CSS语句, 可以将样式提升到最高等级, 不管这个样式在哪个样式表还是在哪个选择器中. 如果在同一样式中出现了多个!important,
+                    则遵循后来者居上原则.</li>
             </ul>
         </ul>
         <p>CSS优先级定律:</p>
@@ -599,6 +678,129 @@
             <li>优先级高的样式覆盖优先级低的</li>
             <li>同一优先级, 后来者居上</li>
         </ul>
+    </div>
+    <hr />
+    <h3>CSS规范</h3>
+    <div>
+        <h4>命名规范</h4>
+        <ul>
+            <li>CSS文件命名</li>
+            <ul>
+                <li>reset.css: 重置样式, 去除元素的默认样式</li>
+                <li>global.css: 全局样式, 全站公用, 定义公共模块样式和页面基础样式, 公共模块包括导航/底部导航栏等, 基础样式包括全局字体/文字颜色等</li>
+                <li>themes.css: 主题样式, 实现换肤功能</li>
+                <li>module.css: 模块样式</li>
+                <li>master.css: 母版样式</li>
+                <li>columns.css: 专栏样式</li>
+                <li>forms.css: 表单样式</li>
+                <li>mend.css: 布丁样式, 用于维护/修改的样式</li>
+                <li>print.css: 打印样式</li>
+            </ul>
+            <p>注意: 按照功能模块划分CSS文件, 是为了方便在开发阶段进行开发和修改. 在整站发布的时候, 会使用工具将多个CSS文件压缩合并成一个文件. 否则一个页面引入多个CCS文件, 会引发多次HTTP请求,
+                页面加载速度慢.</p>
+            <li>id和class命名</li>
+            <ul>
+                <li>骆驼式命名法: 第一个单词首字母小写, 从第二个单词开始首字母大写.</li>
+                <li>中划线命名法</li>
+                <li>下划线命名法</li>
+            </ul>
+            <p>注意: 使用英文名; 尽量不缩写(除非一看就明白的单词); 命名统一规范, 建议都使用中划线; 避免class重名, 可使用父元素class名作为前缀.</p>
+            <p>网页主体部分命名:</p>
+            <ul>
+                <li>最外层: wrapper(一般用于包裹整个页面)</li>
+                <li>头部: header</li>
+                <li>内容: content</li>
+                <li>侧栏: sidebar</li>
+                <li>栏目: column</li>
+                <li>热点: hot</li>
+                <li>新闻: news</li>
+                <li>下载: download</li>
+                <li>标志: logo</li>
+                <li>导航条: nav</li>
+                <li>主体: main</li>
+                <li>左侧: main-left</li>
+            </ul>
+            <p>网页细节部分命名:</p>
+            <ul>
+                <li>导航</li>
+                <ul>
+                    <li>主导航: main-nav</li>
+                    <li>子导航: sub-nav</li>
+                    <li>边导航: side-nav</li>
+                    <li>左导航: leftside-nav</li>
+                    <li>右导航: rightside-nav</li>
+                    <li>顶导航: top-nav</li>
+                    <li>右侧: main-right</li>
+                    <li>底部: footer</li>
+                    <li>友情链接: friendlink</li>
+                    <li>加入我们: joinus</li>
+                    <li>版权: copyright</li>
+                    <li>服务: service</li>
+                    <li>登录: login</li>
+                    <li>注册: register</li>
+                </ul>
+                <li>菜单</li>
+                <ul>
+                    <li>菜单: menu</li>
+                    <li>子菜单: submenu</li>
+                </ul>
+                <li>其他</li>
+                <ul>
+                    <li>标题: title</li>
+                    <li>摘要: summary</li>
+                    <li>登录条: loginbar</li>
+                    <li>搜索: search</li>
+                    <li>标签页: tab</li>
+                    <li>广告: banner</li>
+                    <li>小技巧: tips</li>
+                    <li>图标: icon</li>
+                    <li>法律声明: siteinfolegal</li>
+                    <li>网站地图: sitemap</li>
+                    <li>工具条: tool/toolbar</li>
+                    <li>首页: homepage</li>
+                    <li>子页: subpage</li>
+                    <li>合作伙伴: partner</li>
+                    <li>帮助: help</li>
+                    <li>指南: guide</li>
+                    <li>滚动: scroll</li>
+                    <li>提示信息: msg</li>
+                    <li>投票: vote</li>
+                    <li>相关文章: related</li>
+                    <li>文章列表: list</li>
+                </ul>
+            </ul>
+        </ul>
+        <h4>书写规范</h4>
+        <p>CSS属性书写顺序: 按样式功能的重要性</p>
+        <ul>
+            <li>影响文档流属性(布局属性): display, position, float, clear</li>
+            <li>自身盒模型属性: width, height, padding, margin, border, overflow</li>
+            <li>文本性属性: font, line-height, text-align, text-indent, vertical-align</li>
+            <li>装饰性属性: color, background-color, opacity, cursor</li>
+            <li>其他属性: content, list-style, quotes</li>
+        </ul>
+        <p>
+            注意: 没有必要写完一个才写另一个, 只要保证最终CSS代码符合规范.<br>
+            普通代码最终顺序按上方, 功能代码(单行文本居中、块元素居中等具有某一个特殊功能的代码块)往往需要多个CSS属性实现, 应该集中放一块方便维护.
+        </p>
+        <h4>注释规范</h4>
+        <ul>
+            <li>顶部注释: 文件的基本信息, 一般包括文件说明、文件版本（更新）、作者以及版权声明等.</li>
+            <li>模块注释: 建议标明"开始""结束"</li>
+            <li>简单注释: 关键代码, 如功能代码</li>
+            <p>单行注释: /*单行注释*/</p>
+            <p>多行注释:</p>
+            <pre>
+                /*
+                *多行注释
+                *多行注释
+                *多行注释
+                */
+            </pre>
+        </ul>
+        <p>压缩工具会删除所有的注释, 若想保留添加!: /*!注释内容*/</p>
+        <h4>CSS reset: 去除元素在浏览器的默认样式</h4>
+        <p>*{padding:0; margin:0; }</p>
     </div>
     <br />
     <br />

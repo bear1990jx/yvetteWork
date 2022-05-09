@@ -19,9 +19,8 @@
             border-left: 4px solid red;
         }
 
-        div,
-        p {
-            color: red;
+        #choose span {
+            padding: 0px 10px;
         }
 
         #p1 {
@@ -270,6 +269,52 @@
             height: 200px;
             overflow: auto;
         }
+
+        #wrapper div {
+            width: 300px;
+            height: 60px;
+            /* height和line-height相同, 文字居中 */
+            line-height: 60px;
+            font-size: 21px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+        }
+
+        #first,
+        #first2 {
+            background-color: red;
+        }
+
+        #second {
+            background-color: purple;
+            margin-top: -30px;
+            margin-bottom: -30px;
+        }
+
+        #third,
+        #third2 {
+            background-color: blue;
+        }
+
+        #second2 {
+            background-color: purple;
+            margin-left: -30px;
+        }
+        
+        /* 去除inline-block元素之间的间距 */
+        #wrapper2 {font-size: 0;}
+
+        #wrapper2 div {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 21px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+        }
     </style>
 </head>
 
@@ -283,7 +328,7 @@
     <p id="p3">有规划的人生叫蓝图, 没规划的人生叫拼图</p>
     <p id="p4">有规划的人生叫蓝图, 没规划的人生叫拼图</p>
     <p id="p5">有规划的人生叫蓝图, 没规划的人生叫拼图</p>
-    <a href="../css/css_notes.html">css notes</a>
+    <a href="../cssNotes/pages/css_notes.html">css notes</a>
     <div id="div2">
         <p id="p6">
             很多人喜欢用战术上的勤奋来掩盖战略上的懒惰, 事实上这种"<span>低水平的勤奋</span>"远远比懒惰更可怕.
@@ -390,13 +435,24 @@
     <label>checkbox</label><input id="cbk" type="checkbox" /><br>
     <br>
     <div id="choose">
-        <span>关于我们</span>
-        <span>联系我们</span>
-        <span>版权声明</span>
-        <span>免责声明</span>
-        <span>广告服务</span>
-        <span>意见反馈</span>
+        <span>关于我们</span><span>联系我们</span><span>版权声明</span><span>免责声明</span><span>广告服务</span><span>意见反馈</span>
     </div>
+    <br>
+    <div id="wrapper">
+        <div id="first">1</div>
+        <div id="second">2</div>
+        <div id="third">3</div>
+    </div>
+    <br>
+    <div id="wrapper2">
+        <div id="first2">1</div>
+        <div id="second2">2</div>
+        <div id="third2">3</div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>
