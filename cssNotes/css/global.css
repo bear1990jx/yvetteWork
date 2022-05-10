@@ -1,3 +1,8 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 /* 负margin例子, 开始 */
 #wrapper div {
     width: 300px;
@@ -51,4 +56,18 @@
 
 #googleLogo {
     margin: 0 3px -3px 0;
+}
+
+/* 相邻选择器, 元素之间的效果 */
+
+#choose ul {
+    list-style-type: none;
+}
+
+#choose span+span {
+    border-left: 4px solid red;
+}
+
+#choose span {
+    padding: 0px 10px;
 }
