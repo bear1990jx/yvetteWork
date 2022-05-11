@@ -1,78 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewpoint" content="width=device-width,initial-scale=1.0>" />
-    <!-- <style type="text/css">
-        * {
-    margin: 0px;
-    padding: 0px;
-    }
-    </style> -->
+    <meta charset="utf-8"/>
+    <meta name="viewpoint" content="width=device-width,initial-scale=1.0>"/>
     <link rel="stylesheet" type="text/css" href="../css/global.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../css/global2.css"> -->
-    
     <title>CSS Notes</title>
 </head>
 
 <body>
-    <h3>CSS引入方式</h3>
+<h3>CSS引入方式</h3>
+<div>
+    <h4>外部样式表</h4>
     <div>
-        <h4>外部样式表</h4>
-        <div>
-            在head中使用link标签来引用<br />
-            &lt;link rel="stylesheet" type="text/css" href="文件路径" /&gt;<br />
-            rel: relative的缩写, 取值固定即stylesheet, 表示引入的是一个样式表文件, 即CSS文件.<br />
-            type属性取值也是固定的, 即"text/css", 表示这是标准的CSS.
-        </div>
-        <h4>内部样式表</h4>
-        <div>
-            CSS代码放在style标签内, style标签是放在head标签内部. type="text/css"是必须添加的, 表示这是标准的CSS.<br />
-            <pre>
+        在head中使用link标签来引用<br/>
+        &lt;link rel="stylesheet" type="text/css" href="文件路径" /&gt;<br/>
+        rel: relative的缩写, 取值固定即stylesheet, 表示引入的是一个样式表文件, 即CSS文件.<br/>
+        type属性取值也是固定的, 即"text/css", 表示这是标准的CSS.
+    </div>
+    <h4>内部样式表</h4>
+    <div>
+        CSS代码放在style标签内, style标签是放在head标签内部. type="text/css"是必须添加的, 表示这是标准的CSS.<br/>
+        <pre>
         &lt;style&gt;
             div{color: red;}
         &lt;/style&gt;
         </pre>
-        </div>
-        <h4>行内样式表</h4>
-        <div>
-            内部样式表的CSS是在“style标签”内定义的, 而行内样式表的CSS是在“标签的style属性”中定义的. 每一个元素内部定义, 可读性和维护性很差.
-        </div>
-        <h4>@import导入样式表</h4>
-        <p>实际开发中极少使用, 更倾向于link方式. @import先加载HTML后加载CSS, 页面用户体验非常差. link先加载CSS再加载HTML.</p>
     </div>
-    <hr />
-    <h3>CSS选择器</h3>
+    <h4>行内样式表</h4>
     <div>
-        <h4>id属性: 唯一性</h4>
-        <h4>class属性</h4>
-        <div>
-            类: 为同一个页面的相同元素或者不同元素设置相同的class, 然后使得具有相同class的元素具有相同的CSS样式.
-        </div>
-        <h4>CSS选择器</h4>
-        <div>
-            <ul>
-                <li>元素选择器<br />
-                    div{color:red;}
-                </li>
-                <li>id选择器: id名前必须加前缀#, #表这是一个id选择器<br />
-                    #name{color:red;}
-                </li>
-                <li>class选择器: class名前必须加前缀., .表这是一个class选择器<br />
-                    .gender{color:red;}
-                </li>
-                <li>后代选择器: 选择元素内部中所有的某一种元素, 包括子元素和其他后代元素(如孙元素). 选中孙元素(中间不用再写父元素, 直接写孙元素), 父元素不会一起被选中. 父元素和后代元素必须要用空格隔开,
-                    从而表示选中某个元素内部的后代元素.<br />
-                    #father1 div{color:red;}<br />
-                    #father2 span{color:blue;}
-                </li>
-                <li>群组选择器: 指的是同时对几个选择器进行相同的操作. 两个选择器之间必须要用,隔开.<br />
-                    #name,.gender,span{color:blue;}
-                </li>
-            </ul>
-        </div>
-        <div>
+        内部样式表的CSS是在"style标签"内定义的, 而行内样式表的CSS是在"标签的style属性"中定义的. 每一个元素内部定义, 可读性和维护性很差.
+    </div>
+    <h4>@import导入样式表</h4>
+    <p>实际开发中极少使用, 更倾向于link方式. @import先加载HTML后加载CSS, 页面用户体验非常差. link先加载CSS再加载HTML.</p>
+</div>
+<hr/>
+<h3>CSS选择器</h3>
+<div>
+    <h4>id属性: 唯一性</h4>
+    <h4>class属性</h4>
+    <div>
+        类: 为同一个页面的相同元素或者不同元素设置相同的class, 然后使得具有相同class的元素具有相同的CSS样式.
+    </div>
+    <h4>CSS选择器</h4>
+    <div>
+        <ul>
+            <li>元素选择器<br/>
+                div{color:red;}
+            </li>
+            <li>id选择器: id名前必须加前缀#, #表这是一个id选择器<br/>
+                #name{color:red;}
+            </li>
+            <li>class选择器: class名前必须加前缀., .表这是一个class选择器<br/>
+                .gender{color:red;}
+            </li>
+            <li>后代选择器: 选择元素内部中所有的某一种元素, 包括子元素和其他后代元素(如孙元素). 选中孙元素(中间不用再写父元素, 直接写孙元素), 父元素不会一起被选中. 父元素和后代元素必须要用空格隔开,
+                从而表示选中某个元素内部的后代元素.<br/>
+                #father1 div{color:red;}<br/>
+                #father2 span{color:blue;}
+            </li>
+            <li>群组选择器: 指的是同时对几个选择器进行相同的操作. 两个选择器之间必须要用,隔开.<br/>
+                #name,.gender,span{color:blue;}
+            </li>
+        </ul>
+    </div>
+    <div>
             <pre>
             选择器{
                 属性:值;
@@ -80,273 +72,277 @@
                 属性:值;
             }
             </pre>
-        </div>
-        <h4>层次选择器(后代选择器的扩展)</h4>
-        <ur>
-            <li>M N 后代选择器: 选择M元素内部后代N元素, 即所有N元素.</li>
-            <li>M>N 子代选择器: 选择M元素内部子代N元素, 即第一级N元素, 只限子元素.</li>
-            <li>M~N 兄弟选择器: 选择M元素后所有同级N元素. 兄弟选择器只选取后面的所有兄弟元素, 不包括前面的所有兄弟元素.</li>
-            <li>M+N 相邻选择器: 选择M元素相邻的下一个元素, M N是同级元素.</li>
-        </ur>
-        <p>注意: 兄弟选择器选取元素后面"所有"的某一类元素, 相邻选择器选取元素后面"相邻"的某一个元素.</p>
-        <p>技巧: 使用相邻选择器, 可在两个元素之间实现一些效果(border, margin等)</p>
-        <br>
-        <div id="choose">
-            <span>关于我们</span><span>联系我们</span><span>版权声明</span><span>免责声明</span><span>广告服务</span><span>意见反馈</span>
-        </div>
-        <br>
     </div>
-    <hr />
-    <h3>字体样式</h3>
+    <h4>层次选择器(后代选择器的扩展)</h4>
+    <ul>
+        <li>M N 后代选择器: 选择M元素内部后代N元素, 即所有N元素.</li>
+        <li>M>N 子代选择器: 选择M元素内部子代N元素, 即第一级N元素, 只限子元素.</li>
+        <li>M~N 兄弟选择器: 选择M元素后所有同级N元素. 兄弟选择器只选取后面的所有兄弟元素, 不包括前面的所有兄弟元素.</li>
+        <li>M+N 相邻选择器: 选择M元素相邻的下一个元素, M N是同级元素.</li>
+    </ul>
+    <p>注意: 兄弟选择器选取元素后面"所有"的某一类元素, 相邻选择器选取元素后面"相邻"的某一个元素.</p>
+    <p>技巧: 使用相邻选择器, 可在两个元素之间实现一些效果(border, margin等)</p>
+    <br>
+    <div id="choose">
+        <span>关于我们</span><span>联系我们</span><span>版权声明</span><span>免责声明</span><span>广告服务</span><span>意见反馈</span>
+    </div>
+    <br>
+</div>
+<hr/>
+<h3>字体样式</h3>
+<div>
+    <ul>
+        <li>font-family<br/>
+            多种字体用逗号隔开, 从左往右.<br/>
+            如果字体类型只有一个英文单词, 则不需要加上双引号; 如果字体类型是多个英文单词或者是中文, 则需要加上双引号.
+        </li>
+        <li>font-size<br/>
+            一般用px像素值, 不用关键字.
+        </li>
+        <li>font-weight<br/>
+            100~900的9个数值或4个关键字.
+            <ul>
+                <li>normal = 400</li>
+                <li>lighter = 100</li>
+                <li>bold = 700</li>
+                <li>bolder = 900</li>
+            </ul>
+        </li>
+        <li>font-style
+            <ul>
+                <li>normal</li>
+                <li>italic 斜体</li>
+                <li>oblique 斜体(没有italic属性的字体用oblique实现斜体效果)</li>
+            </ul>
+        </li>
+        <li>color<br/>
+            关键字或16进制RGB值.<br/>
+            #000000是黑色, #FFFFFF是白色
+        </li>
+    </ul>
+    <h4>CSS注释: /*注释的内容*/</h4>
+</div>
+<hr/>
+<h3>文本样式</h3>
+<div>
+    <p>字体样式注重个体(文字本身), 文本样式注重整体(整个段落)</p>
+    <ul>
+        <li>text-indent<br/>
+            首行缩进: p首行不会自动缩进. 初级可使用px像素值. 中文段落缩进两个字符, text-indent就是font-size的两倍.
+        </li>
+        <li>text-align<br/>
+            水平对齐:
+            <ul>
+                <li>left</li>
+                <li>center</li>
+                <li>right</li>
+            </ul>
+            text-align不仅对文本有效, 对图片(img元素)也有效.
+        </li>
+        <li>text-decoration<br/>
+            文本修饰:
+            <ul>
+                <li>none 默认值, 去除所有划线效果</li>
+                <li>underline 下划线</li>
+                <li>line-through 中划线</li>
+                <li>overline 顶划线</li>
+            </ul>
+            去除超链接a元素的下划线: text-decoration:none;
+        </li>
+        <li>text-transform<br/>
+            大小写:
+            <ul>
+                <li>none 默认值, 无转化</li>
+                <li>uppercase 转换为大写</li>
+                <li>lowercase 转换为小写</li>
+                <li>capitalize 只将每个英文单词首字母转换为大写</li>
+            </ul>
+        </li>
+        <li>line-height<br/>
+            行高: 像素值
+        </li>
+        <li>letter-spacing/ word-spacing<br/>
+            字间距(英文字母, 中文字)/词间距(只针对英文单词): 像素值
+        </li>
+    </ul>
+</div>
+<hr/>
+<h3>边框样式</h3>
+<div>
+    <div>
+        不管是整体样式, 还是局部样式, 必须要同时设置border-width、border-style、border color这三个属性才会有效果.
+    </div>
+    <h4>整体样式</h4>
     <div>
         <ul>
-            <li>font-family<br />
-                多种字体用逗号隔开, 从左往右.<br />
-                如果字体类型只有一个英文单词, 则不需要加上双引号; 如果字体类型是多个英文单词或者是中文, 则需要加上双引号.
+            <li>border-width<br/>
+                边框宽度: px
             </li>
-            <li>font-size<br />
-                一般用px像素值, 不用关键字.
-            </li>
-            <li>font-weight<br />
-                100~900的9个数值或4个关键字.
+            <li>border-style<br/>
+                边框外观:
                 <ul>
-                    <li>normal = 400</li>
-                    <li>lighter = 100</li>
-                    <li>bold = 700</li>
-                    <li>bolder = 900 </li>
+                    <li>none 无样式</li>
+                    <li>dashed 虚线</li>
+                    <li>solid 实线</li>
                 </ul>
             </li>
-            <li>font-style
-                <ul>
-                    <li>normal</li>
-                    <li>italic 斜体</li>
-                    <li>oblique 斜体(没有italic属性的字体用oblique实现斜体效果)</li>
-                </ul>
-            </li>
-            <li>color<br />
-                关键字或16进制RGB值.<br />
-                #000000是黑色, #FFFFFF是白色
+            <li>border-color<br/>
+                边框颜色: 取关键字或16进制RGB值
             </li>
         </ul>
-        <h4>CSS注释: /*注释的内容*/</h4>
+        <p>
+            简写形式: border: 1px solid red;<br/>
+            等价于: border-width:1px;border-style:solid;border-color:red;
+
+        </p>
     </div>
-    <hr />
-    <h3>文本样式</h3>
+    <h4>局部样式</h4>
     <div>
-        <p>字体样式注重个体(文字本身), 文本样式注重整体(整个段落)</p>
         <ul>
-            <li>text-indent<br />
-                首行缩进: p首行不会自动缩进. 初级可使用px像素值. 中文段落缩进两个字符, text-indent就是font-size的两倍.
-            </li>
-            <li>text-align<br />
-                水平对齐:
-                <ul>
-                    <li>left</li>
-                    <li>center</li>
-                    <li>right</li>
-                </ul>
-                text-align不仅对文本有效, 对图片(img元素)也有效.
-            </li>
-            <li>text-decoration<br />
-                文本修饰:
-                <ul>
-                    <li>none 默认值, 去除所有划线效果</li>
-                    <li>underline 下划线</li>
-                    <li>line-through 中划线</li>
-                    <li>overline 顶划线</li>
-                </ul>
-                去除超链接a元素的下划线: text-decoration:none;
-            </li>
-            <li>text-transform<br />
-                大小写:
-                <ul>
-                    <li>none 默认值, 无转化</li>
-                    <li>uppercase 转换为大写</li>
-                    <li>lowercase 转换为小写</li>
-                    <li>captalize 只将每个英文单词首字母转换为大写</li>
-                </ul>
-            </li>
-            <li>line-height<br />
-                行高: 像素值
-            </li>
-            <li>letter-spacing/ word-spacing<br />
-                字间距(英文字母, 中文字)/词间距(只针对英文单词): 像素值
-            </li>
+            <li>border-top</li>
+            <li>border-bottom</li>
+            <li>border-left</li>
+            <li>border-right</li>
         </ul>
     </div>
-    <hr />
-    <h3>边框样式</h3>
     <div>
-        <div>
-            不管是整体样式, 还是局部样式, 必须要同时设置border-width、border-style、border color这三个属性才会有效果.</div>
-        <h4>整体样式</h4>
-        <div>
-            <ul>
-                <li>border-width<br />
-                    边框宽度: px
-                </li>
-                <li>border-style<br />
-                    边框外观:
-                    <ul>
-                        <li>none 无样式</li>
-                        <li>dashed 虚线</li>
-                        <li>solid 实线</li>
-                    </ul>
-                </li>
-                <li>border-color<br />
-                    边框颜色: 取关键字或16进制RGB值
-                </li>
-                简写形式: border: 1px solid red;<br />
-                等价于: border-width:1px;border-style:solid;border-color:red;
-            </ul>
-        </div>
-        <h4>局部样式</h4>
-        <div>
-            <ul>
-                <li>border-top</li>
-                <li>border-bottom</li>
-                <li>border-left</li>
-                <li>border-right</li>
-            </ul>
-        </div>
-        <div>
-            去除单条边框: 宽度设为0px, 如border-bottom:0px, 不用写外观和颜色.<br />
-            border-bottom:0px; = border-bottom:0; = border-bottom:none;
-        </div>
+        去除单条边框: 宽度设为0px, 如border-bottom:0px, 不用写外观和颜色.<br/>
+        border-bottom:0px; = border-bottom:0; = border-bottom:none;
     </div>
-    <hr />
-    <h3>列表样式</h3>
+</div>
+<hr/>
+<h3>列表样式</h3>
+<div>
+    <h4>list-style-type 列表项符号</h4>
     <div>
-        <h4>list-style-type 列表项符号</h4>
-        <div>
-            list-style-type属性是针对ol或者ul元素的, 而不是li元素.
-        </div>
-        <div>有序列表取值:
-            <ul>
-                <li>decimal 默认值1 2 3</li>
-                <li>lower-roman 小写罗马数字i ii iii</li>
-                <li>upper-roman 大写罗马数字I II III</li>
-                <li>lower-alpha 小写英文字母a b c</li>
-                <li>upper-alpha 小写英文字母A B C</li>
-            </ul>
-        </div>
-        <div>无序列表取值:
-            <ul>
-                <li>disc 默认值 实心圆</li>
-                <li>circle 空心圆</li>
-                <li>square 正方形</li>
-            </ul>
-        </div>
-        <div>
-            去除列表项符号: list-style-type:none;<br />
-            比如, 去除整个页面有序和无序列表项符号: ol,ul{list-style-type:none;}
-        </div>
-        <h4>list-style-image 列表项图片</h4>
-        <div>
-            list-style-image: url; 自定义列表项符号, 用图片替代列表项符号(不需要先去除列表项符号, 可直接替代).
-        </div>
+        list-style-type属性是针对ol或者ul元素的, 而不是li元素.
     </div>
-    <hr />
-    <h3>表格样式</h3>
-    <div>
-        <h4>caption-side:top(默认)/bottom 表格标题位置</h4>
-        <div>
-            如果想要定义表格标题的位置, 在table或caption这两个元素的CSS中定义caption-side属性, 效果是一样的. 不过一般情况下我们都只在table元素中定义就可以了.
-        </div>
-        <h4>border-collapse 表格边框合并, 在table元素中定义</h4>
-        <div>
-            <ul>
-                <li>seperate 默认, 边框分开有空隙</li>
-                <li>collapse 边框合并无空隙</li>
-            </ul>
-        </div>
-        <h4>border-spacing:px; 表格边框间距, 在table元素中定义</h4>
-        <h4>注意: 表格的样式要应用到特定的标签上, 比如table/th/td/tf</h4>
+    <div>有序列表取值:
+        <ul>
+            <li>decimal 默认值1 2 3</li>
+            <li>lower-roman 小写罗马数字i ii iii</li>
+            <li>upper-roman 大写罗马数字I II III</li>
+            <li>lower-alpha 小写英文字母a b c</li>
+            <li>upper-alpha 小写英文字母A B C</li>
+        </ul>
     </div>
-    <hr />
-    <h3>图片样式</h3>
+    <div>无序列表取值:
+        <ul>
+            <li>disc 默认值 实心圆</li>
+            <li>circle 空心圆</li>
+            <li>square 正方形</li>
+        </ul>
+    </div>
     <div>
-        <h4>图片大小</h4>
-        <div>
+        去除列表项符号: list-style-type:none;<br/>
+        比如, 去除整个页面有序和无序列表项符号: ol,ul{list-style-type:none;}
+    </div>
+    <h4>list-style-image 列表项图片</h4>
+    <div>
+        list-style-image: url; 自定义列表项符号, 用图片替代列表项符号(不需要先去除列表项符号, 可直接替代).
+    </div>
+</div>
+<hr/>
+<h3>表格样式</h3>
+<div>
+    <h4>caption-side:top(默认)/bottom 表格标题位置</h4>
+    <div>
+        如果想要定义表格标题的位置, 在table或caption这两个元素的CSS中定义caption-side属性, 效果是一样的. 不过一般情况下我们都只在table元素中定义就可以了.
+    </div>
+    <h4>border-collapse 表格边框合并, 在table元素中定义</h4>
+    <div>
+        <ul>
+            <li>separate 默认, 边框分开有空隙</li>
+            <li>collapse 边框合并无空隙</li>
+        </ul>
+    </div>
+    <h4>border-spacing:px; 表格边框间距, 在table元素中定义</h4>
+    <h4>注意: 表格的样式要应用到特定的标签上, 比如table/th/td/tf</h4>
+</div>
+<hr/>
+<h3>图片样式</h3>
+<div>
+    <h4>图片大小</h4>
+    <div>
             <pre>
                     img {
                         width: px;
                         height: px;
                     }
                 </pre>
-        </div>
-        <div>
-            注意: 需要多大图, 就制作多大图. 不建议使用大图片, 再用width和height改变大小.
-        </div>
-        <h4>图片边框 border: 1px solid red;</h4>
-        <h4>图片对齐 text-align: left(默认)/center/right</h4>
-        <div>text-align属性一般只用于两个地方: 文本水平对齐和图片水平对齐.<br />
-            注意: 水平对齐不是在img元素定义, 而是在其父元素中定义.
-        </div>
-        <h4>图片垂直对齐 vertical-align</h4>
-        <div>
-            <ul>
-                <li>top 顶部对齐</li>
-                <li>middle 中线对齐</li>
-                <li>baseline 基线对齐</li>
-                <li>bottom 底线对齐</li>
-            </ul>
-        </div>
-        <div>注意: vertical-align属性定义周围的行内元素或文本相对于该元素的垂直方式, 所以要在img元素上定义</div>
-        <h4>float: left/right; 文字环绕</h4>
     </div>
-    <hr />
-    <h3>背景样式</h3>
     <div>
-        <div>
-            <ul>
-                <li>背景颜色</li>
-                <li>背景图片
-                    <div>背景图片样式属性
-                        <ul>
-                            <li>background-image 定义背景图片地址</li>
-                            <li>background-repeat 定义背景图片重复, 如横向/纵向重复</li>
-                            <li>background-positon 定义背景图片位置</li>
-                            <li>background-attachment 定义背景图片固定</li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <h4>background-color:关键字/RGB; 背景颜色</h4>
-        <div>注意: color属性用于定义"文本颜色", 而background-color属性用于定义"背景颜色"</div>
-        <h4>background-image:url(图片路径); 背景图片样式, 还要设置div的宽高</h4>
-        <div>背景图片跟图片是不一样的, 背景图片是使用CSS来实现, 而图片是使用HTML来实现.</div>
-        <h4>background-repeat 背景图片重复</h4>
-        <div>
-            <ul>
-                <li>repeat 默认, 在水平方向和垂直方向上同时平铺</li>
-                <li>repeat-x 只在水平方向(x轴)上平铺</li>
-                <li>repeat-y 只在垂直方向(y轴)上平铺<< /li>
-                <li>no-repeat 不平铺</li>
-            </ul>
-        </div>
-        <h4>background-position 背景图片位置</h4>
-        <div>
-            <ul>
-                <li>像素值<br />
-                    同时设置水平方向和垂直方向, 如background-position:12px 24px;, 相对于左上角, 图片水平左间距12px, 垂直上方间距24px.
-                </li>
-                <li>关键字<br />
-                    同时设置水平方向(left, center, right)和垂直方向(top, center, bottom).
-                </li>
-            </ul>
-        </div>
-        <div>在实际开发中, background-position一般用于实现CSS Spirit(精灵图片).</div>
-        <h4>background-attachment 背景图片固定</h4>
-        <div>
-            <ul>
-                <li>scroll 默认, 水元素一起滚动</li>
-                <li>fixed 固定不动</li>
-            </ul>
-        </div>
-        <h4>背景图铺满整个页面</h4>
-        <pre>
+        注意: 需要多大图, 就制作多大图. 不建议使用大图片, 再用width和height改变大小.
+    </div>
+    <h4>图片边框 border: 1px solid red;</h4>
+    <h4>图片对齐 text-align: left(默认)/center/right</h4>
+    <div>text-align属性一般只用于两个地方: 文本水平对齐和图片水平对齐.<br/>
+        注意: 水平对齐不是在img元素定义, 而是在其父元素中定义.
+    </div>
+    <h4>图片垂直对齐 vertical-align</h4>
+    <div>
+        <ul>
+            <li>top 顶部对齐</li>
+            <li>middle 中线对齐</li>
+            <li>baseline 基线对齐</li>
+            <li>bottom 底线对齐</li>
+        </ul>
+    </div>
+    <div>注意: vertical-align属性定义周围的行内元素或文本相对于该元素的垂直方式, 所以要在img元素上定义</div>
+    <h4>float: left/right; 文字环绕</h4>
+</div>
+<hr/>
+<h3>背景样式</h3>
+<div>
+    <div>
+        <ul>
+            <li>背景颜色</li>
+            <li>背景图片
+                <div>背景图片样式属性
+                    <ul>
+                        <li>background-image 定义背景图片地址</li>
+                        <li>background-repeat 定义背景图片重复, 如横向/纵向重复</li>
+                        <li>background-position 定义背景图片位置</li>
+                        <li>background-attachment 定义背景图片固定</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h4>background-color:关键字/RGB; 背景颜色</h4>
+    <div>注意: color属性用于定义"文本颜色", 而background-color属性用于定义"背景颜色"</div>
+    <h4>background-image:url(图片路径); 背景图片样式, 还要设置div的宽高</h4>
+    <div>背景图片跟图片是不一样的, 背景图片是使用CSS来实现, 而图片是使用HTML来实现.</div>
+    <h4>background-repeat 背景图片重复</h4>
+    <div>
+        <ul>
+            <li>repeat 默认, 在水平方向和垂直方向上同时平铺</li>
+            <li>repeat-x 只在水平方向(x轴)上平铺</li>
+            <li>repeat-y 只在垂直方向(y轴)上平铺<< /li>
+            <li>no-repeat 不平铺</li>
+        </ul>
+    </div>
+    <h4>background-position 背景图片位置</h4>
+    <div>
+        <ul>
+            <li>像素值<br/>
+                同时设置水平方向和垂直方向, 如background-position:12px 24px;, 相对于左上角, 图片水平左间距12px, 垂直上方间距24px.
+            </li>
+            <li>关键字<br/>
+                同时设置水平方向(left, center, right)和垂直方向(top, center, bottom).
+            </li>
+        </ul>
+    </div>
+    <div>在实际开发中, background-position一般用于实现CSS Spirit(精灵图片).</div>
+    <h4>background-attachment 背景图片固定</h4>
+    <div>
+        <ul>
+            <li>scroll 默认, 水元素一起滚动</li>
+            <li>fixed 固定不动</li>
+        </ul>
+    </div>
+    <h4>背景图铺满整个页面</h4>
+    <pre>
                 &lt;style type="text/css"&gt;
                     *{
                         margin: 0;
@@ -359,70 +355,70 @@
                     }
                 &lt;/style&gt;
             </pre>
-        <div>若加上background-size: 100%;, 这张图就会撑满整个页面, 不会平铺.</div>
-    </div>
-    <hr />
-    <h3>超链接样式</h3>
+    <div>若加上background-size: 100%;, 这张图就会撑满整个页面, 不会平铺.</div>
+</div>
+<hr/>
+<h3>超链接样式</h3>
+<div>
+    <h4>超链接伪类</h4>
     <div>
-        <h4>超链接伪类</h4>
-        <div>
-            定义超链接在鼠标点击的不同时期的样式.<br />
-            a:hover {...} 鼠标经过状态(主要使用).<br />
-            对于未访问时状态, 直接针对a元素定义a {...} 就行了, 没必要使用a:link.<br />
-            注意: :hover伪类可以定义任何一个元素在鼠标经过时的样式, 如div, img.
-        </div>
-        <h4>cursor 鼠标样式</h4>
-        <h5>常用属性值以下3个:</h5>>
-        <div>
-            <ul>
-                <li>default 默认</li>
-                <li>pointer</li>
-                <li>text</li>
-            </ul>
-        </div>
-        <div>如: #div_pointer {cursor: pointer;}</div>
-        <h5>自定义鼠标样式: cursor: url(图片地址), 属性值;</h5>
-        <div>
-            鼠标图片后缀名一般都是.cur, "属性值"一般为default、pointer、text这三种.
-        </div>
+        定义超链接在鼠标点击的不同时期的样式.<br/>
+        a:hover {...} 鼠标经过状态(主要使用).<br/>
+        对于未访问时状态, 直接针对a元素定义a {...} 就行了, 没必要使用a:link.<br/>
+        注意: :hover伪类可以定义任何一个元素在鼠标经过时的样式, 如div, img.
     </div>
-    <hr />
-    <h3>盒子模型</h3>
+    <h4>cursor 鼠标样式</h4>
+    <h5>常用属性值以下3个:</h5>>
     <div>
-        <div>所有的元素都可以视为一个盒子</div>
-        <div>
-            <ul>
-                <li>content 内容<br />
-                    属性: width/height/overflow<br />
-                    width和height这两个属性是针对内容区content而言的, 并不包括padding部分.<br />
-                    当内容过多超出width和height时, 可以使用overflow属性来指定溢出处理方法.
-                </li>
-                <li>padding 内边距, 内容到边框之间的距离<br />
-                    属性: padding-top、padding-bottom、padding-left、padding-right以及综合了以上四个方向的简写内边距属性padding.<br />
-                    可用padding实现一个元素内部居中<br />
-                    简写:<br />
-                    <div>
-                        <ul>
-                            <li>padding: 20px; 四个方向20px</li>
-                            <li>padding: 20px 40px; 上下20px, 左右40px</li>
-                            <li>padding: 20px 40px 60px 80px; 上右下左, 顺时针</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>margin 外边距, 当前元素和其他元素之间的距离<br />
-                    两个盒子之间的距离.<br />
-                    属性: margin-top、margin-bottom、margin-left、margin-right以及综合了以上四个方向的简写外边距属性margin.<br />
-                    负margin技术: 外边距为负值, 盒子重叠效果. margin值可以取负, padding不行<br />
-                    简写:<br />
-                    <div>
-                        <ul>
-                            <li>padding: 20px; 四个方向20px</li>
-                            <li>padding: 20px 40px; 上下20px, 左右40px</li>
-                            <li>padding: 20px 40px 60px 80px; 上右下左, 顺时针</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>border 边框</li>
+        <ul>
+            <li>default 默认</li>
+            <li>pointer</li>
+            <li>text</li>
+        </ul>
+    </div>
+    <div>如: #div_pointer {cursor: pointer;}</div>
+    <h5>自定义鼠标样式: cursor: url(图片地址), 属性值;</h5>
+    <div>
+        鼠标图片后缀名一般都是.cur, "属性值"一般为default、pointer、text这三种.
+    </div>
+</div>
+<hr/>
+<h3>盒子模型</h3>
+<div>
+    <div>所有的元素都可以视为一个盒子</div>
+    <div>
+        <ul>
+            <li>content 内容<br/>
+                属性: width/height/overflow<br/>
+                width和height这两个属性是针对内容区content而言的, 并不包括padding部分.<br/>
+                当内容过多超出width和height时, 可以使用overflow属性来指定溢出处理方法.
+            </li>
+            <li>padding 内边距, 内容到边框之间的距离<br/>
+                属性: padding-top、padding-bottom、padding-left、padding-right以及综合了以上四个方向的简写内边距属性padding.<br/>
+                可用padding实现一个元素内部居中<br/>
+                简写:<br/>
+                <div>
+                    <ul>
+                        <li>padding: 20px; 四个方向20px</li>
+                        <li>padding: 20px 40px; 上下20px, 左右40px</li>
+                        <li>padding: 20px 40px 60px 80px; 上右下左, 顺时针</li>
+                    </ul>
+                </div>
+            </li>
+            <li>margin 外边距, 当前元素和其他元素之间的距离<br/>
+                两个盒子之间的距离.<br/>
+                属性: margin-top、margin-bottom、margin-left、margin-right以及综合了以上四个方向的简写外边距属性margin.<br/>
+                负margin技术: 外边距为负值, 盒子重叠效果. margin值可以取负, padding不行<br/>
+                简写:<br/>
+                <div>
+                    <ul>
+                        <li>padding: 20px; 四个方向20px</li>
+                        <li>padding: 20px 40px; 上下20px, 左右40px</li>
+                        <li>padding: 20px 40px 60px 80px; 上右下左, 顺时针</li>
+                    </ul>
+                </div>
+            </li>
+            <li>border 边框
                 <p>
                     属性: border-width、border-style、border-color以及综合了三类属性的简写边框属性border.<br>
                     简写: border:1px solid gray;
@@ -431,73 +427,76 @@
                     border:0, border定义为0px, 浏览器会对border渲染, 占用内存.<br>
                     border:none, 浏览器解析时不会作出渲染, 不占用内存.
                 </p>
-            </ul>
-        </div>
-        <h4>width/height</h4>
-        <div>
-            元素的宽度(width)和高度(height)针对内容, 不包括padding.<br />
-            只有块元素可以设置width和height, 行内元素无法设置width和height(这里不考虑inline-block元素). 如div和span.<br />
-            没有给块元素设置width, 块元素就会延伸到整行.
-        </div>
-        <h4>overflow: 当内容信息太多而超出内容区所占范围时, 可以使用overflow溢出属性来指定处理方法.</h4>
-        <h4>外边距叠加: 当两个垂直外边距相遇时, 这两个外边距将会合并为一个外边距, 等于发生叠加之前的两个外边距中的最大值.</h4>
-        <ul>
-            <li>同级元素</li>
+            </li>
+        </ul>
+    </div>
+    <h4>width/height</h4>
+    <div>
+        元素的宽度(width)和高度(height)针对内容, 不包括padding.<br/>
+        只有块元素可以设置width和height, 行内元素无法设置width和height(这里不考虑inline-block元素). 如div和span.<br/>
+        没有给块元素设置width, 块元素就会延伸到整行.
+    </div>
+    <h4>overflow: 当内容信息太多而超出内容区所占范围时, 可以使用overflow溢出属性来指定处理方法.</h4>
+    <h4>外边距叠加: 当两个垂直外边距相遇时, 这两个外边距将会合并为一个外边距, 等于发生叠加之前的两个外边距中的最大值.</h4>
+    <ul>
+        <li>同级元素
             <p>
                 当一个元素出现在另外一个元素上面的时候, 第一个元素的下边距margin-bottom将会与第二个元素的上边距margin-top会发生合并.
             </p>
-            <li>父级元素</li>
+        </li>
+        <li>父级元素
             <p>
                 一个元素包含另一个元素, 假如没有内边距padding或边框border把外边距分隔开的话, 父元素和子元素的相邻上下外边距也会发生合并. 左右边距不会合并.
             </p>
-            <li>空元素</li>
+        </li>
+        <li>空元素
             <p>
                 空元素指没有子元素或者没有文字内容的元素, 例如&lt;br/&gt;/&lt;hr/&gt;等.<br>
                 当一个空元素有上下外边距时, 如果没有border或者padding, 则元素的上外边距与下外边距会发生合并.<br>
                 如果空元素的外边距碰到另外一个元素的外边距, 它们也会发生合并.
             </p>
-        </ul>
-        <p>
-            注意:
-        <ul>
-            <li>水平外边距不会叠加.</li>
-            <li>垂直外边距只要在以上三种情况下叠加.</li>
-            <li>外边距叠加之后的外边距高度等于发生叠加之前的两个外边距中的最大值.</li>
-            <li>外边距叠加针对的是block以及inline-块元素, 不包括inline元素. 因为inline元素的margin-top和margin-bottom设置无效.</li>
-            <li>最好统一使用margin-top或margin-bottom, 不要混合使用, 从而降低出现问题的风险.</li>
-            <li>外边距叠加的原理比较复杂, 跟BFC(块级格式上下文)有着密切的关系.</li>
-        </ul>
-        </p>
-        <h4>负margin</h4>
-        <p>对普通文档流元素的影响:</p>
-        <ul>
-            <li>margin-top或者margin-left为负数时, "当前元素"会被拉向指定方向, 覆盖"其他元素".</li>
-            <li>margin-bottom或者margin-right为负数时, "后续元素"会被拉向指定方向, 覆盖"当前元素".</li>
-        </ul>
-        <p>对浮动元素的影响类似, 浮动元素可以向左也可以向右, 使用负margin时要关注浮动元素的流动方向.</p>
-        <br>
-        <div id="wrapper">
-            <div id="first">1</div>
-            <div id="second">2</div>
-            <div id="third">3</div>
-        </div>
-        <br>
-        <div id="wrapper2">
-            <div id="first2">1</div>
-            <div id="second2">2</div>
-            <div id="third2">3</div>
-        </div>
-        <p>此处父元素font-size: 0;可以去除inline元素或inline-block元素之间的间距, 比如span或div变为inline-block后之间的空隙.</p>
-        <h4>负margin技巧</h4>
-        <ul>
-            <li>图片与文字对齐</li>
+        </li>
+    </ul>
+    <p>注意:</p>
+    <ul>
+        <li>水平外边距不会叠加.</li>
+        <li>垂直外边距只要在以上三种情况下叠加.</li>
+        <li>外边距叠加之后的外边距高度等于发生叠加之前的两个外边距中的最大值.</li>
+        <li>外边距叠加针对的是block以及inline-块元素, 不包括inline元素. 因为inline元素的margin-top和margin-bottom设置无效.</li>
+        <li>最好统一使用margin-top或margin-bottom, 不要混合使用, 从而降低出现问题的风险.</li>
+        <li>外边距叠加的原理比较复杂, 跟BFC(块级格式上下文)有着密切的关系.</li>
+    </ul>
+    <h4>负margin</h4>
+    <p>对普通文档流元素的影响:</p>
+    <ul>
+        <li>margin-top或者margin-left为负数时, "当前元素"会被拉向指定方向, 覆盖"其他元素".</li>
+        <li>margin-bottom或者margin-right为负数时, "后续元素"会被拉向指定方向, 覆盖"当前元素".</li>
+    </ul>
+    <p>对浮动元素的影响类似, 浮动元素可以向左也可以向右, 使用负margin时要关注浮动元素的流动方向.</p>
+    <br>
+    <div id="wrapper">
+        <div id="first">1</div>
+        <div id="second">2</div>
+        <div id="third">3</div>
+    </div>
+    <br>
+    <div id="wrapper2">
+        <div id="first2">1</div>
+        <div id="second2">2</div>
+        <div id="third2">3</div>
+    </div>
+    <p>此处父元素font-size: 0;可以去除inline元素或inline-block元素之间的间距, 比如span或div变为inline-block后之间的空隙.</p>
+    <h4>负margin技巧</h4>
+    <ul>
+        <li>图片与文字对齐
             <p>
                 图片与文字默认是基线对齐(vertical-align:baseline).<br>
                 实现图片与文字底部水平方向对齐, 除了vertical-align:text-bottom, 还可以使用兼容性比较好的负margin来实现.<br>
                 img{margin:0 3px -3px 0; }
             </p>
-            <img id="googleLogo" src="../images/googleLogo.png" alt="" />Google<br><br>
-            <li>自适应两列布局</li>
+            <img id="googleLogo" src="../images/googleLogo.png" alt=""/>Google<br><br>
+        </li>
+        <li>自适应两列布局
             <p>
                 左右两列, 一列宽度为自适应, 另一列宽度固定.<br>
                 float一般只能实现固定的左右两列布局, 不能其中一列自适应.
@@ -508,44 +507,51 @@
             <div id="margin-sidebar">
                 <p>侧边栏部分, 固定宽度</p>
             </div>
-            <li>元素垂直居中</li>
-            <li>tab选项卡</li>
-        </ul>
-    </div>
-    <hr />
-    <h3>浮动布局</h3>
+            <div class="clear"></div>
+            <br>
+        </li>
+        <li>元素垂直居中: position结合负margin实现
+            <p>
+                position这种方法万能, 不仅可用于block, 也
+            </p>
+        </li>
+        <li>tab选项卡</li>
+    </ul>
+</div>
+<hr/>
+<h3>浮动布局</h3>
+<div>
     <div>
-        <div>
-            normal flow 普通文档流/普通流<br />
-            脱离文档流: 浮动/定位
-        </div>
-        <h4>浮动 float: left/right;</h4>
-        <div>
-            浮动最常用于实现水平方向上的并排布局, 例如两列布局、多列布局.
-        </div>
-        <h4>clear: left/right/both; 清除浮动</h4>
-        <div>我们一般都是在浮动元素后面再增加一个空元素, 然后为这个空元素定义clear:both;来清除浮动. 在实际开发中，使用浮动之后如果发现有什么不对劲的地方, 首先检查有没有清除浮动.</div>
+        normal flow 普通文档流/普通流<br/>
+        脱离文档流: 浮动/定位
+    </div>
+    <h4>浮动 float: left/right;</h4>
+    <div>
+        浮动最常用于实现水平方向上的并排布局, 例如两列布局、多列布局.
+    </div>
+    <h4>clear: left/right/both; 清除浮动</h4>
+    <div>我们一般都是在浮动元素后面再增加一个空元素, 然后为这个空元素定义clear:both;来清除浮动. 在实际开发中,使用浮动之后如果发现有什么不对劲的地方, 首先检查有没有清除浮动.</div>
 
-        <h4>注意: float布局产生的margin有的折叠有的相加的问题, 涉及BFC概论, 避免使用float, 可使用flex布局.</h4>
-        <h4>多个div并排居中显示</h4>
-        <pre>
+    <h4>注意: float布局产生的margin有的折叠有的相加的问题, 涉及BFC概论, 避免使用float, 可使用flex布局.</h4>
+    <h4>多个div并排居中显示</h4>
+    <pre>
                 &lt;div class="div0"&gt;
                     &lt;div class="div1"&gt;1&lt;/div&gt;
                     &lt;div class="div2"&gt;2&lt;/div&gt;
                 &lt;/div&gt;
             </pre>
-        <div>
-            <ol>
-                <li>使用flex
-                    <pre>
+    <div>
+        <ol>
+            <li>使用flex
+                <pre>
                         .div0 {
                             display: flex;
                             justify-content: center;
                         }
                     </pre>
-                </li>
-                <li>使用inline-block
-                    <pre>
+            </li>
+            <li>使用inline-block
+                <pre>
                         .div0 {
                             text-align: center;
                         }
@@ -553,21 +559,21 @@
                             display: inline-block;
                         }
                     </pre>
-                </li>
-            </ol>
-        </div>
+            </li>
+        </ol>
     </div>
-    <hr />
-    <h3>定位布局</h3>
-    <div>
-        <ul>
-            <li>fixed 固定定位<br>
-                <div>
-                    被固定的元素不会随着滚动条的拖动而改变位置, 如返回首页button.<br>
-                    通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个. 注意, 这四个值的参考对象是浏览器的四条边.
-                </div>
-                <div>
-                    <pre>
+</div>
+<hr/>
+<h3>定位布局</h3>
+<div>
+    <ul>
+        <li>fixed 固定定位<br>
+            <div>
+                被固定的元素不会随着滚动条的拖动而改变位置, 如返回首页button.<br>
+                通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个.
+                注意, 这四个值的参考对象是浏览器的四条边.
+            </div>
+            <pre>
                                 position: fixed;
                                 top: px;
                                 bottom: px;
@@ -575,91 +581,96 @@
                                 right: px;
                             </pre>
 
-            </li>
-            <li>relative 相对定位
-                <div>
-                    该元素的位置是相对于它的原始位置计算而来.<br>
-                    通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个. 这四个值的参考对象是该元素的原始位置.<br>
-                    <div>
-            </li>
-            <li> absolute 绝对定位
-                <div>
-                    一个元素变成了绝对定位元素, 这个元素就完全脱离文档流了, 绝对定位元素的前面或者后面的元素会认为这个元素并不存在, 即这个元素浮于其他元素上面, 它是独立出来的.<br>
-                    通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个. 这四个值的参考对象是浏览器的四条边.<br>
-                    默认情况下, 固定定位和绝对定位的位置是相对于浏览器而言, 而相对定位的位置是相对原始位置而言.
-                </div>
-            </li>
-            <li>static 默认, 静态定位</li>
-        </ul>
-    </div>
-    <hr />
-    <h3>相对单位</h3>
-    <div>
-        <ul>
-            <li>px</li>
-            <li>%
-                <ul>
-                    <li>width/height/font-size: 相对于父元素"相同属性"的值计算</li>
-                    <li>line-height: 相对于父元素的font-size值计算</li>
-                    <li>vertical-align: 相对于当前元素的line-height值计算</li>
-                </ul>
-            </li>
-            <li>em
-                <p>
-                    相对于"当前元素"的字体大小, 1em="当前元素"字体大小(px为单位的font-size值)<br>
-                    如果当前元素的font-size没有定义, 则当前元素会继承父元素的font-size.<br>
-                    如果当前元素的所有祖先元素都没有定义font-size, 则当前元素会继承浏览器默认的font-size. 所有浏览器默认的font-size值都是16px.
-                </p>
-                <ul>
-                    <li>首行缩进: text-indent:2em</li>
-                    <li>em作为统一单位<br>
-                        继承根元素的font-size值(即16px), 再用em换算.<br>
-                        简化: body{font-size:62.5%;}, 及默认字体大小变为16pxx62.5%=10px, 1em=10px.<br>
-                        width和height以em为单位时, 比如font-size:15px, 等价于1.5em. width:150px, 并不等价于15em, 因为1em等于"当前元素"字体大小,
-                        即15px, 这里width就应该等价于10em.
-                    </li>
-                    <li>em作为字体大小单位: 方便改变整体文字大小, 只需要改变根元素字体大小</li>
-                </ul>
-            </li>
-            <li>rem: font size of the root element 相对于根元素的字体大小<br>
-                em是相对“当前元素”的字体大小, 而rem是相对“根元素”的字体大小. 这里的font-size指的都是以px为单位的font-size值.
-            </li>
-        </ul>
-    </div>
-    <hr />
-    <h3>CSS特性</h3>
-    <div>
-        <ul>
-            <li>继承性</li>
+        </li>
+        <li>relative 相对定位
+            <div>
+                该元素的位置是相对于它的原始位置计算而来.<br>
+                通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个.
+                这四个值的参考对象是该元素的原始位置.<br>
+            </div>
+        </li>
+        <li> absolute 绝对定位
+            <div>
+                一个元素变成了绝对定位元素, 这个元素就完全脱离文档流了, 绝对定位元素的前面或者后面的元素会认为这个元素并不存在, 即这个元素浮于其他元素上面, 它是独立出来的.<br>
+                通过position属性来实现, top、bottom、left和right这四个属性不一定全部都用到, 一般只会用到其中两个. 这四个值的参考对象是浏览器的四条边.<br>
+                默认情况下, 固定定位和绝对定位的位置是相对于浏览器而言, 而相对定位的位置是相对原始位置而言.
+            </div>
+        </li>
+        <li>static 默认, 静态定位</li>
+    </ul>
+</div>
+<hr/>
+<h3>相对单位</h3>
+<div>
+    <ul>
+        <li>px</li>
+        <li>%
+            <ul>
+                <li>width/height/font-size: 相对于父元素"相同属性"的值计算</li>
+                <li>line-height: 相对于父元素的font-size值计算</li>
+                <li>vertical-align: 相对于当前元素的line-height值计算</li>
+            </ul>
+        </li>
+        <li>em
+            <p>
+                相对于"当前元素"的字体大小, 1em="当前元素"字体大小(px为单位的font-size值)<br>
+                如果当前元素的font-size没有定义, 则当前元素会继承父元素的font-size.<br>
+                如果当前元素的所有祖先元素都没有定义font-size, 则当前元素会继承浏览器默认的font-size. 所有浏览器默认的font-size值都是16px.
+            </p>
+            <ul>
+                <li>首行缩进: text-indent:2em</li>
+                <li>em作为统一单位<br>
+                    继承根元素的font-size值(即16px), 再用em换算.<br>
+                    简化: body{font-size:62.5%;}, 及默认字体大小变为16pxx62.5%=10px, 1em=10px.<br>
+                    width和height以em为单位时, 比如font-size:15px, 等价于1.5em. width:150px, 并不等价于15em, 因为1em等于"当前元素"字体大小,
+                    即15px, 这里width就应该等价于10em.
+                </li>
+                <li>em作为字体大小单位: 方便改变整体文字大小, 只需要改变根元素字体大小</li>
+            </ul>
+        </li>
+        <li>rem: font size of the root element 相对于根元素的字体大小<br>
+            em是相对“当前元素”的字体大小, 而rem是相对“根元素”的字体大小. 这里的font-size指的都是以px为单位的font-size值.
+        </li>
+    </ul>
+</div>
+<hr/>
+<h3>CSS特性</h3>
+<div>
+    <ul>
+        <li>继承性
             <p>
                 子元素继承父元素的某些样式属性, 但并不是所有属性都有继承性.<br>
                 以下3类属性有继承性:
             </p>
             <ul>
                 <li>文本相关属性: font-family, font-size, font-style, font-weight, font, line-height, text-align, text-indent,
-                    word-spacing.</li>
+                    word-spacing.
+                </li>
                 <li>列表相关属性: list-style-image, list-style-position, list-style-type, list-style.</li>
                 <li>颜色相关属性: color</li>
             </ul>
             <p>注意: 如果子元素是a元素, 父元素定义的颜色样式不生效, 因为a标签本身又默认的颜色样式, 优先级比继承的高. 若要改变a标签颜色, 要选中a标签操作.</p>
-            <li>层叠性</li>
+        </li>
+        <li>层叠性
             <p>后来者居上原则的条件:</p>
             <ul>
                 <li>元素相同</li>
                 <li>属性相同</li>
                 <li>选择器权重相同</li>
             </ul>
-        </ul>
-        <h4>CSS优先级</h4>
-        <p>样式覆盖冲突常见情况:</p>
-        <ul>
-            <li>引用方式冲突</li>
+        </li>
+    </ul>
+    <h4>CSS优先级</h4>
+    <p>样式覆盖冲突常见情况:</p>
+    <ul>
+        <li>引用方式冲突
             <p>
                 行内样式>(内部样式=外部样式)<br>
                 如果内部样式与外部样式同时存在, 则以最后引入的样式为准.
             </p>
-            <li>继承方式冲突: “最近的祖先元素”获胜</li>
-            <li>指定样式冲突: "当前元素"直接指定的样式发生冲突, 权重高获胜</li>
+        </li>
+        <li>继承方式冲突: “最近的祖先元素”获胜</li>
+        <li>指定样式冲突: "当前元素"直接指定的样式发生冲突, 权重高获胜
             <ul>
                 <li>通配符: 0</li>
                 <li>伪元素: 1</li>
@@ -677,27 +688,30 @@
                 只有选择器权重相同, 才遵循后来居上原则.<br>
                 选择器权重的计算只针对指定样式(当前元素), 并不能用于继承样式. 先判断指定样式, 然后才考虑继承样式.
             </p>
-            <li>继承样式和指定样式冲突: 指定样式获胜</li>
-            <li>!important: 覆盖其他所有样式</li>
+        </li>
+        <li>继承样式和指定样式冲突: 指定样式获胜</li>
+        <li>!important: 覆盖其他所有样式
             <p>如何覆盖!important:</p>
             <ul>
                 <li>使用相同的选择器, 再添加一条!important的CSS语句, 要放在后面.</li>
                 <li>使用更高级的选择器, 再添加一条!important的CSS语句, 可以将样式提升到最高等级, 不管这个样式在哪个样式表还是在哪个选择器中. 如果在同一样式中出现了多个!important,
-                    则遵循后来者居上原则.</li>
+                    则遵循后来者居上原则.
+                </li>
             </ul>
-        </ul>
-        <p>CSS优先级定律:</p>
-        <ul>
-            <li>优先级高的样式覆盖优先级低的</li>
-            <li>同一优先级, 后来者居上</li>
-        </ul>
-    </div>
-    <hr />
-    <h3>CSS规范</h3>
-    <div>
-        <h4>命名规范</h4>
-        <ul>
-            <li>CSS文件命名</li>
+        </li>
+    </ul>
+    <p>CSS优先级定律:</p>
+    <ul>
+        <li>优先级高的样式覆盖优先级低的</li>
+        <li>同一优先级, 后来者居上</li>
+    </ul>
+</div>
+<hr/>
+<h3>CSS规范</h3>
+<div>
+    <h4>命名规范</h4>
+    <ul>
+        <li>CSS文件命名
             <ul>
                 <li>reset.css: 重置样式, 去除元素的默认样式</li>
                 <li>global.css: 全局样式, 全站公用, 定义公共模块样式和页面基础样式, 公共模块包括导航/底部导航栏等, 基础样式包括全局字体/文字颜色等</li>
@@ -711,7 +725,8 @@
             </ul>
             <p>注意: 按照功能模块划分CSS文件, 是为了方便在开发阶段进行开发和修改. 在整站发布的时候, 会使用工具将多个CSS文件压缩合并成一个文件. 否则一个页面引入多个CCS文件, 会引发多次HTTP请求,
                 页面加载速度慢.</p>
-            <li>id和class命名</li>
+        </li>
+        <li>id和class命名
             <ul>
                 <li>骆驼式命名法: 第一个单词首字母小写, 从第二个单词开始首字母大写.</li>
                 <li>中划线命名法</li>
@@ -735,72 +750,76 @@
             </ul>
             <p>网页细节部分命名:</p>
             <ul>
-                <li>导航</li>
-                <ul>
-                    <li>主导航: main-nav</li>
-                    <li>子导航: sub-nav</li>
-                    <li>边导航: side-nav</li>
-                    <li>左导航: leftside-nav</li>
-                    <li>右导航: rightside-nav</li>
-                    <li>顶导航: top-nav</li>
-                    <li>右侧: main-right</li>
-                    <li>底部: footer</li>
-                    <li>友情链接: friendlink</li>
-                    <li>加入我们: joinus</li>
-                    <li>版权: copyright</li>
-                    <li>服务: service</li>
-                    <li>登录: login</li>
-                    <li>注册: register</li>
-                </ul>
-                <li>菜单</li>
-                <ul>
-                    <li>菜单: menu</li>
-                    <li>子菜单: submenu</li>
-                </ul>
-                <li>其他</li>
-                <ul>
-                    <li>标题: title</li>
-                    <li>摘要: summary</li>
-                    <li>登录条: loginbar</li>
-                    <li>搜索: search</li>
-                    <li>标签页: tab</li>
-                    <li>广告: banner</li>
-                    <li>小技巧: tips</li>
-                    <li>图标: icon</li>
-                    <li>法律声明: siteinfolegal</li>
-                    <li>网站地图: sitemap</li>
-                    <li>工具条: tool/toolbar</li>
-                    <li>首页: homepage</li>
-                    <li>子页: subpage</li>
-                    <li>合作伙伴: partner</li>
-                    <li>帮助: help</li>
-                    <li>指南: guide</li>
-                    <li>滚动: scroll</li>
-                    <li>提示信息: msg</li>
-                    <li>投票: vote</li>
-                    <li>相关文章: related</li>
-                    <li>文章列表: list</li>
-                </ul>
+                <li>导航
+                    <ul>
+                        <li>主导航: main-nav</li>
+                        <li>子导航: sub-nav</li>
+                        <li>边导航: side-nav</li>
+                        <li>左导航: leftside-nav</li>
+                        <li>右导航: rightside-nav</li>
+                        <li>顶导航: top-nav</li>
+                        <li>右侧: main-right</li>
+                        <li>底部: footer</li>
+                        <li>友情链接: friendlink</li>
+                        <li>加入我们: joinus</li>
+                        <li>版权: copyright</li>
+                        <li>服务: service</li>
+                        <li>登录: login</li>
+                        <li>注册: register</li>
+                    </ul>
+                </li>
+                <li>菜单
+                    <ul>
+                        <li>菜单: menu</li>
+                        <li>子菜单: submenu</li>
+                    </ul>
+                </li>
+                <li>其他
+                    <ul>
+                        <li>标题: title</li>
+                        <li>摘要: summary</li>
+                        <li>登录条: loginbar</li>
+                        <li>搜索: search</li>
+                        <li>标签页: tab</li>
+                        <li>广告: banner</li>
+                        <li>小技巧: tips</li>
+                        <li>图标: icon</li>
+                        <li>法律声明: siteinfolegal</li>
+                        <li>网站地图: sitemap</li>
+                        <li>工具条: tool/toolbar</li>
+                        <li>首页: homepage</li>
+                        <li>子页: subpage</li>
+                        <li>合作伙伴: partner</li>
+                        <li>帮助: help</li>
+                        <li>指南: guide</li>
+                        <li>滚动: scroll</li>
+                        <li>提示信息: msg</li>
+                        <li>投票: vote</li>
+                        <li>相关文章: related</li>
+                        <li>文章列表: list</li>
+                    </ul>
+                </li>
             </ul>
-        </ul>
-        <h4>书写规范</h4>
-        <p>CSS属性书写顺序: 按样式功能的重要性</p>
-        <ul>
-            <li>影响文档流属性(布局属性): display, position, float, clear</li>
-            <li>自身盒模型属性: width, height, padding, margin, border, overflow</li>
-            <li>文本性属性: font, line-height, text-align, text-indent, vertical-align</li>
-            <li>装饰性属性: color, background-color, opacity, cursor</li>
-            <li>其他属性: content, list-style, quotes</li>
-        </ul>
-        <p>
-            注意: 没有必要写完一个才写另一个, 只要保证最终CSS代码符合规范.<br>
-            普通代码最终顺序按上方, 功能代码(单行文本居中、块元素居中等具有某一个特殊功能的代码块)往往需要多个CSS属性实现, 应该集中放一块方便维护.
-        </p>
-        <h4>注释规范</h4>
-        <ul>
-            <li>顶部注释: 文件的基本信息, 一般包括文件说明、文件版本（更新）、作者以及版权声明等.</li>
-            <li>模块注释: 建议标明"开始""结束"</li>
-            <li>简单注释: 关键代码, 如功能代码</li>
+        </li>
+    </ul>
+    <h4>书写规范</h4>
+    <p>CSS属性书写顺序: 按样式功能的重要性</p>
+    <ul>
+        <li>影响文档流属性(布局属性): display, position, float, clear</li>
+        <li>自身盒模型属性: width, height, padding, margin, border, overflow</li>
+        <li>文本性属性: font, line-height, text-align, text-indent, vertical-align</li>
+        <li>装饰性属性: color, background-color, opacity, cursor</li>
+        <li>其他属性: content, list-style, quotes</li>
+    </ul>
+    <p>
+        注意: 没有必要写完一个才写另一个, 只要保证最终CSS代码符合规范.<br>
+        普通代码最终顺序按上方, 功能代码(单行文本居中、块元素居中等具有某一个特殊功能的代码块)往往需要多个CSS属性实现, 应该集中放一块方便维护.
+    </p>
+    <h4>注释规范</h4>
+    <ul>
+        <li>顶部注释: 文件的基本信息, 一般包括文件说明、文件版本（更新）、作者以及版权声明等.</li>
+        <li>模块注释: 建议标明"开始""结束"</li>
+        <li>简单注释: 关键代码, 如功能代码
             <p>单行注释: /*单行注释*/</p>
             <p>多行注释:</p>
             <pre>
@@ -810,14 +829,15 @@
                 *多行注释
                 */
             </pre>
-        </ul>
-        <p>压缩工具会删除所有的注释, 若想保留添加!: /*!注释内容*/</p>
-        <h4>CSS reset: 去除元素在浏览器的默认样式</h4>
-        <p>*{padding:0; margin:0; }</p>
-    </div>
-    <br />
-    <br />
-    <br />
+        </li>
+    </ul>
+    <p>压缩工具会删除所有的注释, 若想保留添加!: /*!注释内容*/</p>
+    <h4>CSS reset: 去除元素在浏览器的默认样式</h4>
+    <p>*{padding:0; margin:0; }</p>
+</div>
+<br/>
+<br/>
+<br/>
 </body>
 
 </html>

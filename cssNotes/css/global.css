@@ -1,7 +1,7 @@
-* {
+/** {
     margin: 0px;
     padding: 0px;
-}
+}*/
 
 /* 负margin例子, 开始 */
 #wrapper div {
@@ -15,8 +15,7 @@
     color: white;
 }
 
-#first,
-#first2 {
+#first, #first2 {
     background-color: red;
 }
 
@@ -58,16 +57,62 @@
     margin: 0 3px -3px 0;
 }
 
-/* 相邻选择器, 元素之间的效果 */
-
+/* 相邻选择器, 元素之间的效果, 开始 */
 #choose ul {
     list-style-type: none;
 }
 
-#choose span+span {
+#choose span + span {
     border-left: 4px solid red;
 }
 
 #choose span {
-    padding: 0px 10px;
+    padding: 0 10px;
 }
+
+/* 相邻选择器, 元素之间的效果, 结束 */
+
+/*自适应两列布局， 开始*/
+#margin-content, #margin-sidebar {
+    float: left;
+    color: palegreen;
+    text-align: center;
+}
+
+/*为下方清除浮动*/
+.clear {
+    clear: both;
+}
+
+#margin-content {
+    width: 100%;
+    background-color: #aaaaff;
+    margin-right: -200px;
+}
+
+#margin-sidebar {
+    width: 200px;
+    background-color: peru;
+}
+
+/*防止宽度不够文本重叠， 200px是右边sidebar的宽度， 10px是间距*/
+#margin-content p {
+    margin-right: 210px;
+}
+
+/*自适应两列布局， 结束*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

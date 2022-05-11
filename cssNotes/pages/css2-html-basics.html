@@ -1,156 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewpoint" content="width=device-width,initial-scale=1.0>" />
+    <meta charset="utf-8"/>
+    <meta name="viewpoint" content="width=device-width,initial-scale=1.0>"/>
     <title>HTML Basics</title>
 </head>
 
 <body>
-    <h1>CSS Notes and Practices</h1>
-    <!--html-->
-    <h2>HTML基础强化</h2>
+<h1>CSS Notes and Practices</h1>
+<!--html-->
+<h2>HTML基础强化</h2>
+<div>
+    <h3>HTML常见元素和理解</h3>
     <div>
-        <h3>HTML常见元素和理解</h3>
-        <div>
-            <h4>head</h4>
-            <ul>
-                <li>meta<br />
-                    &lt;meta charset="utf-8"&gt;charset字符集, head区第一行加, 避免出现编码的问题<br />
-                    &lt;meta name="viewpoint"
-                    content="width=device-width,initial-scale=1,0,maximun-scale=1.0,user-scalable=no"&gt;视口:
-                    手机或电脑屏幕代表的尺寸. 解读:
-                    宽度等于设备宽度, 初始缩放为1, 做大缩放为1, 用户不能缩放. 如果不设置viewpoint, 默认宽度是980px, 在手机上会很小, 这个设置对于适配移动端非常重要.<br />
-                    &lt;base href="/"&gt;指定基础路径, 所有的链接以这个路径为基准进行计算.
-                </li>
-                <li>title</li>
-                <li>style</li>
-                <li>link</li>
-                <li>script</li>
-                <li>base</li>
-            </ul>
-            <h4>body</h4>
-            <ul>
-                <li>div/section/article/aside/header/footer</li>
-                <li>p</li>
-                <li>span/em/strong</li>
-                <li>table/thead/tbody/tr/td</li>
-                <li>ul/ol/li/dl/dt/dd</li>
-                <li>a</li>
-                <li>form/input/select/textarea/button</li>
-            </ul>
-        </div>
-        <div>
-            <h4>HTML重要属性</h4>
-            <ul>
-                <li>a[href, target]<br />
-                    href链接地址<br />
-                    target在哪里打开, 默认是_self在当前页面打开, 可以设置为_blank在新的页面打开
-                </li>
-                <li>img[scr, alt]<br />
-                    scr图片地址<br />
-                    alt指alternative替代资源, 图片不可用/加载失败时显示这个文字, 提示图片是什么
-                </li>
-                <li>table td[colspan, rowspan]<br />
-                    合并单元格
-                </li>
-                <li>form[target, method, enctype]<br />
-                    target表单要提交到哪里<br />
-                    method用什么方式提交, 主要有get和post<br />
-                    enctype指encoded type, 用什么编码, 主要针对post, 主要有两种urlencoded(提交文本)和form-data(把数据做一个编码提交, 优点是可以上传文件)<br />
-                    同一个表单中name一般不同, 相同name后面的key会覆盖前面的key<br />
-                    单选和复选中name相同表示是同一组, 在同一组中执行单选/复选的规则<br />
-                    一个html中id不能重复<br />
-                    radio单选, name相同表示是同一组, value是key的值, checked默认选中项<br />
-                    checkbox多选, value是key的值, checked默认选中项
-                </li>
-                <li>input[type, value]<br />
-                    输入框元素
-                </li>
-                <li>button[type]<br />
-                    button单独使用没有效果<br />
-                    submit只有出现在表单中提交才有意义, submit有button和input两种. input submit中value代表button上的文字, 比较特殊
-                    reset只有出现在表单中提交才有意义, 重置到初始化的状态
-                </li>
-                <li>select>option[value]<br />
-                    下拉框, 需要select和一系列的option组合<br />
-                    selcted默认选中项<br />
-                    multiple多选
-                </li>
-                <li>label[for]
-                    可以和表单项关联, 可用于单选框和复选框, 点击文字也可以单选或复选
-                </li>
-            </ul>
-            <a href="../../demo/demo1-html-ele.html" target="_blank">Demo: HTML</a>
-        </div>
-        <div>
-            <h4>HTML理解</h4>
-            <p>
-                大纲算法工具: <a href="https://h5o.github.io/" target="_blank">https://h5o.github.io/</a><br />
-                重点是语义/结构
-            </p>
-        </div>
+        <h4>head</h4>
+        <ul>
+            <li>meta<br/>
+                &lt;meta charset="utf-8"&gt;charset字符集, head区第一行加, 避免出现编码的问题<br/>
+                &lt;meta name="viewpoint"
+                content="width=device-width,initial-scale=1,0,maximum-scale=1.0,user-scalable=no"&gt;视口:
+                手机或电脑屏幕代表的尺寸. 解读:
+                宽度等于设备宽度, 初始缩放为1, 做大缩放为1, 用户不能缩放. 如果不设置viewpoint, 默认宽度是980px, 在手机上会很小, 这个设置对于适配移动端非常重要.<br/>
+                &lt;base href="/"&gt;指定基础路径, 所有的链接以这个路径为基准进行计算.
+            </li>
+            <li>title</li>
+            <li>style</li>
+            <li>link</li>
+            <li>script</li>
+            <li>base</li>
+        </ul>
+        <h4>body</h4>
+        <ul>
+            <li>div/section/article/aside/header/footer</li>
+            <li>p</li>
+            <li>span/em/strong</li>
+            <li>table/thead/tbody/tr/td</li>
+            <li>ul/ol/li/dl/dt/dd</li>
+            <li>a</li>
+            <li>form/input/select/textarea/button</li>
+        </ul>
     </div>
-    <hr />
     <div>
-        <h3>HTML版本</h3>
+        <h4>HTML重要属性</h4>
+        <ul>
+            <li>a[href, target]<br/>
+                href链接地址<br/>
+                target在哪里打开, 默认是_self在当前页面打开, 可以设置为_blank在新的页面打开
+            </li>
+            <li>img[scr, alt]<br/>
+                scr图片地址<br/>
+                alt指alternative替代资源, 图片不可用/加载失败时显示这个文字, 提示图片是什么
+            </li>
+            <li>table td[colspan, rowspan]<br/>
+                合并单元格
+            </li>
+            <li>form[target, method, enctype]<br/>
+                target表单要提交到哪里<br/>
+                method用什么方式提交, 主要有get和post<br/>
+                enctype指encoded type, 用什么编码, 主要针对post, 主要有两种urlencoded(提交文本)和form-data(把数据做一个编码提交, 优点是可以上传文件)<br/>
+                同一个表单中name一般不同, 相同name后面的key会覆盖前面的key<br/>
+                单选和复选中name相同表示是同一组, 在同一组中执行单选/复选的规则<br/>
+                一个html中id不能重复<br/>
+                radio单选, name相同表示是同一组, value是key的值, checked默认选中项<br/>
+                checkbox多选, value是key的值, checked默认选中项
+            </li>
+            <li>input[type, value]<br/>
+                输入框元素
+            </li>
+            <li>button[type]<br/>
+                button单独使用没有效果<br/>
+                submit只有出现在表单中提交才有意义, submit有button和input两种. input submit中value代表button上的文字, 比较特殊
+                reset只有出现在表单中提交才有意义, 重置到初始化的状态
+            </li>
+            <li>select>option[value]<br/>
+                下拉框, 需要select和一系列的option组合<br/>
+                selected默认选中项<br/>
+                multiple多选
+            </li>
+            <li>label[for]
+                可以和表单项关联, 可用于单选框和复选框, 点击文字也可以单选或复选<br/>
+                也可以将 &lt;input&gt; 直接放在 &lt;label&gt; 里, 此时则不需要 for 和 id 属性, 因为关联已隐含存在.
+            </li>
+        </ul>
+        <a href="../../demo/demo1-html-ele.html" target="_blank">Demo: HTML</a>
+    </div>
+    <div>
+        <h4>HTML理解</h4>
         <p>
-            版本变迁:
-            HTML4/4.01(SGML)<br />
-            XHTML(XML)非常严格<br />
-            HTML5 基于HTML4, 不是基于XHTML
+            大纲算法工具: <a href="https://h5o.github.io/" target="_blank">https://h5o.github.io/</a><br/>
+            重点是语义/结构
         </p>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>HTML4</th>
-                    <th>XHTML</th>
-                    <th>HTML5</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>标签允许不结束, br不加/</td>
-                    <td>标签必须结束, img必须加/</td>
-                    <td>标签允许不结束</td>
-                </tr>
-                <tr>
-                    <td>属性不用带引号</td>
-                    <td>属性必须带引号</td>
-                    <td>属性不用带引号</td>
-                </tr>
-                <tr>
-                    <td>标签属性可大写</td>
-                    <td>标签属性必须小写</td>
-                    <td>标签属性可大写</td>
-                </tr>
-                <tr>
-                    <td>Boolean属性可省略值</td>
-                    <td>Boolean属性必须写值</td>
-                    <td>Boolean属性可省略值</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>
-            HTML验证工具: <a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>
-        </p>
-        <p>HTML5新增
-        <ol>
-            <li>新增区块标签:</li>
+    </div>
+</div>
+<hr/>
+<div>
+    <h3>HTML版本</h3>
+    <p>
+        版本变迁:
+        HTML4/4.01(SGML)<br/>
+        XHTML(XML)非常严格<br/>
+        HTML5 基于HTML4, 不是基于XHTML
+    </p>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>HTML4</th>
+            <th>XHTML</th>
+            <th>HTML5</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>标签允许不结束, br不加/</td>
+            <td>标签必须结束, img必须加/</td>
+            <td>标签允许不结束</td>
+        </tr>
+        <tr>
+            <td>属性不用带引号</td>
+            <td>属性必须带引号</td>
+            <td>属性不用带引号</td>
+        </tr>
+        <tr>
+            <td>标签属性可大写</td>
+            <td>标签属性必须小写</td>
+            <td>标签属性可大写</td>
+        </tr>
+        <tr>
+            <td>Boolean属性可省略值</td>
+            <td>Boolean属性必须写值</td>
+            <td>Boolean属性可省略值</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        HTML验证工具: <a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>
+    </p>
+    <p>HTML5新增</p>
+    <ol>
+        <li>新增区块标签:
             <ul>
                 <li>section</li>
                 <li>article</li>
                 <li>nav</li>
                 <li>aside: 不出现在大纲中, 表示不太重要的东西, 比如广告</li>
             </ul>
-            <li>表单增强:</li>
+        </li>
+        <li>表单增强:
             <ul>
                 <li>日期/时间/搜索</li>
                 <li>表单验证</li>
-                <li>Placehoder自动聚焦</li>
+                <li>Placeholder自动聚焦</li>
             </ul>
-            <li>新增语义:</li>
+        </li>
+        <li>新增语义:
             <ul>
                 <li>header/footer头尾: 可以表示网站的头尾,也可以表示区块的头尾, 会进入页面大纲</li>
                 <li>section/article区域: 和div是语义上的区别, section更零碎, article是相对完整的区块, 会进入页面大纲</li>
@@ -159,70 +162,71 @@
                 <li>em/strong强调: 替换i和b</li>
                 <li>i在html中保留, 用来做icon</li>
             </ul>
-        </ol>
-        </p>
-    </div>
-    <hr />
-    <div>
-        <h3>HTML元素分类</h3>
-        <p>按默认样式分:
-        <ol>
-            <li>块级block: 默认占据整行</li>
-            <li>行内inline: 和其他元素共存于一行, 选中不一定有规则形状</li>
-            <li>inline-block: 对外表现和inline一样和其他元素共存于一行, 对内像block一样是一个方块有尺寸, 可以调自己的宽高, 比如select</li>
-        </ol>
-        按内容分: <a href="https://www.w3.org/TR/2011/WD-html5-20110525/content-models.html" target="_blank">W3C content
-            models</a>
-        </p>
-    </div>
-    <hr />
-    <div>
-        <h3>HTML元素嵌套关系</h3>
-        <ul>
-            <li>块级元素可以包含行内元素</li>
-            <li>块级元素不一定能包含块级元素, 比如p里不能包含div</li>
-            <li>行内元素一般不能包含块级元素<br />
-                a元素可以包含块级元素
-            </li>
-        </ul>
-        <p>
-            为什么a包含div合法?<br />
-            查询<a href="https://jkorpela.fi/html/nesting.html" target="_blank">html4.01嵌套规则</a>, html4.01中a只能包含行内元素,
-            不能再包含a.<br />
-            但几乎所有浏览器里都支持a包含div, html5中对这个做了合法化, 对元素分类做了更多约定, <a
-                href="https://www.w3.org/TR/2011/WD-html5-author-20110809/the-a-element.html"
-                target="_blank">html5中a的嵌套规则</a>中, a的内容模型是透明.<br />
-            计算内容模型时, 透明元素不参与计算, 即计算嵌套合法性时, 相当于a不存在.<br />
-        <div><a href="#">DIV &gt; A</a></div>
-        <a href="#">
-            <div>A &gt; DIV</div>
-        </a>
-        <p><a href="#">
-                <div>P &gt; A &gt; DIV</div>
-            </a></p> p包含div不合法, 浏览器做了自己的容错修改.
-        </p>
-        <p>
-            如何了解一个元素嵌套是否合法?
-        <ol>
-            <li>验证工具.</li>
-            <li>查询文档中元素的content model, 被嵌套的元素是否在其中.</li>
-        </ol>
-        </p>
-    </div>
-    <hr />
-    <div>
-        <h3>HTML元素默认样式和定制化</h3>
-        <p>
-            默认样式存在有必要性, 但也带来了问题, 有一些定制成本很高. 遇到奇怪的样式问题, 可以从html开始查起. <br />
-            CSS Reset: 去掉默认样式, 并不是w3c的标准, 是在实践中总结的, 有非常多不同的写法. 比如,
-            <a href="https://meyerweb.com/eric/tools/css/reset/">CSS Tools: Reset CSS</a>,
-            <a href="https://clarle.github.io/yui3/yui/docs/cssreset/">YUI CSS Reset</a>.
-        <ol>
-            <li>不需要的样式统一去掉.</li>
-            <li>有一些样式各个浏览器的默认处理不同, 把需要的写一下, 让所有浏览器统一.</li>
-        </ol>
-        head里如下写法, 也可以达到reset的目的:
-        <pre>
+        </li>
+    </ol>
+</div>
+<hr/>
+<div>
+    <h3>HTML元素分类</h3>
+    <p>按默认样式分:</p>
+    <ol>
+        <li>块级block: 默认占据整行</li>
+        <li>行内inline: 和其他元素共存于一行, 选中不一定有规则形状</li>
+        <li>inline-block: 对外表现和inline一样和其他元素共存于一行, 对内像block一样是一个方块有尺寸, 可以调自己的宽高, 比如select</li>
+    </ol>
+    按内容分: <a href="https://www.w3.org/TR/2011/WD-html5-20110525/content-models.html" target="_blank">W3C content
+    models</a>
+</div>
+<hr/>
+<div>
+    <h3>HTML元素嵌套关系</h3>
+    <ul>
+        <li>块级元素可以包含行内元素</li>
+        <li>块级元素不一定能包含块级元素, 比如p里不能包含div</li>
+        <li>行内元素一般不能包含块级元素<br/>
+            a元素可以包含块级元素
+        </li>
+    </ul>
+    <p>
+        为什么a包含div合法?<br/>
+        查询<a href="https://jkorpela.fi/html/nesting.html" target="_blank">html4.01嵌套规则</a>, html4.01中a只能包含行内元素,
+        不能再包含a.<br/>
+        但几乎所有浏览器里都支持a包含div, html5中对这个做了合法化, 对元素分类做了更多约定, <a
+            href="https://www.w3.org/TR/2011/WD-html5-author-20110809/the-a-element.html"
+            target="_blank">html5中a的嵌套规则</a>中, a的内容模型是透明.<br/>
+        计算内容模型时, 透明元素不参与计算, 即计算嵌套合法性时, 相当于a不存在.<br/>
+    <div><a href="#">DIV &gt; A</a></div>
+    <a href="#">
+        <div>A &gt; DIV</div>
+    </a>
+    <a href="#">
+    <div>P &gt; A &gt; DIV</div>
+    </a>
+    p包含div不合法, 浏览器做了自己的容错修改.
+    <p>
+        如何了解一个元素嵌套是否合法?
+    </p>
+    <ol>
+        <li>验证工具.</li>
+        <li>查询文档中元素的content model, 被嵌套的元素是否在其中.</li>
+    </ol>
+
+</div>
+<hr/>
+<div>
+    <h3>HTML元素默认样式和定制化</h3>
+    <p>
+        默认样式存在有必要性, 但也带来了问题, 有一些定制成本很高. 遇到奇怪的样式问题, 可以从html开始查起. <br/>
+        CSS Reset: 去掉默认样式, 并不是w3c的标准, 是在实践中总结的, 有非常多不同的写法. 比如,
+        <a href="https://meyerweb.com/eric/tools/css/reset/">CSS Tools: Reset CSS</a>,
+        <a href="https://clarle.github.io/yui3/yui/docs/cssreset/">YUI CSS Reset</a>.
+    </p>
+    <ol>
+        <li>不需要的样式统一去掉.</li>
+        <li>有一些样式各个浏览器的默认处理不同, 把需要的写一下, 让所有浏览器统一.</li>
+    </ol>
+    head里如下写法, 也可以达到reset的目的:
+    <pre>
             &lt;style&gt;
                 *{
                     margin: 0;
@@ -230,89 +234,88 @@
                 }
             &lt;/style&gt;
         </pre>
-        </p>
-    </div>
-    <hr />
-    <div>
-        <h3>HTML面试真题解答</h3>
-        <ol>
-            <li>
-                doctype的意义是什么?
-                <ul>
-                    <li>让浏览器以标准模式渲染</li>
-                    <li>让浏览器知道元素的合法性, 并没有什么用, 浏览器会容错</li>
-                </ul>
-            </li>
-            <li>HTML XHTML HTML5的关系
-                <ul>
-                    <li>HTML属于SGML的一个应用, SGML是一个非常通用的标记语言</li>
-                    <li>XHTML属于XML, 是HTML进行XML严格化的结果</li>
-                    <li>HTML5不属于SFML或XML, 比XHTML宽松</li>
-                </ul>
-            </li>
-            <li>HTML5有什么变化?
-                <ul>
-                    <li>新的语义化元素</li>
-                    <li>表单增强</li>
-                    <li>新的API(离线/新视频/图形/实时通信/本地储存/设备能力)</li>
-                    <li>分类和嵌套变更</li>
-                </ul>
-            </li>
-            <li>
-                em和有什么区别?
-                <ul>
-                    <li>em是语义化标签, 表强调</li>
-                    <li>ishin纯样式的标签, 表斜体</li>
-                    <li>HTML5中i不推荐使用, 一般用作图标</li>
-                </ul>
-            </li>
-            <li>
-                语义化的意义是什么?
-                <ul>
-                    <li>开发者容易理解</li>
-                    <li>机器容易理解结构(搜索/读屏软件)</li>
-                    <li>有利于SEO(search engine optimization)搜索引擎优化</li>
-                    <li>semantic microdata在html中添加标记, 把页面中的元素作进一步标记, 方便搜索, 和语义化标签不太一样</li>
-                </ul>
-            </li>
-            <li>
-                哪些元素可以自闭合?
-                <ul>
-                    <li>表单元素input</li>
-                    <li>图片img</li>
-                    <li>br hr</li>
-                    <li>源信息meta link</li>
-                </ul>
-            </li>
-            <li>
-                HTML和DOM的关系
-                <ul>
-                    <li>HTML是字符串, 是"死"的</li>
-                    <li>DOM由HTML解析而来, 是活的</li>
-                    <li>JS可以维护DOM</li>
-                    <li>源信息meta link</li>
-                </ul>
-            </li>
-            <li>
-                property和attribute的区别
-                <ul>
-                    <li>attribute属性, 写在html中的, 是"死"的. 属于html.</li>
-                    <li>property特性, 经过解析后, 每个DOM元素会有一个property, 是活的. 属于js.</li>
-                </ul>
-            </li>
-            <li>
-                form的作用
-                <ul>
-                    <li>直接提交表单</li>
-                    <li>使用submit/reset按钮</li>
-                    <li>便于浏览器保存表单</li>
-                    <li>第三方库可以整体提取值</li>
-                    <li>第三方库可以进行表单验证</li>
-                </ul>
-            </li>
-        </ol>
-    </div>
-    <hr />
+</div>
+<hr/>
+<div>
+    <h3>HTML面试真题解答</h3>
+    <ol>
+        <li>
+            doctype的意义是什么?
+            <ul>
+                <li>让浏览器以标准模式渲染</li>
+                <li>让浏览器知道元素的合法性, 并没有什么用, 浏览器会容错</li>
+            </ul>
+        </li>
+        <li>HTML XHTML HTML5的关系
+            <ul>
+                <li>HTML属于SGML的一个应用, SGML是一个非常通用的标记语言</li>
+                <li>XHTML属于XML, 是HTML进行XML严格化的结果</li>
+                <li>HTML5不属于SFML或XML, 比XHTML宽松</li>
+            </ul>
+        </li>
+        <li>HTML5有什么变化?
+            <ul>
+                <li>新的语义化元素</li>
+                <li>表单增强</li>
+                <li>新的API(离线/新视频/图形/实时通信/本地储存/设备能力)</li>
+                <li>分类和嵌套变更</li>
+            </ul>
+        </li>
+        <li>
+            em和i有什么区别?
+            <ul>
+                <li>em是语义化标签, 表强调</li>
+                <li>i是纯样式的标签, 表斜体</li>
+                <li>HTML5中i不推荐使用, 一般用作图标</li>
+            </ul>
+        </li>
+        <li>
+            语义化的意义是什么?
+            <ul>
+                <li>开发者容易理解</li>
+                <li>机器容易理解结构(搜索/读屏软件)</li>
+                <li>有利于SEO(search engine optimization)搜索引擎优化</li>
+                <li>semantic microdata在html中添加标记, 把页面中的元素作进一步标记, 方便搜索, 和语义化标签不太一样</li>
+            </ul>
+        </li>
+        <li>
+            哪些元素可以自闭合?
+            <ul>
+                <li>表单元素input</li>
+                <li>图片img</li>
+                <li>br hr</li>
+                <li>源信息meta link</li>
+            </ul>
+        </li>
+        <li>
+            HTML和DOM的关系
+            <ul>
+                <li>HTML是字符串, 是"死"的</li>
+                <li>DOM由HTML解析而来, 是活的</li>
+                <li>JS可以维护DOM</li>
+                <li>源信息meta link</li>
+            </ul>
+        </li>
+        <li>
+            property和attribute的区别
+            <ul>
+                <li>attribute属性, 写在html中的, 是"死"的. 属于html.</li>
+                <li>property特性, 经过解析后, 每个DOM元素会有一个property, 是活的. 属于js.</li>
+            </ul>
+        </li>
+        <li>
+            form的作用
+            <ul>
+                <li>直接提交表单</li>
+                <li>使用submit/reset按钮</li>
+                <li>便于浏览器保存表单</li>
+                <li>第三方库可以整体提取值</li>
+                <li>第三方库可以进行表单验证</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+<hr/>
 </body>
 
 </html>
