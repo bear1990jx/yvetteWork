@@ -159,7 +159,17 @@
             </ul>
         </li>
         <li>line-height<br/>
-            行高: 像素值
+            行高: 像素值<br>
+            line-height属性设置行间的距离（行高），不能使用负值。该属性会影响行框的布局。
+            在应用到一个块级元素时，它定义了该元素中基线之间的最小距离而不是最大距离。<br>
+            line-height 与 font-size 的计算值之差(行距)分为两半，分别加到一个文本行内容的顶部和底部。
+            可以包含这些内容的最小框就是行框（line box）。<br>
+            值得注意的是：一个行内元素如span不是被其中的文字撑开的，而是由其中的line-height撑开的。<br>
+            应用：<br>
+            <ul>
+                <li>对于ｐ等，设置height和line-height相等，这样文字就居中了 。</li>
+                <li>对于div中的img，可以给div设置height和line-height相等，然后给img设置vertical-align:middle;即可实现。</li>
+            </ul>
         </li>
         <li>letter-spacing/ word-spacing<br/>
             字间距(英文字母, 中文字)/词间距(只针对英文单词): 像素值
@@ -408,6 +418,7 @@
             <li>margin 外边距, 当前元素和其他元素之间的距离<br/>
                 两个盒子之间的距离.<br/>
                 属性: margin-top、margin-bottom、margin-left、margin-right以及综合了以上四个方向的简写外边距属性margin.<br/>
+                margin: 0 auto可实现左右居中<br>
                 负margin技术: 外边距为负值, 盒子重叠效果. margin值可以取负, padding不行<br/>
                 简写:<br/>
                 <div>
@@ -512,11 +523,41 @@
         </li>
         <li>元素垂直居中: position结合负margin实现
             <p>
-                position这种方法万能, 不仅可用于block, 也
+                position这种方法万能，不仅可用于block，也可以用于inline元素和inline-块元素<br>
+                通过top、left 50%把子div挤到中心右下角，再通过负margin一半把它拉回到中心。
             </p>
+            <pre>
+                父元素{
+                    position: relative;
+                }
+                子元素{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: height值一半的负值;
+                    margin-left: width值一半的负值;
+                }
+            </pre>
+            <div id="margin-father">
+                <div id="margin-son"></div>
+            </div>
+            <br>
         </li>
-        <li>tab选项卡</li>
+        <li>tab选项卡：关键是使用“margin-top:-1px”来解决选项卡下边框显示问题。</li>
     </ul>
+    <h4>overflow</h4>
+    <p>使用overflow属性来定义当内容溢出元素边框时发生的事情：</p>
+    <ul>
+        <li>visible：默认，溢出内容可见</li>
+        <li>hidden：溢出内容隐藏，以免影响布局</li>
+        <li>scroll：有溢出，显示滚动条</li>
+        <li>auto：跟scroll相似，但auto值在盒子需要的时候给它一个滚动条</li>
+    </ul>
+    <div id="overflow-wrapper">
+        <div id="overflow-first"></div>
+        <div id="overflow-second"></div>
+        <!--        <div class="clear"></div>-->
+    </div>
 </div>
 <hr/>
 <h3>浮动布局</h3>
@@ -835,9 +876,184 @@
     <h4>CSS reset: 去除元素在浏览器的默认样式</h4>
     <p>*{padding:0; margin:0; }</p>
 </div>
+<hr/>
+<h3>display属性</h3>
+<div>
+    <p>改变元素的类型：display: 属性值;</p>
+    <ul>
+        <li>inline：行内元素</li>
+        <li>block：块元素</li>
+        <li>inline-block：行内块元素</li>
+        <li>table：以表格形式显示，类似于table元素</li>
+        <li>table-row：以表格行形式显示，类似于tr元素</li>
+        <li>table-cell：以表格单元格形式显示，类似于td元素</li>
+        <li>none：隐藏元素</li>
+    </ul>
+    <h4>block</h4>
+    <ul>
+        <li>独占一行，排斥其他元素跟其位于同一行，包括块元素和行内元素。</li>
+        <li>块元素内部可以容纳其他块元素或行元素。</li>
+        <li>可以定义高度（height），也可以定义宽度（width）。</li>
+        <li>可以定义四个方向的margin属性。</li>
+    </ul>
+    <h4>inline</h4>
+    <ul>
+        <li>可以与其他行内元素位于同一行。</li>
+        <li>行内内部可以容纳其他行内元素，但不可以容纳块元素。</li>
+        <li>无法定义高度（height），也无法定义宽度（width）。</li>
+        <li>可以定义margin-left和margin-right，无法定义margin-top和margin-bottom。</li>
+    </ul>
+    <h4>inline-block</h4>
+    <ul>
+        <li>可以定义width和height</li>
+        <li>可以与其他行内元素位于同一行。</li>
+    </ul>
+    <p>常见：img，input</p>
+    <p>span转inline-block</p>
+    <span class="inline-span"></span>
+    <span class="inline-span"></span>
+    <span class="inline-span"></span>
+    <p>
+        对于块元素，IE6和IE7不能识别“display:inline-block”，加不加“display:inline-block”对它们完全没有任何影响。
+        解决方法是：在IE6和IE7中用“*display:inline; *zoom:1；”来代替“display:inline-block；”。<br>
+        对于行内元素，比如a、span等，display:inline-block不存在兼容问题，所有浏览器都可以识别，可以正常使用。
+    </p>
+    <h4>display: none</h4>
+    <ul>
+        <li>“display:none”一般用于JavaScript动态隐藏元素，被隐藏的元素不占据原来的位置空间。</li>
+        <li>“display:none”不推荐用来隐藏一些对SEO关键的部分。因为对于搜索引擎来说，它会直接忽略“display:none”隐藏的内容，
+            不把“display:none”隐藏的内容加入权重考虑。
+        </li>
+    </ul>
+    <p>display: none隐藏第二个div元素B：</p>
+    <div class="display-none">A</div>
+    <div class="display-none" id="display-none">B</div>
+    <div class="display-none">C</div>
+    <p>“display:none”和“visibility:hidden”的区别</p>
+    <ul>
+        <li>“display:none”的元素被隐藏之后，不占据原来的位置。也就是说彻底地消失了，看不见也摸不着。</li>
+        <li>“visibility:hidden”的元素被隐藏之后，依然占据原来的位置。也就是说并没有彻底消失，看不见但摸得着。</li>
+    </ul>
+    <p>visibility: hidden隐藏第二个div元素B：</p>
+    <div class="display-none">A</div>
+    <div class="display-none" id="display-none2">B</div>
+    <div class="display-none">C</div>
+    <h4>display: table-cell</h4>
+    <p>“display:table-cell”可以让元素以表格单元格的形式呈现，即table-cell类型的元素具备td元素的特点。</p>
+    <ul>
+        <li>图片垂直居中于元素
+            <p>使用“display:table-cell”和“vertical-align:middle”来实现大小不固定的图片的垂直居中效果。</p>
+            <pre>
+            父元素 {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            子元素 {
+                vertical-align: middle;
+            }
+            </pre>
+            <div class="table-cell-div"><img src="../images/IMG_0810.jpg" alt=""/></div>
+            <div class="table-cell-div"><img src="../images/IMG_0839.JPG" alt=""/></div>
+            <div class="table-cell-div"><img src="../images/IMG_0846.JPG" alt=""/></div>
+            <p>
+                div设置了宽高，图片太大仍然被撑起来，设置子元素img"max-width: 100%; max-height: 100%;"。<br>
+                若设置"width: 100%; height: 100%;"图片会变形，因为width的100%是相对于父级宽度的，max-width是相对于img自身的尺寸而言。
+            </p>
+            <p>子元素vertical-align: middle;消除了图片距离父元素底部的间隙；若不写子元素，给父元素设置font-size:0也有同样效果。<br>
+                这种空隙问题一般会出现在inline元素或者inline-block之间，通常的解决办法就是父元素加个font-size: 0
+            </p>
+            <p>
+                图片的水平居中可以使用“text-align:center”来实现，
+                而图片的垂直居中效果可以使用“display:table-cell”和“vertical-align:middle”配合来实现。
+            </p>
+            <div>
+                <div class="iconList-div border-bottom"><img src="../images/iconList1.png" alt=""/></div>
+                <div class="iconList-div border-bottom"><img src="../images/iconList2.png" alt=""/></div>
+                <div class="iconList-div border-bottom"><img src="../images/iconList3.png" alt=""/></div>
+                <div class="iconList-div border-bottom"><img src="../images/iconList4.png" alt=""/></div>
+            </div>
+            <div>
+                <div class="iconList-div"><img src="../images/iconList5.png" alt=""/></div>
+                <div class="iconList-div"><img src="../images/iconList6.png" alt=""/></div>
+                <div class="iconList-div"><img src="../images/iconList7.png" alt=""/></div>
+                <div class="iconList-div"><img src="../images/iconList8.png" alt=""/></div>
+            </div>
+            <br>
+            <div class="table-div1">
+                <div class="iconList-div2"><img src="../images/iconList1.png" alt=""/></div>
+                <div class="iconList-div2"><img src="../images/iconList2.png" alt=""/></div>
+                <div class="iconList-div2"><img src="../images/iconList3.png" alt=""/></div>
+                <div class="iconList-div2"><img src="../images/iconList4.png" alt=""/></div>
+            </div>
+            <div class="table-div2">
+                <div class="iconList-div2"><img src="../images/iconList5.png" alt=""/></div>
+                <div class="iconList-div2"><img src="../images/iconList6.png" alt=""/></div>
+                <div class="iconList-div2"><img src="../images/iconList7.png" alt=""/></div>
+                <div class="iconList-div2"><img src="../images/iconList8.png" alt=""/></div>
+            </div>
+            <br>
+            <ul>
+                <li>不要与float：left; position:absolute; 一起使用</li>
+                <li>可以实现大小不固定元素的垂直居中</li>
+                <li>margin设置无效，响应padding设置</li>
+                <li>对高度和宽度高度敏感</li>
+                <li>不要对display：table-cell使用百分比设置宽度和高度</li>
+                <li>可用border-spacing添加间隔。<br>
+                    如果定义一个 length 参数，那么定义的是水平和垂直间距。
+                    如果定义两个 length 参数，那么第一个设置水平间距，而第二个设置垂直间距。
+                </li>
+            </ul>
+        </li>
+        <li>自适应的等高布局
+            <p>
+                同一行的单元格td元素高度是相等的。因此，table-cell元素也具备这个特点。根据这个特点，我们可以实现等高布局效果。
+            </p>
+            <div id="height-wrapper">
+                <div id="img-box">
+                    <img src="../images/iconList8.png" alt=""/>
+                </div>
+                <div id="text-box">
+                    <span>
+                        Die sogenannten Balkontomaten sind kleinbleibende Sorten, welche problemlos im Kübel oder Topf
+                        wachsen. Sie sind viel kleiner und weniger ausladend als Freilandtomaten und finden so auf jedem
+                        Balkon oder auf der Terrasse ihren Platz.
+                    </span>
+                </div>
+            </div>
+            <p>
+                左右两个盒子都没有加上高度，而是由盒子内容撑开。左右两个盒子高度相等，并且高度由两者高度最大值决定。
+            </p>
+            <div id="comments-wrapper">
+                <div id="profile-box">
+                    <img src="../images/iconList3.png" alt="">
+                </div>
+                <div id="comments-box">
+                    <div id="comments-username">Mianpang</div>
+                    <div id="comments-text">
+                        Meow Meow Song Lyrics · Meow meow…. Meow meow….. Meow meow… · Hey meow meow poona.
+                        Ada meesa illa poona. Hey meow meow poona · Hey meow meow poona.
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>自动平均划分元素，并且在一行显示</li>
+    </ul>
+    <h4>inline-block</h4>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>
 </body>
 
 </html>
+
+
+
+
+
+
+

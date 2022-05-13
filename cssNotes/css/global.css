@@ -1,6 +1,6 @@
 /** {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }*/
 
 /* 负margin例子, 开始 */
@@ -72,7 +72,7 @@
 
 /* 相邻选择器, 元素之间的效果, 结束 */
 
-/*自适应两列布局， 开始*/
+/*自适应两列布局，开始*/
 #margin-content, #margin-sidebar {
     float: left;
     color: palegreen;
@@ -95,18 +95,193 @@
     background-color: peru;
 }
 
-/*防止宽度不够文本重叠， 200px是右边sidebar的宽度， 10px是间距*/
+/*防止宽度不够文本重叠，200px是右边sidebar的宽度，10px是间距*/
 #margin-content p {
     margin-right: 210px;
 }
 
-/*自适应两列布局， 结束*/
+/*自适应两列布局，结束*/
 
+/*元素垂直居中，开始*/
+#margin-father {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border: 1px dashed;
+}
 
+#margin-son {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140px;
+    height: 80px;
+    background-color: coral;
+    margin-top: -40px;
+    margin-left: -70px;
+}
 
+/*元素垂直居中，结束*/
 
+/*overflow hidden清除浮动引起的塌陷，开始*/
+#overflow-wrapper {
+    width: 200px;
+    border: 1px solid black;
+    overflow: hidden;
+}
 
+#overflow-first, #overflow-second {
+    width: 80px;
+    height: 40px;
+    border: 1px solid red;
+}
 
+#overflow-first {
+    float: left;
+}
+
+#overflow-second {
+    float: right;
+}
+
+/*overflow hidden清除浮动引起的塌陷，结束*/
+
+/*span转inline-block*/
+.inline-span {
+    display: inline-block;
+    width: 60px;
+    height: 100px;
+    background-color: #F8C3CD;
+}
+/*隐藏第二个div元素B，开始*/
+.display-none {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    /*设置height和line-height相等，文字居中*/
+    line-height: 60px;
+    border: 1px solid red;
+    font-size: 36px;
+    text-align: center;
+}
+
+#display-none {
+    display: none;
+}
+
+#display-none2 {
+    visibility: hidden;
+}
+
+/*隐藏第二个div元素B，结束*/
+
+/*图片垂直居中于元素，开始*/
+.table-cell-div {
+    display: table-cell;
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+    vertical-align: middle;
+    text-align: center;
+    /*font-size: 0;*/
+}
+
+.table-cell-div img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+.table-cell-div+.table-cell-div {
+    border-left: none;
+}
+/*图片垂直居中于元素，结束*/
+
+/*icon list，开始*/
+.iconList-div, .iconList-div2 {
+    display: table-cell;
+    width: 100px;
+    height: 100px;
+    border: 1px solid darkgrey;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.iconList-div img, .iconList-div2 img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+.iconList-div+.iconList-div{
+    border-left: none;
+}
+.border-bottom {
+    border-bottom: none;
+}
+
+.table-div1, .table-div2 {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.table-div2 {
+    border-spacing: 10px 0;
+}
+/*icon list，结束*/
+
+/*等高布局，开始*/
+#height-wrapper {
+    display: table-row;
+}
+
+#img-box {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 150px;
+    border: 1px solid red;
+}
+
+#text-box {
+    display: table-cell;
+    width: 200px;
+    border: 1px solid red;
+    border-left: none;
+    padding: 10px;
+}
+
+/*等高布局，结束*/
+
+/*comments，开始*/
+#comments-wrapper {
+    display: table;
+    border: 1px solid grey;
+}
+
+#profile-box {
+    display: table-cell;
+    width: 70px;
+    text-align: center;
+    /*vertical-align: top;*/
+}
+
+#comments-box {
+    display: table-cell;
+    width: 500px;
+}
+
+#profile-box img {
+    width: 50px;
+}
+
+#comments-username {
+    vertical-align: middle;
+    color: #aaaaff;
+    font-weight: bold;
+}
+
+/*comments，结束*/
 
 
 
