@@ -127,8 +127,8 @@
 <div>
     <p>字体样式注重个体(文字本身), 文本样式注重整体(整个段落)</p>
     <ul>
-        <li>text-indent<br/>
-            首行缩进: p首行不会自动缩进. 初级可使用px像素值. 中文段落缩进两个字符, text-indent就是font-size的两倍.
+        <li>text-indent
+            <p>首行缩进text-indent:2em;，p首行不会自动缩进. 初级可使用px像素值. 中文段落缩进两个字符, text-indent就是font-size的两倍.</p>
         </li>
         <li>text-align<br/>
             水平对齐:
@@ -959,8 +959,9 @@
                 div设置了宽高，图片太大仍然被撑起来，设置子元素img"max-width: 100%; max-height: 100%;"。<br>
                 若设置"width: 100%; height: 100%;"图片会变形，因为width的100%是相对于父级宽度的，max-width是相对于img自身的尺寸而言。
             </p>
-            <p>子元素vertical-align: middle;消除了图片距离父元素底部的间隙；若不写子元素，给父元素设置font-size:0也有同样效果。<br>
-                这种空隙问题一般会出现在inline元素或者inline-block之间，通常的解决办法就是父元素加个font-size: 0
+            <p>
+                子元素vertical-align: middle;消除了图片距离父元素底部的间隙；若不写子元素，给父元素设置font-size:0也有同样效果。<br>
+                这种空隙问题一般会出现在inline-block之间，通常的解决办法就是父元素加个font-size: 0
             </p>
             <p>
                 图片的水平居中可以使用“text-align:center”来实现，
@@ -1003,6 +1004,7 @@
                     如果定义两个 length 参数，那么第一个设置水平间距，而第二个设置垂直间距。
                 </li>
             </ul>
+            <br>
         </li>
         <li>自适应的等高布局
             <p>
@@ -1030,15 +1032,87 @@
                 <div id="comments-box">
                     <div id="comments-username">Mianpang</div>
                     <div id="comments-text">
-                        Meow Meow Song Lyrics · Meow meow…. Meow meow….. Meow meow… · Hey meow meow poona.
+                        Meow Meow Song: Meow meow…. Meow meow….. Meow meow… · Hey meow meow poona.
                         Ada meesa illa poona. Hey meow meow poona · Hey meow meow poona.
+                    </div>
+                    <div>
+                        <span class="comments">评论(2)</span>
+                        <span class="time">5月17日 11:59</span>
+                    </div>
+                    <hr>
+                    <div id="comments-wrapper2">
+                        <div id="profile-box2">
+                            <img src="../images/iconList6.png" alt="">
+                        </div>
+                        <div id="comments-box2">
+                            <div id="comments-username2">
+                                <span>Fox:</span>
+                                <span>Meow meow…. Meow meow….</span>
+                            </div>
+                            <div>
+                                <span class="time">5月18日 16:34</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <br>
         </li>
-        <li>自动平均划分元素，并且在一行显示</li>
+        <li>自动平均划分元素，并且在一行显示
+            <p>
+                当父元素定义“display:table”而子元素定义“display:table-cell”时，如果给父元素一定的宽度，
+                父元素宽度就会根据子元素的个数进行自动平均划分。
+            </p>
+            <pre>
+            父元素{
+            display: table;
+            }
+            子元素{
+            display: table-cell;
+            }
+            </pre>
+            <ul id="block-table">
+                <li class="block-table-cell">1</li>
+                <li class="block-table-cell">2</li>
+                <li class="block-table-cell">3</li>
+                <li class="block-table-cell">4</li>
+                <li class="block-table-cell">5</li>
+            </ul>
+            <br>
+            <p>
+                选择器:nth-child()，选取父元素的第 N 个子元素，与类型无关。
+            </p>
+            <p>
+                上面使用table出现了浏览器兼容问题，chrome第一个元素没有等分，safari是等分的。下面使用flex布局，flex: 1。
+            </p>
+            <ul id="block-table2">
+                <li class="block-table-cell">1</li>
+                <li class="block-table-cell">2</li>
+                <li class="block-table-cell">3</li>
+                <li class="block-table-cell">4</li>
+                <li class="block-table-cell">5</li>
+            </ul>
+            <br>
+        </li>
     </ul>
-    <h4>inline-block</h4>
+    <h4>去除inline-block元素间距</h4>
+    <ul id="abc-inline-block">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
+    <p>“font-size:0”来去除inline-block元素的间距，“font-size:0”来去除inline-block元素的间距。</p>
+    <ul id="abc-inline-block2">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
+    <p>img元素也是inline-block元素，也能使用“font-size:0”来去除图片之间的间距。</p>
+    <div id="pic-inline-block">
+        <img src="../images/iconList5.png" alt=""/>
+        <img src="../images/iconList5.png" alt=""/>
+        <img src="../images/iconList5.png" alt=""/>
+    </div>
 </div>
 <br/>
 <br/>

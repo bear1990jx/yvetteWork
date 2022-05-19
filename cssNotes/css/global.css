@@ -263,7 +263,7 @@
     display: table-cell;
     width: 70px;
     text-align: center;
-    /*vertical-align: top;*/
+    vertical-align: top;
 }
 
 #comments-box {
@@ -276,12 +276,125 @@
 }
 
 #comments-username {
-    vertical-align: middle;
+    vertical-align: top;
     color: #aaaaff;
     font-weight: bold;
 }
 
+#comments-wrapper2 {
+    display: table;
+}
+
+#profile-box2 {
+    display: table-cell;
+    width: 50px;
+    text-align: center;
+    vertical-align: top;
+}
+
+#profile-box2 img {
+    width: 30px;
+}
+
+#comments-box2 {
+    display: table-cell;
+}
+
+.time {
+    font-size: 14px;
+    color: grey;
+}
+
+.comments {
+    font-size: 14px;
+}
+
 /*comments，结束*/
+
+/*自动平均划分元素，开始*/
+#block-table {
+    list-style-type: none;
+    display: table;
+    width: 400px;
+/*    border: 1px dashed grey;
+    padding: 4px;*/
+}
+
+.block-table-cell {
+    display: table-cell;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    color: white;
+}
+
+#block-table li:nth-child(1) {
+    background-color: #aaffaa;
+}#block-table li:nth-child(2) {
+    background-color: rebeccapurple;
+}#block-table li:nth-child(3) {
+    background-color: lightcoral;
+}#block-table li:nth-child(4) {
+    background-color: deepskyblue;
+}#block-table li:nth-child(5) {
+    background-color: yellow;
+}
+
+#block-table2 {
+    list-style-type: none;
+    display: flex;
+    width: 400px;
+}
+
+#block-table2 li {
+    flex: 1;
+}
+
+#block-table2 li:nth-child(1) {
+    background-color: #aaffaa;
+}#block-table2 li:nth-child(2) {
+     background-color: rebeccapurple;
+ }#block-table2 li:nth-child(3) {
+      background-color: lightcoral;
+  }#block-table2 li:nth-child(4) {
+       background-color: deepskyblue;
+   }#block-table2 li:nth-child(5) {
+        background-color: yellow;
+    }
+
+/*自动平均划分元素，结束*/
+
+/*去除inline-block元素间距，开始*/
+
+#abc-inline-block {
+    list-style-type: none;
+}
+
+#abc-inline-block li, #abc-inline-block2 li {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+    text-align: center;
+    background-color: #F8C3CD;
+    color: white;
+}
+
+#abc-inline-block2 {
+    list-style-type: none;
+    font-size: 0;
+}
+
+#pic-inline-block {
+    font-size: 0;
+}
+
+/*去除inline-block元素间距，结束*/
+
+
+
+
 
 
 
