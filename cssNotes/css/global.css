@@ -316,8 +316,8 @@
     list-style-type: none;
     display: table;
     width: 400px;
-/*    border: 1px dashed grey;
-    padding: 4px;*/
+    /*    border: 1px dashed grey;
+        padding: 4px;*/
 }
 
 .block-table-cell {
@@ -331,14 +331,14 @@
 #block-table li:nth-child(1) {
     background-color: #aaffaa;
 }#block-table li:nth-child(2) {
-    background-color: rebeccapurple;
-}#block-table li:nth-child(3) {
-    background-color: lightcoral;
-}#block-table li:nth-child(4) {
-    background-color: deepskyblue;
-}#block-table li:nth-child(5) {
-    background-color: yellow;
-}
+     background-color: rebeccapurple;
+ }#block-table li:nth-child(3) {
+      background-color: lightcoral;
+  }#block-table li:nth-child(4) {
+       background-color: deepskyblue;
+   }#block-table li:nth-child(5) {
+        background-color: yellow;
+    }
 
 #block-table2 {
     list-style-type: none;
