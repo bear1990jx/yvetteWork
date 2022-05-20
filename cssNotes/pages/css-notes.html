@@ -128,7 +128,17 @@
     <p>字体样式注重个体(文字本身), 文本样式注重整体(整个段落)</p>
     <ul>
         <li>text-indent
-            <p>首行缩进text-indent:2em;，p首行不会自动缩进. 初级可使用px像素值. 中文段落缩进两个字符, text-indent就是font-size的两倍.</p>
+            <p class="em">
+                首行缩进text-indent:2em;，p首行不会自动缩进. 初级可使用px像素值. 中文段落缩进两个字符, text-indent就是font-size的两倍.
+            </p>
+            <p>常用属性left/center/right，控制文本和图片对齐方式。justify（两端对齐）本身会产生一些问题，开发中比较少用。</p>
+            <p>text-align对文字、inline元素（行内元素）以及inline-block元素（行内块元素）起作用，但对块元素不起作用。其中，img元素属于inline-block元素。</p>
+            <p>水平居中“text-align:center；”与“margin:0 auto；”的区别：</p>
+            <ul>
+                <li>“text-align:center；”实现的是文字、inline元素以及inline-block元素的水平居中。</li>
+                <li>“margin:0 auto；”实现的是块元素的水平居中。</li>
+                <li>“text-align:center；”在父元素中定义，“margin:0 auto；”在当前元素中定义。</li>
+            </ul>
         </li>
         <li>text-align<br/>
             水平对齐:
@@ -160,10 +170,8 @@
         </li>
         <li>line-height<br/>
             行高: 像素值<br>
-            line-height属性设置行间的距离（行高），不能使用负值。该属性会影响行框的布局。
-            在应用到一个块级元素时，它定义了该元素中基线之间的最小距离而不是最大距离。<br>
-            line-height 与 font-size 的计算值之差(行距)分为两半，分别加到一个文本行内容的顶部和底部。
-            可以包含这些内容的最小框就是行框（line box）。<br>
+            line-height属性设置行间的距离（行高），不能使用负值。该属性会影响行框的布局。在应用到一个块级元素时，它定义了该元素中基线之间的最小距离而不是最大距离。<br>
+            line-height 与 font-size 的计算值之差(行距)分为两半，分别加到一个文本行内容的顶部和底部。可以包含这些内容的最小框就是行框（line box）。<br>
             值得注意的是：一个行内元素如span不是被其中的文字撑开的，而是由其中的line-height撑开的。<br>
             应用：<br>
             <ul>
@@ -175,6 +183,15 @@
             字间距(英文字母, 中文字)/词间距(只针对英文单词): 像素值
         </li>
     </ul>
+    <h4>text-indent: -9999px;</h4>
+    <p>一般用于logo，h1在搜索引擎优化中很重要，所以把logo图片放在h1标签中。<br>
+        指定h1元素的长宽与LOGO图片的长宽一样，然后定义h1的背景图片（background-image）为LOGO图片。使用logo图片作为h1标签的背景图片，然后使用“text-indent:-9999px；”来隐藏h1的文字内容。
+    </p>
+    <h1 id="logo">CasualXO</h1>
+    <h1 id="logo2">CasualXO</h1>
+    <p>注意：隐藏文字可以使用display:none；，但搜索引擎一般都把这些文字当做垃圾信息而忽略，此时h1的权重会丢失。</p>
+    <p>一般电脑屏幕宽度有为1024px、1366px等，定义为-9999px，是为了让文字的缩进足够大，大分辨率电脑下也看不到文字。</p>
+    <h4>line</h4>
 </div>
 <hr/>
 <h3>边框样式</h3>
@@ -572,7 +589,6 @@
     </div>
     <h4>clear: left/right/both; 清除浮动</h4>
     <div>我们一般都是在浮动元素后面再增加一个空元素, 然后为这个空元素定义clear:both;来清除浮动. 在实际开发中,使用浮动之后如果发现有什么不对劲的地方, 首先检查有没有清除浮动.</div>
-
     <h4>注意: float布局产生的margin有的折叠有的相加的问题, 涉及BFC概论, 避免使用float, 可使用flex布局.</h4>
     <h4>多个div并排居中显示</h4>
     <pre>

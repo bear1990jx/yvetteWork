@@ -392,7 +392,24 @@
 
 /*去除inline-block元素间距，结束*/
 
+/*首行缩进*/
+.em {
+    text-indent: 2em;
+  }
 
+/*Logo*/
+#logo {
+    width: 388px;
+    height: 179px;
+    background-image: url("../images/logo.png");
+}
+
+#logo2 {
+    width: 388px;
+    height: 179px;
+    background-image: url("../images/logo.png");
+    text-indent: -9999px;
+}
 
 
 
