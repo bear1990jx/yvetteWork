@@ -153,6 +153,7 @@
     height: 100px;
     background-color: #F8C3CD;
 }
+
 /*隐藏第二个div元素B，开始*/
 .display-none {
     display: inline-block;
@@ -192,9 +193,10 @@
     vertical-align: middle;
 }
 
-.table-cell-div+.table-cell-div {
+.table-cell-div + .table-cell-div {
     border-left: none;
 }
+
 /*图片垂直居中于元素，结束*/
 
 /*icon list，开始*/
@@ -213,9 +215,10 @@
     vertical-align: middle;
 }
 
-.iconList-div+.iconList-div{
+.iconList-div + .iconList-div {
     border-left: none;
 }
+
 .border-bottom {
     border-bottom: none;
 }
@@ -228,6 +231,7 @@
 .table-div2 {
     border-spacing: 10px 0;
 }
+
 /*icon list，结束*/
 
 /*等高布局，开始*/
@@ -330,15 +334,23 @@
 
 #block-table li:nth-child(1) {
     background-color: #aaffaa;
-}#block-table li:nth-child(2) {
-     background-color: rebeccapurple;
- }#block-table li:nth-child(3) {
-      background-color: lightcoral;
-  }#block-table li:nth-child(4) {
-       background-color: deepskyblue;
-   }#block-table li:nth-child(5) {
-        background-color: yellow;
-    }
+}
+
+#block-table li:nth-child(2) {
+    background-color: rebeccapurple;
+}
+
+#block-table li:nth-child(3) {
+    background-color: lightcoral;
+}
+
+#block-table li:nth-child(4) {
+    background-color: deepskyblue;
+}
+
+#block-table li:nth-child(5) {
+    background-color: yellow;
+}
 
 #block-table2 {
     list-style-type: none;
@@ -352,15 +364,23 @@
 
 #block-table2 li:nth-child(1) {
     background-color: #aaffaa;
-}#block-table2 li:nth-child(2) {
-     background-color: rebeccapurple;
- }#block-table2 li:nth-child(3) {
-      background-color: lightcoral;
-  }#block-table2 li:nth-child(4) {
-       background-color: deepskyblue;
-   }#block-table2 li:nth-child(5) {
-        background-color: yellow;
-    }
+}
+
+#block-table2 li:nth-child(2) {
+    background-color: rebeccapurple;
+}
+
+#block-table2 li:nth-child(3) {
+    background-color: lightcoral;
+}
+
+#block-table2 li:nth-child(4) {
+    background-color: deepskyblue;
+}
+
+#block-table2 li:nth-child(5) {
+    background-color: yellow;
+}
 
 /*自动平均划分元素，结束*/
 
@@ -395,7 +415,7 @@
 /*首行缩进*/
 .em {
     text-indent: 2em;
-  }
+}
 
 /*Logo*/
 #logo {
@@ -411,10 +431,90 @@
     text-indent: -9999px;
 }
 
+/*lineheight*/
+#lineheight {
+    text-align: center;
+}
 
+#lineheight img {
+    width: 400px;
+}
 
+#line-height div {
+    border: 1px solid;
+    width: 400px;
+    text-align: center;
+    font-size: 12px;
+}
 
+#line-height div:nth-child(1) {
+    height: 50px;
+    line-height: 20px;
+}
 
+#line-height div:nth-child(2) {
+    height: 50px;
+    line-height: 40px;
+}
+
+#line-height div:nth-child(3) {
+    height: 50px;
+    line-height: 60px;
+}
+
+#prozent {
+    width: 300px;
+    font-size: 30px;
+    /*父元素行高：30px x 150% = 45px*/
+    line-height: 150%;
+    background-color: #aaffaa;
+    color: white;
+}
+
+#prozent div {
+    /*子元素行高：30px x 150% = 45px，继承父元素行高*/
+    font-size: 20px;
+    background-color: #FC9F4D;
+}
+
+/*vertical-align*/
+#no-unit {
+    width: 300px;
+    font-size: 30px;
+    /*父元素行高：30px x 1.5 = 45px*/
+    line-height: 1.5;
+    background-color: #aaffaa;
+    color: white;
+}
+
+#no-unit div {
+    font-size: 20px;
+    background-color: #FC9F4D;
+    /*子元素行高：20px x 1.50 = 30px，继承父元素系数*/
+}
+
+#vertical-align1 {
+    vertical-align: top;
+    width: 50px;
+}
+#vertical-align2 {
+    vertical-align: middle;
+    width: 50px;
+}
+#vertical-align3 {
+    vertical-align: baseline;
+    width: 50px;
+}
+#vertical-align4 {
+    vertical-align: bottom;
+    width: 50px;
+}
+
+#vertical-align-span {
+    font-size: 30px;
+    border: 1px solid;
+    vertical-align: middle;
+}
 
 
 
