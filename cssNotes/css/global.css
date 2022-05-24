@@ -516,6 +516,201 @@
     vertical-align: middle;
 }
 
+#vertical-align-img {
+    display: table-cell;
+    border: 1px solid yellow;
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+
+#vertical-align-img img, .vertical-align-table img {
+    width: 50px;
+}
+
+.vertical-align-table {
+    border: 1px solid red;
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+
+/*单选框复选框与文字垂直居中对齐*/
+.font12 {
+    font-size: 12px;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+#radio3, #checkbox3 {
+    vertical-align: -3px;
+}
+
+#radio4, #checkbox4 {
+    vertical-align: -2px;
+}
+
+/*textarea*/
+#textarea {
+    width: 100px;
+    height: 80px;
+    max-width: 200px;
+    max-height: 160px;
+}
+
+#textarea2 {
+    width: 100px;
+    height: 80px;
+    resize: none;
+}
+
+#textarea3 {
+    width: 100px;
+    height: 80px;
+    resize: none;
+    overflow: auto;
+}
+
+/*表单对齐*/
+#form {
+    width: 320px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px dashed brown;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+    text-align: center;
+}
+
+.label {
+    float: left;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+#form input:not(#submit, #get-code) {
+    float: left;
+    height: 16px;
+    padding: 10px;
+    border: 1px solid silver;
+}
+
+#tel, #pwd {
+    width: 228px;
+}
+
+#verify-code {
+    width: 118px;
+    margin-right: 10px;
+}
+
+#get-code, #submit {
+    width: 100px;
+    height: 40px;
+    border: 1px solid gray;
+    padding: 0;
+    background-color: #aaffff;
+}
+
+/*float*/
+.float {
+    float: left;
+    width: 50px;
+    height: 80px;
+    border: 1px solid gray;
+    margin-left: 10px;
+}
+
+#float-wrapper {
+    width: 500px;
+    height: 200px;
+    border: 1px solid palegoldenrod;
+}
+
+#float-wrapper img {
+    float: left;
+}
+
+.float-left, .float-right {
+    width: 80px;
+    height: 40px;
+    border: 1px solid lightpink;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+#float-wrapper1 {
+    width: 200px;
+    border: 1px solid green;
+}
+
+#float-wrapper2 {
+    width: 200px;
+    height: 20px;
+    border: 1px solid green;
+}
+
+#float-wrapper3 {
+    width: 200px;
+    height: 60px;
+    border: 1px solid green;
+}
+
+.float-wrapper4 {
+    width: 300px;
+    height: 20px;
+    border: 1px solid gray;
+}
+
+.float-left1 {
+    float: left;
+    width: 60px;
+    height: 60px;
+    border: 1px solid brown;
+    background-color: #F8C3CD;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.float-right1 {
+    float: right;
+    width: 60px;
+    height: 60px;
+    border: 1px solid brown;
+    background-color: #F8C3CD;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#float-wrapper5 {
+    float: left;
+    width: 300px;
+    border: 1px solid gray;
+}
+
+
+
+
+
+
+
+
+
 
 
 

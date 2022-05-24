@@ -604,11 +604,13 @@
         <li>scroll：有溢出，显示滚动条</li>
         <li>auto：跟scroll相似，但auto值在盒子需要的时候给它一个滚动条</li>
     </ul>
+    <p>overflow hidden清除浮动引起的塌陷</p>
     <div id="overflow-wrapper">
         <div id="overflow-first"></div>
         <div id="overflow-second"></div>
-        <!--        <div class="clear"></div>-->
+        <!--<div class="clear"></div>-->
     </div>
+    <p>也可以添加一个空div为下方清除浮动clear: both;</p>
 </div>
 <hr/>
 <h3>浮动布局</h3>
@@ -617,42 +619,130 @@
         normal flow 普通文档流/普通流<br/>
         脱离文档流: 浮动/定位
     </div>
-    <h4>浮动 float: left/right;</h4>
-    <div>
-        浮动最常用于实现水平方向上的并排布局, 例如两列布局、多列布局.
-    </div>
+    <h4>浮动 float: left/right/none;</h4>
+    <p>
+        浮动最常用于实现水平方向上的并排布局，例如两列布局、多列布局。浮动一般用于实现水平方向的布局，而不是垂直方向上的布局。
+    </p>
+    <ul>
+        <li>
+            当一个元素定义了“float:left”或“float:right”时，不管这个元素之前是inline、inline-block或者其他类型，都会变成block类型。<br>
+            可以定义width、height、padding和margin。<br>
+            可以使用margin-left或margin-right来定义浮动元素与其他元素之间的间距。<br>
+            <span class="float"></span>
+            <span class="float"></span>
+            <span class="float"></span>
+            <div class="clear"></div>
+        </li>
+        <li>
+            当一个元素定义了“float:left”或“float:right”时，这个元素会脱离文档流，后面的元素会紧跟着填上空缺的位置。<br>
+            <div id="float-wrapper">
+                <img src="../images/iconList3.png" alt="">
+                <div>
+                    绵胖瓜是世界上最好的胖瓜。绵胖胖是一只可爱的小猫咪，每天喵咪猫咪猫咪，睡觉会打呼，撒娇会哼唧。绵胖瓜是世界上最好的胖瓜。绵胖胖是一只可爱的小猫咪，每天喵咪猫咪猫咪，睡觉会打呼，撒娇会哼唧。绵胖瓜是世界上最好的胖瓜。绵胖胖是一只可爱的小猫咪，每天喵咪猫咪猫咪，睡觉会打呼，撒娇会哼唧。青青河边草，绵绵思远道。
+                </div>
+            </div>
+        </li>
+    </ul>
     <h4>clear: left/right/both; 清除浮动</h4>
-    <div>我们一般都是在浮动元素后面再增加一个空元素, 然后为这个空元素定义clear:both;来清除浮动. 在实际开发中,使用浮动之后如果发现有什么不对劲的地方, 首先检查有没有清除浮动.</div>
-    <h4>注意: float布局产生的margin有的折叠有的相加的问题, 涉及BFC概论, 避免使用float, 可使用flex布局.</h4>
+    <p>我们一般都是在浮动元素后面再增加一个空元素, 然后为这个空元素定义clear:both;来清除浮动. 在实际开发中,使用浮动之后如果发现有什么不对劲的地方, 首先检查有没有清除浮动.</p>
+    <p>注意: float布局产生的margin有的折叠有的相加的问题, 涉及BFC概论, 避免使用float, 可使用flex布局.</p>
     <h4>多个div并排居中显示</h4>
     <pre>
-                &lt;div class="div0"&gt;
-                    &lt;div class="div1"&gt;1&lt;/div&gt;
-                    &lt;div class="div2"&gt;2&lt;/div&gt;
-                &lt;/div&gt;
-            </pre>
+        &lt;div class="div0"&gt;
+            &lt;div class="div1"&gt;1&lt;/div&gt;
+            &lt;div class="div2"&gt;2&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
     <div>
         <ol>
             <li>使用flex
                 <pre>
-                        .div0 {
-                            display: flex;
-                            justify-content: center;
-                        }
-                    </pre>
+                    .div0 {
+                        display: flex;
+                        justify-content: center;
+                    }
+                </pre>
             </li>
             <li>使用inline-block
                 <pre>
-                        .div0 {
-                            text-align: center;
-                        }
-                        .div1, .div2 {
-                            display: inline-block;
-                        }
-                    </pre>
+                    .div0 {
+                        text-align: center;
+                    }
+                    .div1, .div2 {
+                        display: inline-block;
+                    }
+                </pre>
             </li>
         </ol>
     </div>
+    <h4>浮动的影响</h4>
+    <ul>
+        <li>对自身：如果一个元素设置了浮动，不管这个元素是什么类型，都会转化为块元素，display属性值为block。</li>
+        <li>对父元素：浮动元素的height大于父元素的height，或者父元素没有定义height，此时浮动元素会脱离父元素，造成“父元素高度塌陷”。
+            <ul>
+                <li>父元素没有定义height
+                    <div id="float-wrapper1">
+                        <div class="float-left"></div>
+                        <div class="float-right"></div>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li>父元素height小于子元素height
+                    <div id="float-wrapper2">
+                        <div class="float-left"></div>
+                        <div class="float-right"></div>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li>父元素height大于子元素height
+                    <div id="float-wrapper3">
+                        <div class="float-left"></div>
+                        <div class="float-right"></div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>对兄弟元素
+            <ul>
+                <li>兄弟元素是浮动元素
+                    <ul>
+                        <li>同一方向的兄弟元素：从左到右、从上到下，一个接着一个紧挨着排列。
+                            <div class="float-wrapper4">
+                                <div class="float-left1">1</div>
+                                <div class="float-left1">2</div>
+                            </div>
+                            <div class="clear"></div>
+                            <br>
+                            <div class="float-wrapper4">
+                                <div class="float-right1">1</div>
+                                <div class="float-right1">2</div>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>相反方向的兄弟元素
+                            <div class="float-wrapper4">
+                                <div class="float-left1">1</div>
+                                <div class="float-right1">2</div>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                    </ul>
+                </li>
+                <li>兄弟元素不是浮动元素：对布局影响很大，使用浮动后，尽量清除浮动，避免想不到的后果。</li>
+            </ul>
+        </li>
+        <li>对子元素
+            <p>
+                如果父元素没有定义高度height，此时浮动元素会脱离父元素，造成父元素高度塌陷。<br>
+                如果一个元素是浮动元素（没有定义height），并且它的子元素也是浮动元素，则这个浮动元素会自适应地包含该子元素。
+            </p>
+            <div id="float-wrapper5">
+                <div class="float-left1">1</div>
+                <div class="float-right1">2</div>
+            </div>
+            <div class="clear"></div>
+        </li>
+    </ul>
 </div>
 <hr/>
 <h3>定位布局</h3>
@@ -1164,6 +1254,7 @@
         <img src="../images/iconList5.png" alt=""/>
     </div>
 </div>
+<hr>
 <h3>vertical-align属性</h3>
 <div>
     <ul>
@@ -1220,14 +1311,107 @@
         </li>
         <li>块元素<br>
             div是块元素，vertical-align属性对其无效。<br>
-            在div中实现图片的垂直居中，div定义display:table-cell，将块元素转化为table-cell元素（表格单元格），再使用vertical-align:middle。
-            <div><img src="../images/iconList1.png" alt=""></div>
+            在div中实现图片的垂直居中，div定义display:table-cell，将块元素转化为table-cell元素（表格单元格），再使用vertical-align:middle(直接在div上)。
+            <div id="vertical-align-img"><img src="../images/iconList1.png" alt=""></div>
         </li>
         <li>table-cell元素<br>
-
+            <ul>
+                <li>inline元素和inline-block元素的vertical-align定义周围元素相对于当前元素的对齐方式，写在当前元素上。</li>
+                <li>table-cell元素的vertical-align属性定义内部子元素相对于自身的对齐方式，写在其父元素上，即td。</li>
+            </ul>
+            <table>
+                <tr>
+                    <td class="vertical-align-table"><img src="../images/iconList1.png" alt=""></td>
+                    <td class="vertical-align-table"><img src="../images/iconList1.png" alt=""></td>
+                    <td class="vertical-align-table"><img src="../images/iconList1.png" alt=""></td>
+                </tr>
+            </table>
         </li>
     </ul>
 </div>
+<hr>
+<h3>表单效果</h3>
+<div>
+    <h4>radio和checkbox：单选框复选框与文字垂直居中对齐</h4>
+    <ul>
+        <li>当文字大小为12px时，给单选框或复选框定义“vertical-align:-3px”，表示元素相对于基线向下偏移3px。</li>
+        <li>当文字大小为14px时，我们给单选框或复选框定义“vertical-align:-2px”即可解决对齐问题。</li>
+    </ul>
+    <p class="font12">
+        <input id="radio1" type="radio"/><label for="radio1">单选框，12px</label>
+        <input id="checkbox1" type="checkbox"/><label for="checkbox1">复选框，12px</label>
+    </p>
+    <p class="font14">
+        <input id="radio2" type="radio"/><label for="radio2">单选框，14px</label>
+        <input id="checkbox2" type="checkbox"/><label for="checkbox2">复选框，14px</label>
+    </p>
+    <p>添加vertical-align调整对齐：</p>
+    <p class="font12">
+        <input id="radio3" type="radio"/><label for="radio3">单选框，12px</label>
+        <input id="checkbox3" type="checkbox"/><label for="checkbox3">复选框，12px</label>
+    </p>
+    <p class="font14">
+        <input id="radio4" type="radio"/><label for="radio4">单选框，14px</label>
+        <input id="checkbox4" type="checkbox"/><label for="checkbox4">复选框，14px</label>
+    </p>
+    <h4>textarea 文本域</h4>
+    <ul>
+        <li>固定大小<br>
+            <label>Chrome或Firefox浏览器，textarea元素右下角有一个小三角，过分拖动textarea的大小会影响页面布局。实际开发中往往设定固定大小或禁止拖动。<br>
+                <textarea></textarea>
+            </label>
+            <p>
+                min-width, min-height：最小宽度、最小高度
+                max-width, max-height：最大宽度、最大宽度
+            </p>
+            <label for="textarea"></label><textarea id="textarea"></textarea>
+        </li>
+        <li>禁用拖动 resize:none<br>
+            禁用textarea元素的拖动功能，此时textarea元素右下方的小三角会消失。<br>
+            <label for="textarea2"></label><textarea id="textarea2"></textarea>
+        </li>
+        <li>在chrome、Firefox和IE实现相同的外观。
+            <p>textarea有2个属性，cols用来控制列数（也就是每行文字个数），rows用来控制行数。用cols rows控制各个浏览器会有不同：
+            </p>
+            <ul>
+                <li>Chrome（或Firefox）和IE下，每行字数和文字的列数是不相同的。</li>
+                <li>默认情况下，IE是有滚动条的，而Chrome（或Firefox）是没有滚动条的。</li>
+            </ul>
+            <p>相同外观：</p>
+            <ul>
+                <li>使用CSS的width和height来定义textarea的大小。</li>
+                <li>使用“overflow:auto”来定义textarea的滚动条自适应</li>
+            </ul>
+            <label for="textarea3"></label><textarea id="textarea3"></textarea>
+        </li>
+    </ul>
+    <h4>表单对齐</h4>
+    <ul>
+        <li>每一行表单分为左栏加若干右栏。所有行的左栏长度相等，所有行的右栏所有盒子长度之和相等。左栏一般是一个label，右栏是若干个文本框。</li>
+        <li>所有左栏盒子和右栏盒子设置为左浮动。</li>
+        <li>左栏text-align属性定义为right，使文字右对齐。</li>
+        <li>每一行中左栏长度和右栏所有盒子的总长度之和等于行宽。这里的盒子是包括width、padding、border和margin的。</li>
+    </ul>
+    <form id="form">
+        <p class="overflow-hidden">
+            <label class="label" for="tel">手机号</label>
+            <input id="tel" type="text"/>
+        </p>
+        <p class="overflow-hidden">
+            <label class="label" for="pwd">密码</label>
+            <input id="pwd" type="text"/>
+        </p>
+        <p class="overflow-hidden">
+            <label class="label" for="verify-code">验证码</label>
+            <input id="verify-code" type="text"/>
+            <input id="get-code" type="button" value="获取验证码"/>
+        </p>
+        <p class="overflow-hidden">
+            <input id="submit" type="submit"/>
+        </p>
+    </form>
+</div>
+<hr>
 <br/>
 <br/>
 <br/>
