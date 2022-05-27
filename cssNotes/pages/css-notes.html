@@ -646,6 +646,37 @@
     <h4>clear: left/right/both; 清除浮动</h4>
     <p>我们一般都是在浮动元素后面再增加一个空元素, 然后为这个空元素定义clear:both;来清除浮动. 在实际开发中,使用浮动之后如果发现有什么不对劲的地方, 首先检查有没有清除浮动.</p>
     <p>注意: float布局产生的margin有的折叠有的相加的问题, 涉及BFC概论, 避免使用float, 可使用flex布局.</p>
+    <ul>
+        <li>clear: both
+            <p>clear属性不是应用于浮动元素本身，而是应用于浮动元素后面的元素。</p>
+            <p>缺点：增加多余div，破坏html代码语义。</p>
+        </li>
+        <li>overflow: hidden
+            <p>“overflow:hidden”应用于浮动元素的父元素，而不是当前的浮动元素。</p>
+            <p>注意：“overflow:hidden”会使得超出父元素部分隐藏。</p>
+        </li>
+        <li>::after 伪元素
+            <p>::after伪元素结合“clear:both”来清除浮动的方式，定义成公共类（如类名为clearfix），全局引用，减少CSS代码。</p>
+            <div id="after-wrapper" class="clearfix">
+                <div id="after-first"></div>
+                <div id="after-second"></div>
+            </div>
+            <pre>
+                .clearfix {
+                    *zoom:1;
+                }
+
+                .clearfix::after {
+                    clear: both;
+                    content: "";
+                    display: block;
+                    height: 0;
+                    visibility: hidden;
+                }
+            </pre>
+            <p>“*zoom:1；”用于解决IE6、IE7浮动问题。</p>
+        </li>
+    </ul>
     <h4>多个div并排居中显示</h4>
     <pre>
         &lt;div class="div0"&gt;
@@ -755,12 +786,12 @@
                 注意, 这四个值的参考对象是浏览器的四条边.
             </div>
             <pre>
-                                position: fixed;
-                                top: px;
-                                bottom: px;
-                                left: px;
-                                right: px;
-                            </pre>
+                position: fixed;
+                top: px;
+                bottom: px;
+                left: px;
+                right: px;
+            </pre>
 
         </li>
         <li>relative 相对定位
@@ -779,6 +810,86 @@
         </li>
         <li>static 默认, 静态定位</li>
     </ul>
+    <h4>注意</h4>
+    <ul>
+        <li>默认情况下，固定定位元素和绝对定位元素的位置是相对于浏览器，相对定位元素位置是相对原始位置。</li>
+        <li>position属性一般配合top、bottom、left和right来使用。只有元素定义position属性（除了static）之后，top、bottom、left和right才生效。</li>
+        <li>top、bottom、left和right这四个属性不一定全部都用到。</li>
+        <li>“position:absolute”会将元素转换为块元素。</li>
+    </ul>
+    <h4>子元素相对父元素定位</h4>
+    <pre>
+        父元素 {
+        position: relative;
+        }
+        子元素 {
+        position: absolute;
+        /*定义top, bottom, left, right*/
+        }
+    </pre>
+    <div class="navi-father">
+        <div class="navi-son"></div>
+    </div>
+    <br>
+    <p>子元素没有“display:inline-block”，却可以定义width和height，因为“position:absolute”将元素转换为块元素。</p>
+    <div id="navi">
+        <div class="navi-father1">
+            <div class="navi-son1"></div>
+        </div>
+        <div class="navi-father1">
+            <div class="navi-son1"></div>
+        </div>
+        <div class="navi-father1">
+            <div class="navi-son1"></div>
+        </div>
+    </div>
+    <h4>子元素相对祖先元素定位</h4>
+    <pre>
+        祖先元素 {
+        position: relative;
+        }
+        子元素 {
+        position: absolute;
+        /*定义top, bottom, left, right*/
+        }
+    </pre>
+    <p>绝对定位元素是相对于外层第一个设置了“position:relative；”“position:absolute；”或“position:fixed”的祖先元素来进行定位的。</p>
+    <p>祖父元素relative，父元素relative，子元素absolute</p>
+    <div id="navi-grandfather">
+        <div id="navi-father2">
+            <div id="navi-son2"></div>
+        </div>
+    </div>
+    <p>祖父元素relative，父元素无position，子元素absolute</p>
+    <div id="navi-grandfather2">
+        <div id="navi-father3">
+            <div id="navi-son3"></div>
+        </div>
+    </div>
+    <h4>z-index属性</h4>
+    <ul>
+        <li>z轴设定层的先后顺序，z-index属性控制元素的堆叠顺序。</li>
+        <li>默认设置元素的z-index属性无效。z-index属性只有在元素定义“position:relative”“position:absolute或者“position:fixed”时才被激活。</li>
+        <li>属性值：
+            <ul>
+                <li>auto：默认，堆叠顺序与父元素相等</li>
+                <li>number：如果为正数，则离用户更近，为负数，则表示离用户更远。z-index值较大的元素叠加在z-index值较小的元素之上。z-index值相同，遵循“后来居上”规则叠加。</li>
+                <li>inherit：从父元素继承z-index属性的值</li>
+                <li>如果元素没有指定position属性值（除了static），则z-index属性无效。</li>
+            </ul>
+        </li>
+    </ul>
+    <div class="D">
+        <div class="A" id="A1">A</div>
+        <div class="B" id="B1">B</div>
+        <div class="C" id="C1">C</div>
+    </div>
+    <p>添加z-index:</p>
+    <div class="D">
+        <div class="A" id="A2">A</div>
+        <div class="B" id="B2">B</div>
+        <div class="C" id="C2">C</div>
+    </div>
 </div>
 <hr/>
 <h3>相对单位</h3>
@@ -1412,6 +1523,240 @@
     </form>
 </div>
 <hr>
+<h3>CSS图形</h3>
+<div>
+    <h4>三角形</h4>
+    <p>外面有颜色的部分实际是border，为每一条边框定义不同的颜色（border color），并设置足够大的宽度（border-width），可以很明显地看出两条边相交。</p>
+    <div id="box1"></div>
+    <p>把盒子的宽度（width）和高度（height）都定义为0：</p>
+    <div id="box2"></div>
+    <p>将“右、下、左”这三条边颜色改为transparent（透明）：</p>
+    <div id="box3"></div>
+    <p>将“下、左”颜色改为transparent（透明）：</p>
+    <div id="box4"></div>
+    <p>原理：width和height定义为0，设置较粗的边框，将其中任意三条边框或者两条边的颜色定义为transparent。这个三角形其实是border。</p>
+    <h4>带边框的三角形</h4>
+    <p>使用两个三角形实现：一个作为背景色（内层三角形），一个作为边框色（外层三角形），通过定位布局重叠在一起。注意，两个三角形定位要相差1像素。一般情况下，都是将内层三角形相对于外层三角形进行定位，偏移1像素。</p>
+    <div id="triangle">
+        <div></div>
+    </div>
+    <p>子元素的绝对定位是根据父元素的“内容边界（content）”进行定位的，计算从父元素content到子元素border最外侧。</p>
+    <ul>
+        <li>外层三角形border-width比内层三角形border-width大1px。</li>
+        <li>内层三角形的left值一般是其border-width的负数，top值是其border-width的负数加1。</li>
+    </ul>
+    <div id="wrapper-bubble">
+        <div id="triangle-bubble">
+            <div></div>
+        </div>
+        欢迎绵胖瓜
+    </div>
+    <p>对称的样式居中：left: 50%, margin-left: -宽度的一半px。</p>
+    <p>三角形在最顶端，定义了top: -2倍border宽度。</p>
+    <p>最外侧div定义了height，文字不能垂直居中，添加了和height相同的line-height。</p>
+    <h4>圆角 border-radius: 长度值;</h4>
+    <p>px、百分比、em，指圆角半径。</p>
+    <ul>
+        <li>“border-radius:10px；”表示四个角的圆角半径都是10px</li>
+        <li>“border-radius:10px 20px；”表示左上角和右下角的圆角半径是10px，右上角和左下角的圆角半径都是20px</li>
+        <li>“border-radius:10px 20px 30px；”表示左上角圆角半径是10px，左下角和右上角的圆角半径都是20px，右下角圆角半径是30px</li>
+        <li>“border-radius:10px 20px 30px 40px；”依次表示左上角、右上角、右下角和左下角的圆角半径</li>
+    </ul>
+    <div id="radius">6</div>
+    <h4>半圆</h4>
+    <p>上半圆：高度height设为宽度width的一半，并且左上角和右上角的圆角半径定义与元素的高度一致，而右下角和左下角的圆角半径定义为0。</p>
+    <div id="half-round"></div>
+    <div id="half-round2"></div>
+    <h4>圆</h4>
+    <p>元素的宽度和高度定义为相同值，然后四个角的圆角半径定义为宽度（或高度）的一半。</p>
+    <div id="round"></div>
+    <h4>border-radius派生子属性</h4>
+    <ul>
+        <li>border-top-right-radius：右上角</li>
+        <li>border-bottom-right-radius：右下角</li>
+        <li>border-bottom-left-radius：左下角</li>
+        <li>border-top-left-radius：左上角</li>
+    </ul>
+    <h4>椭圆 border-radius: x/y;</h4>
+    <p>x表示圆角的水平半径，y表示圆角的垂直半径。“border-radius:30px”等价于“border-radius:30px/30px”</p>
+    <p>元素的宽度和高度不相等，其中四个角的圆角水平半径定义为宽度的一半，垂直半径定义为高度的一半。</p>
+    <div id="round1"></div>
+    <div id="round2"></div>
+</div>
+<hr>
+<h3>性能优化</h3>
+<div>
+    <ul>
+        <li>属性缩写
+            <p>属性缩写可以减少字符数，使得CSS代码量更少。</p>
+            <ul>
+                <li>盒模型缩写
+                <ul>
+                    <li>border：1px solid red;<br>
+                        边框的宽度（border-width），边框的外观（border-style），边框的颜色（border-color）<br>
+                        只定义一条边样式：border-top:1px solid red;<br>
+                        只定义三条边：border-bottom: 0; border-bottom: none;
+                    </li>
+                    <li>padding：四条边<br>
+                        padding：上下 左右<br>
+                        padding：上 右 下 左
+                    </li>
+                    <li>margin：四条边<br>
+                        margin：上下 左右<br>
+                        margin：上 右 下 左
+                    </li>
+                </ul>
+                </li>
+                <li>背景缩写：background: url() no-repeat 80px 40px;</li>
+                <li>字体缩写：font: font-family font-size/line-height font-weight;
+                    <ul>
+                        <li>如果使用字体简写形式，我们至少要指定font-family和font-size属性，其他属性如果没有指定则将自动使用默认值。</li>
+                        <li>在简写形式中，font-size值和line-height值之间需要加入斜杠“/”的。</li>
+                    </ul>
+                </li>
+                <li>颜色值缩写<br>
+                    十六进制的颜色值每两位的值相同，可以缩写一半。“color:#336699”可以缩写为“color:#369”。
+                </li>
+            </ul>
+        </li>
+        <li>语法压缩</li>
+        <li>压缩工具
+            <ul>
+                <li>CSS Compressor</li>
+                <li>YUI Compressor</li>
+            </ul>
+        </li>
+        <li>图片压缩
+            <ul>
+                <li>JPEG：推荐JPEGmini</li>
+                <li>PNG：推荐TinyPNG</li>
+                <li>ImageOptim</li>
+            </ul>
+        </li>
+        <li>高性能的选择器：浏览器解析选择器的原则是从右到左，最右边的选择器被称为关键选择器。<br>
+            选择器效率排序：
+            <ul>
+                <li>id</li>
+                <li>class</li>
+                <li>元素</li>
+                <li>相邻</li>
+                <li>子</li>
+                <li>后代</li>
+                <li>通配符</li>
+                <li>属性</li>
+                <li>伪类</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<hr>
+<h3>CSS技巧</h3>
+<div>
+    <h4>水平居中</h4>
+    <p>文字水平居中 text-align: center;</p>
+    <p>元素水平居中</p>
+    <ul>
+        <li>block：margin-left和margin-right为auto<br>
+            margin: 0 auto;<br>
+            注意：如果没有给块元素指定宽度，块元素默认会占满允许的最大宽度，此时这个方法无效的。“margin:0 auto”一定要指定块元素的宽度。
+        </li>
+        <li>inline，复合行内元素 inline-*（包括inline-block、inline-table以及inline-flex之类的元素）<br>
+            text-align: center;
+        </li>
+    </ul>
+    <h4>垂直居中</h4>
+    <p>文字垂直居中</p>
+    <ul>
+        <li>单行文字：line-height和height相等</li>
+        <li>多行文字：文字添加span，定义为inline-block
+            <pre>
+                父元素 {
+                display: table-cell;
+                vertical-align: middle;
+                }
+                子元素 {
+                display: inline-block;
+                }
+            </pre>
+        </li>
+    </ul>
+    <p>元素垂直居中</p>
+    <ul>
+        <li>block
+            <pre>
+                父元素 {
+                position: relative;
+                }
+                子元素 {
+                position: absolute;
+                top: 50%
+                left: 50%;
+                margin-top: height一半的负值;
+                margin-left: width一半的负值;
+                }
+            </pre>
+            <p>position方法可以用于所有元素，包括inline、inline-block、block元素。</p>
+            <div id="block-father">
+                <div id="block-son"></div>
+            </div>
+            <p>只水平居中，就去掉top和margin-top。只垂直居中同理。</p>
+        </li>
+        <li>inline-block
+            <pre>
+                父元素 {
+                display: table-cell;
+                vertical-align: middle;
+                }
+            </pre>
+            <div id="block-father1">
+                <img src="../images/iconList7.png" alt="">
+            </div>
+        </li>
+    </ul>
+    <h4>CSS Sprite 雪碧图</h4>
+    <p>
+        <a href="https://css.spritegen.com/">CSS Sprite Generator官方网址</a><br>
+        <a href="https://www.spritecow.com">Sprite Cow官方网址</a>
+    </p>
+    <p>注意：</p>
+    <ul>
+        <li>在开发后期而不是开发前期使用。</li>
+        <li>有条理地组织“雪碧图”便于后期的维护，将小背景图按照类别、风格、大小等分门别类。</li>
+        <li>控制“雪碧图”大小200KB以内，大于200KB根据类别分割成多个雪碧图。图片200KB以内，传输时间差不多。</li>
+    </ul>
+    <h4>icon font图标：使用字体文件取代图片文件，来实现小图标效果</h4>
+    <p>
+        <a href="https://www.iconfont.cn/">iconfont网站</a><br>
+        <a href="https://icomoon.io/">icomoon网站</a>
+    </p>
+    <ul>
+        <li>下载好图标字体文件并且放入网站目录中。</li>
+        <li>在CSS中，使用@font-face自定义字体。</li>
+        <li>在HTML中，元素添加class="iconfont"。</li>
+        <li>在元素中添加图标对应的字符串。</li>
+        <li>在CSS中，iconfont图标可以定义font-size、font-weight、color等。</li>
+    </ul>
+    <div>
+    <ul>
+        <li><i class="iconfont">&#xe658;</i>薯条</li>
+        <li><i class="iconfont">&#xe659;</i>珍珠奶茶</li>
+        <li><i class="iconfont">&#xe65d;</i>甜筒</li>
+        <li><i class="iconfont">&#xe662;</i>马卡龙</li>
+        <li><i class="iconfont">&#xe689;</i>泡面</li>
+    </ul>
+    </div>
+</div>
+<hr>
+<h3>重要概念</h3>
+<div>
+    <h4>包含块 containing block</h4>
+    <h4>格式上下文 formatting context</h4>
+    <p>
+        BFC 块级格式上下文<br>
+        IFC 行级格式上下文
+    </p>
+    <h4>层叠上下文</h4>
+</div>
 <br/>
 <br/>
 <br/>

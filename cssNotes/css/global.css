@@ -703,9 +703,373 @@
     border: 1px solid gray;
 }
 
+/*::after伪元素结合“clear:both”清除浮动*/
+.clearfix {
+    *zoom:1;
+}
 
+.clearfix::after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
 
+#after-wrapper {
+    width: 200px;
+    border: 1px solid gray;
+}
 
+#after-first, #after-second {
+    width: 70px;
+    height: 50px;
+    border: 1px solid red;
+}
+
+#after-first {
+    float: left;
+}
+
+#after-second {
+    float: right;
+}
+
+/*子元素相对父元素定位*/
+.navi-father {
+    position: relative;
+    width: 160px;
+    height: 30px;
+    background-color: #F8C3CD;
+}
+
+.navi-son {
+    position: absolute;
+    bottom: -30px;
+    right: 65px;
+    width: 30px;
+    height: 30px;
+    background-color: #aaaaff;
+}
+
+.navi-father1 {
+    display: inline-block;
+    position: relative;
+    /*float: left;*/
+    width: 120px;
+    height: 30px;
+    background-color: #F8C3CD;
+}
+
+.navi-son1 {
+    position: absolute;
+    bottom: -20px;
+    right: 50px;
+    width: 20px;
+    height: 20px;
+    background-color: #aaaaff;
+}
+
+/*子元素相对祖先元素定位*/
+#navi-grandfather {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    background-color: #F8C3CD;
+}
+
+#navi-father2 {
+    position: relative;
+    width: 120px;
+    height: 30px;
+    background-color: #aaaaff;
+}
+
+#navi-son2 {
+    position: absolute;
+    bottom: -20px;
+    left: 50px;
+    width: 20px;
+    height: 20px;
+    background-color: #F75C2F;
+}
+
+#navi-grandfather2 {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    background-color: #F8C3CD;
+}
+
+#navi-father3 {
+    width: 120px;
+    height: 30px;
+    background-color: #aaaaff;
+}
+
+#navi-son3 {
+    position: absolute;
+    bottom: -20px;
+    left: 50px;
+    width: 20px;
+    height: 20px;
+    background-color: #F75C2F;
+}
+
+/*z-index属性*/
+.A, .B, .C {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    color: white;
+}
+
+.A {
+    background-color: #F8C3CD;
+}
+
+.B {
+    background-color: #aaaaff;
+}
+
+.C {
+    background-color: #F75C2F;
+}
+
+#A1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#B1 {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+#C1 {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+}
+
+.D {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+#A2 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+}
+
+#B2 {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 2;
+}
+
+#C2 {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    z-index: 1;
+}
+
+/*三角形*/
+#box1 {
+    width: 30px;
+    height: 30px;
+    border-width: 20px;
+    border-style: solid;
+    border-color: red green blue orange;
+}
+
+#box2 {
+    /*把盒子的宽度（width）和高度（height）都定义为0*/
+    width: 0;
+    height: 0;
+    border-width: 20px;
+    border-style: solid;
+    border-color: red green blue orange;
+}
+
+#box3 {
+    width: 0;
+    height: 0;
+    border-width: 20px;
+    border-style: solid;
+    /*将“右、下、左”这三条边颜色改为transparent（透明）*/
+    border-color: red transparent transparent;
+}
+
+#box4 {
+    width: 0;
+    height: 0;
+    border-width: 20px;
+    border-style: solid;
+    /*将“下、左”颜色改为transparent（透明）*/
+    border-color: red red transparent transparent;
+}
+
+/*外层三角形*/
+#triangle {
+    position: relative;
+    width: 0;
+    height: 0;
+    border: 30px solid;
+    border-color: transparent transparent gray transparent;
+}
+
+/*内层三角形*/
+#triangle div {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 29px solid;
+    border-color: transparent transparent lightpink transparent;
+    left: -29px;
+    top: -28px;
+}
+
+/*气泡框*/
+#wrapper-bubble {
+    position: relative;
+    padding: 20px 30px;
+    width: 100px;
+    height: 50px;
+    border: 1px solid gray;
+    /*圆角效果*/
+    border-radius: 10px;
+    background-color: #F8C3CD;
+    font-size: 14px;
+    text-align: center;
+    line-height: 50px;
+}
+
+#triangle-bubble {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 15px solid;
+    border-color: transparent transparent gray transparent;
+    top: -30px;
+    /*三角形居中*/
+    left: 50%;
+    margin-left: -15px;
+}
+
+#triangle-bubble div{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 14px solid;
+    border-color: transparent transparent #F8C3CD transparent;
+    left: -14px;
+    top: -13px;
+}
+
+/*圆角*/
+#radius {
+    width: 50px;
+    line-height: 50px;
+    border-radius: 80% 90% 100% 20%;
+    background-color: #F75C2F;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+/*半圆*/
+#half-round {
+    width: 100px;
+    height: 50px;
+    border-radius: 50px 50px 0 0;
+    border: 1px solid gray;
+    background-color: #F8C3CD;
+}
+
+#half-round2 {
+    width: 50px;
+    height: 100px;
+    border-radius: 0 50px 50px 0;
+    border: 1px solid gray;
+    background-color: #F8C3CD;
+}
+
+#round {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px 50px 50px 50px;
+    border: 1px solid gray;
+    background-color: #F8C3CD;
+}
+
+#round1 {
+    width: 100px;
+    height: 50px;
+    border-radius: 50px/25px;
+    border: 1px solid gray;
+    background-color: #F8C3CD;
+}
+
+#round2 {
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid gray;
+    background-color: #F8C3CD;
+}
+
+/*block垂直居中*/
+#block-father {
+    position: relative;
+    width: 200px;
+    height: 160px;
+    border: 1px solid gray;
+}
+
+#block-son {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 60px;
+    background-color: #F8C3CD;
+    margin-top: -30px;
+    margin-left: -50px;
+}
+
+/*inline-block垂直居中*/
+#block-father1 {
+    display: table-cell;
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+    vertical-align: middle;
+}
+
+/*iconfont*/
+@font-face {
+    font-family: 'iconfont';
+    src:
+            url('../iconfont/iconfont.woff2?t=1653688979812') format('woff2'),
+            url('../iconfont/iconfont.woff?t=1653688979812') format('woff'),
+            url('../iconfont/iconfont.ttf?t=1653688979812') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 
 
