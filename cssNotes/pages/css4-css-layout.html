@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/css4.css">
+    <title>CSS Layout</title>
+</head>
+<body>
+<h1>CSS Notes and Practices</h1>
+<h2>CSS布局</h2>
+<h3>表格布局</h3>
+<div>
+    <h4>使用表格table布局</h4>
+    <table class="table1">
+        <tr>
+            <td class="left">table left</td>
+            <td class="right">table right</td>
+        </tr>
+    </table>
+    <p>表格中文字自动垂直居中，可添加width调整宽度。</p>
+    <h4>使用div伪装table布局</h4>
+    <div class="table2">
+        <div class="table-row">
+            <div class="table-cell left">div display table cell left</div>
+            <div class="table-cell right">div display table cell right</div>
+        </div>
+    </div>
+    <p>div中文字没有垂直居中，可添加vertical-align: middle;。</p>
+</div>
+<h3>布局的属性</h3>
+<div>
+    <p>盒子模型width和height是content内容区的宽高，盒子模型所占空间是内容区+padding+border。</p>
+    <p>display/position</p>
+    <ul>
+        <li>确定元素的显示类型：block/inline/inline-block
+            <div class="block">block</div>
+            <div class="inline">inline</div>
+            <div class="inline-block">inline-block</div><br>
+            <div class="inline">inline</div>
+            <div class="inline-block bottom">inline-block</div>
+            <ul>
+                <li>block有独立宽高，默认占一行。</li>
+                <li>inline和文本一样，不会占一行，不能设置宽高。</li>
+                <li>inline-block对内像block可以有宽高，对外像inline可以和其他元素在同一行。</li>
+                <li>inline-block默认是顶部对齐，可以vertical-align调整对齐方式。</li>
+            </ul>
+        </li>
+        <li>确定元素位置：static/relative/absolute/fixed
+            <ul>
+                <li>默认static，静态布局。</li>
+                <li>relative，相对于元素本身位置。偏移时不会改变原本占据的空间，即布局不变，后面的元素布局按照relative元素原本占据的空间计算。</li>
+                <li>absolute，脱离文档流，对其他元素布局不造成影响，相对于最近的父级relative或absolute，没有就相对于body。</li>
+                <li>fixed，脱离文档流，对其他元素布局不造成影响，相对于可视区域。</li>
+                <li>改变层叠顺序用z-index，relative/absolut/fixed可以设z-index</li>
+            </ul>
+            <div class="p1">p1 position: static</div>
+            <div class="p2">p2 position: relative</div>
+            <div class="p3">p3 position: absolute
+                <div class="p3-1">p3-1</div>
+            </div>
+            <div class="p4">p4 position: fixed</div>
+            <div class="p5">p5</div>
+        </li>
+    </ul>
+</div>
+<h3>flexbox布局</h3>
+<div>
+    <ul>
+        <li>弹性盒子：每个盒子有弹性，可伸缩</li>
+        <li>盒子本来就是并列的</li>
+        <li>flex:1指占1份宽度</li>
+        <li>可直接指定宽度，flex: none</li>
+    </ul>
+    <div class="container">
+        <div class="flex">flex</div>
+        <div class="flex">flex</div>
+        <div class="flex">flex</div>
+        <div class="flex2">flex 2</div>
+        <div class="flex3">flex 50px</div>
+    </div>
+    <div class="container1">
+        <div class="left">left：width:200px</div>
+        <div class="right">right：flex:1自适应</div>
+    </div>
+</div>
+<h3>float布局</h3>
+<div>
+    <ul>
+        <li>元素浮动</li>
+        <li>脱离文档流，不对其他元素的布局造成影响</li>
+        <li>但不脱离文本流</li>
+    </ul>
+    <div class="container2">
+        <span class="float-left">float</span>
+        <div class="float-right">很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字很长的文字</div>
+    </div>
+    <h4>对自身的影响：</h4>
+    <ul>
+        <li>形成"块"（BFC），宽高由自己决定，可以设置宽高。</li>
+        <li>位置尽量靠上</li>
+        <li>float:left位置尽量靠左，同理float:right尽量靠右</li>
+    </ul>
+    <div class="container2">
+        <span>写几个字</span>
+        <span class="float-left">float</span>
+        <span class="float-left">float</span>
+    </div>
+    <h4>对兄弟元素的影响：</h4>
+    <ul>
+        <li>上面贴非float元素</li>
+        <li>旁边贴float元素</li>
+        <li>不影响其他块级元素位置</li>
+        <li>影响其他块级元素内部文本</li>
+    </ul>
+    <h4>对父级元素的影响：</h4>
+    <ul>
+        <li>从布局上"消失"</li>
+        <li>高度塌陷</li>
+    </ul>
+    <div class="container2">
+        <span>写几个字</span>
+        <span class="float-left">float</span>
+        <span class="float-left">float</span>
+    </div>
+    <div class="container3">container3</div>
+    <h4>清除浮动：</h4>
+    <ul>
+        <li>将父元素变成BFC，接管自己的宽高，添加overflow: hidden;</li>
+        <li>添加伪元素在浮动元素的下方（block，float元素会自动靠上），高度为0，不显示
+            <pre>
+                .clear2::after {
+                    content: "";
+                    clear: both;
+                    display: block;
+                    visibility: hidden;
+                    height: 0;
+                }
+            </pre>
+        </li>
+    </ul>
+    <div class="container2 clear1 clear2">
+        <span>写几个字</span>
+        <span class="float-left">float</span>
+        <span class="float-left">float</span>
+    </div>
+    <div class="container3">container3</div>
+    <h4>float布局：左边向左浮动，右边给一个margin-left: 左边宽度;，把左边空出来，左右height: 100%;</h4>
+    <p>两栏</p>
+    <div class="container4">
+        <div class="float-left1">left</div>
+        <div class="float-right">right</div>
+    </div>
+    <p>三栏</p>
+    <div class="container4">
+        <div class="float-left1">left</div>
+        <div class="float-right2">right</div>
+        <div class="float-middle">middle</div>
+    </div>
+    <p>注意：按照左（float）中右（float）顺序写，右绕不开中间，会导致顶上空白，先写左右，再写中间。</p>
+</div>
+<h3>inline-block布局</h3>
+<div>
+    <ul>
+        <li>像文本一样排block元素</li>
+        <li>没有清除浮动等问题</li>
+        <li>需要处理间隙：父元素font-size: 0;。间隙其实是html中的空白，可以把空白注释掉或者不空格，但比较麻烦，推荐使用字体。</li>
+        <li>缺点：做自适应会有困难。比较适合定宽的布局。</li>
+    </ul>
+    <div class="container5">
+        <div class="inline-block-left">left</div>
+        <div class="inline-block-right">right</div>
+    </div>
+</div>
+<h3>响应式设计和布局</h3>
+<div>
+    <ul>
+        <li>在不同设备上正常使用</li>
+        <li>一般主要处理屏幕大小问题</li>
+        <li>主要方法：
+            <ul>
+                <li>隐藏：不重要的内容采用点击菜单弹出的方式隐藏</li>
+                <li>折行：比如特性列表PC端是一行三四个横着拍，移动端可以折行一行一个或两个</li>
+                <li>留下自适应的空间</li>
+                <li>rem：通过html字体大小来确定元素大小</li>
+                <li>viewport</li>
+                <li>media query</li>
+            </ul>
+        </li>
+    </ul>
+    <h4>viewport：可视区域大小等于屏幕大小，让页面和屏幕像素匹配。对于简单的页面，加上viewport就可以了。</h4>
+    <pre>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </pre>
+    <h4>media query 媒体查询：根据硬件情况写不同样式</h4>
+    <p>这块样式只在小于等于宽度640px的设备上生效，一般指移动端的设备。</p>
+    <pre>
+        @media (max-width: 640px) {
+            .inline-block-left {
+                display: none;
+            }
+        }
+    </pre>
+    <h4>折行</h4>
+    <div class="container6">
+        <div class="intro">Introduction 1</div>
+        <div class="intro">Introduction 2</div>
+        <div class="intro">Introduction 3</div>
+        <div class="intro">Introduction 4</div>
+    </div>
+    <h4>等比例缩放适配</h4>
+    <p>屏幕大小不同，内容文字相同大小，会感觉在大屏幕上变小了。</p>
+    <ul>
+        <li>viewport实现等比例缩放：content="width=320"，320是iphone5，设置后大屏幕会等比放大</li>
+        <li>设置一个脚本，动态计算</li>
+        <li>rem
+            <p>
+                使用像素，即宽高是固定的，不能变。<br>
+                html默认font-size: 16px;，1rem=16px<br>
+                为了计算简便 ，可以设置html的font-size为10px或20px，可根据设备使用media query设置html的font-size。<br>
+                注意：把max-width大的写在上面，范围小的写在下面。<br>
+                注意：rem要考虑到不精准的情况，预留出空间，对于精确性要求高的不是用rem布局。
+            </p>
+        </li>
+    </ul>
+</div>
+<h3>CSS面试题</h3>
+<div>
+    <h4>实现两栏（三栏）布局的方法</h4>
+    <ul>
+        <li>表格布局：table，display: table</li>
+        <li>float + margin：兼容性很好，注意清除浮动</li>
+        <li>inline-block：注意处理空隙</li>
+        <li>flexbox：兼容性不是特别好</li>
+    </ul>
+    <h4>position: absolute/fixed区别</h4>
+    <ul>
+        <li>absolute相对于最近的absolute或relative</li>
+        <li>fixed相对于屏幕（viewport）</li>
+    </ul>
+    <h4>display: inline-block间隙的原因和处理方法</h4>
+    <ul>
+        <li>原因：字符间距</li>
+        <li>解决：消灭字符（标签中间不留空白或空白加注释）或消灭间距（字体为0，不占空间）</li>
+    </ul>
+    <h4>如何清除浮动</h4>
+    <ul>
+        <li>原因：浮动元素不占据父元素布局空间，父元素布局不管浮动元素，浮动元素可能超出父元素对其他元素产生影响。</li>
+        <li>让盒子负责自己的布局，overflow:hidden(auto)</li>
+        <li>加一个元素在最后，使父元素一定包裹浮动元素，::after{clear:both}，或加一个div+clear:both</li>
+    </ul>
+    <h4>如何适配移动端页面</h4>
+    <ul>
+        <li>viewport适配移动端宽度，否则页面在移动端会缩小</li>
+        <li>大小上的适配：rem/ viewport/ media query</li>
+        <li>设计上：隐藏，折行，自适应</li>
+    </ul>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

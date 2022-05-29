@@ -1,0 +1,265 @@
+/*使用表格table*/
+.left {
+    background-color: #F8C3CD;
+    /*width: 100px;*/
+}
+
+.right {
+    background-color: #EB7A77;
+}
+
+.table1 {
+    width: 400px;
+    height: 100px;
+    border-collapse: collapse;
+}
+
+/*使用div伪装table*/
+.table2 {
+    display: table;
+    width: 400px;
+    height: 100px;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-cell {
+    display: table-cell;
+    /*vertical-align: middle;*/
+}
+
+/*element*/
+.block {
+    height: 200px;
+    background-color: #F8C3CD;
+}
+
+.inline {
+    display: inline;
+    background-color: #EB7A77;
+}
+
+.inline-block {
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    background-color: #F75C2F;
+}
+
+.bottom {
+    vertical-align: bottom;
+}
+
+/*position*/
+.p1, .p2, .p3, .p4, .p5 {
+    width: 100px;
+    height: 100px;
+}
+
+.p1, .p4, .p5 {
+    background-color: #F8C3CD;
+}
+
+.p2 {
+    position: relative;
+    background-color: #EB7A77;
+    left: 10px;
+    top: -10px;
+}
+
+.p3 {
+    position: absolute;
+    background-color: #F75C2F;
+    left: 80px;
+    top: 1400px;
+}
+
+.p4 {
+    position: fixed;
+    right: 0;
+    bottom: 10px;
+}
+
+.p3-1 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 0;
+    bottom: 10px;
+    background-color: #D0104C;
+}
+
+/*flex*/
+.container {
+    width: 800px;
+    height: 100px;
+    display: flex;
+    border: 1px solid gray;
+}
+
+.flex {
+    background-color: #F8C3CD;
+    margin: 5px;
+    flex: 1;
+}
+
+.flex2 {
+    background-color: #F8C3CD;
+    margin: 5px;
+    flex: 2;
+}
+
+.flex3 {
+    background-color: #F8C3CD;
+    margin: 5px;
+    /*flex: none;*/
+    width: 50px;
+}
+
+.container1 {
+    display: flex;
+    width: 500px;
+    height: 100px;
+    border: 1px solid gray;
+    margin-top: 10px;
+}
+
+.left {
+    background-color: #ffaaff;
+    display: flex;
+    width: 200px;
+}
+
+.right {
+    background-color: #aaaaff;
+    display: flex;
+    flex: 1;
+}
+
+/*float*/
+.container2 {
+    width: 400px;
+    background-color: #ffaaff;
+}
+
+.float-left {
+    background-color: #aaaaff;
+    float: left;
+    width: 200px;
+    height: 50px;
+}
+
+.container3 {
+    width: 400px;
+    height: 200px;
+    background-color: #D0104C;
+}
+
+/*.clear1 {
+    overflow: hidden;
+}*/
+
+.clear2::after {
+    content: "";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+
+.container4 {
+    width: 800px;
+    height: 200px;
+}
+
+.float-left1 {
+    float: left;
+    width: 200px;
+    height: 100%;
+    background-color: #F8C3CD;
+}
+
+.float-right {
+    background-color: #D0104C;
+    margin-left: 200px;
+    height: 100%;
+}
+
+.float-middle {
+    background-color: #ffaaaa;
+    margin-left: 200px;
+    margin-right: 200px;
+    height: 100%;
+}
+
+.float-right2 {
+    background-color: #D0104C;
+    float: right;
+    width: 200px;
+    height: 100%;
+}
+
+/*inline-block*/
+.container5 {
+    width: 800px;
+    height: 200px;
+    font-size: 0;
+}
+
+.inline-block-left {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: #ffaaaa;
+    font-size: 14px;
+}
+
+.inline-block-right {
+    display: inline-block;
+    width: 600px;
+    height: 200px;
+    background-color: #D0104C;
+    font-size: 14px;
+}
+
+/*media query*/
+@media (max-width: 640px) {
+    .inline-block-left {
+        display: none;
+    }
+}
+
+/*折行*/
+.container6 {
+    margin: 0 auto;
+    max-width: 800px;
+    border: 1px solid gray;
+}
+
+.intro {
+    display: inline-block;
+    width: 180px;
+    height: 180px;
+    line-height: 180px;
+    text-align: center;
+    border-radius: 90px;
+    border: 1px solid #D0104C;
+    margin: 7px;
+}
+
+@media (max-width: 640px) {
+    .intro {
+        margin: 7px auto;
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
