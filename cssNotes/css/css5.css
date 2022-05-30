@@ -1,0 +1,78 @@
+/*box-shadow*/
+.container1 {
+    background: #ffaaaa;
+    width: 200px;
+    height: 200px;
+    margin: 100px;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .2);
+}
+
+.container2 {
+    background: #ffaaaa;
+    width: 200px;
+    height: 200px;
+    margin: 100px;
+    box-shadow: inset 5px 5px 10px 0 rgba(0, 0, 0, .2);
+}
+
+.container3 {
+    background: #ffaaaa;
+    width: 200px;
+    height: 200px;
+    margin: 100px;
+    box-shadow: 0 0 0 5px green;
+}
+
+.container4 {
+    background: #ffaaaa;
+    width: 200px;
+    height: 200px;
+    margin: 100px;
+    box-shadow: 200px 100px 0 -12px green;
+}
+
+.container5 {
+    background: #D0104C;
+    width: 10px;
+    height: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 200px 100px 0 5px green,
+    230px 100px 0 5px green,
+    215px 115px 0 -3px #D0104C;
+}
+
+.container6 {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin: 300px auto;
+    background-color: #C63D01;
+    box-shadow: 0 0 0 1px #000,
+    -20px -26px 0 -10px #333,
+    -34px -40px 0 15px #fff,
+    -34px -40px 0 16px
+
+    ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
