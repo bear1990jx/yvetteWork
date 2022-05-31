@@ -9,14 +9,22 @@
 <body>
 <h1>CSS Notes and Practices</h1>
 <h2>CSS效果</h2>
-<h3>box-shadow</h3>
+<h3>box-shadow 盒子阴影</h3>
 <div>
+    <p>box-shadow：x坐标值（正右负左） y坐标值（正下负上） 模糊程度 阴影扩散长度 颜色</p>
+    <ul>
+        <li>inset: 默认阴影在边框外。使用 inset 后，阴影在边框内（即使是透明边框），背景之上内容之下。</li>
+        <li>offset-x offset-y: 阴影偏移量。水平偏移量，如果是负值则阴影位于元素左边。两者都是0，那么阴影位于元素后面。这时如果设置了blur-radius或spread-radius有模糊效果。</li>
+        <li>blur-radius：值越大，模糊面积越大，阴影就越大越淡。 不能为负值。默认为0，此时阴影边缘锐利。</li>
+        <li>spread-radius：取正值时，阴影扩大；取负值时，阴影收缩。默认为0，此时阴影与元素同样大。</li>
+        <li>color：如果没有指定，则由浏览器决定——通常是color的值，不过目前Safari取透明。</li>
+    </ul>
     <p>内阴影加inset</p>
     <p>外阴影</p>
     <div class="container1"></div>
-    <p>内阴影</p>
+    <p>内阴影：inset</p>
     <div class="container2"></div>
-    <p>阴影变边框</p>
+    <p>阴影变边框：0 0 0 边框宽度 颜色</p>
     <div class="container3"></div>
     <p>阴影移动到外面</p>
     <div class="container4"></div>
@@ -31,9 +39,14 @@
         <li>特殊效果</li>
     </ul>
 </div>
-<h3>text-shadow</h3>
+<h3>text-shadow 文本阴影</h3>
 <div>
-
+    <p>作用</p>
+    <ul>
+        <li>立体感</li>
+        <li>印刷品质感</li>
+        <li>特殊效果</li>
+    </ul>
 </div>
 <h3>border-radius</h3>
 <div>
