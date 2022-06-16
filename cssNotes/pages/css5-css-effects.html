@@ -41,24 +41,72 @@
 </div>
 <h3>text-shadow 文本阴影</h3>
 <div>
+    <p>text-shadow：x坐标值（正右负左） y坐标值（正下负上） 模糊半径 颜色</p>
     <p>作用</p>
     <ul>
-        <li>立体感</li>
-        <li>印刷品质感</li>
-        <li>特殊效果</li>
+        <li>立体感 text-shadow: 1px 1px 0 #aaa;</li>
+        <li>印刷品质感(边缘油墨模糊感) text-shadow: 0 0 1px rgba(128,128,128,.2);</li>
     </ul>
+    <div class="container7">
+        <p>扮演少爷的男主名叫Mile，关于Mile，随着热度增加，不少网友也好奇他的个人资料。</p>
+        <p>Mile全名帕克普泓·隆牧塞侗，中国粉丝喜欢叫他少爷、迈、爹地，1992年1月5日出生于泰国，是演员、也是创作歌手，毕业于泰国法政大学。</p>
+    </div>
 </div>
 <h3>border-radius</h3>
 <div>
-
+    <ul>
+        <li>圆角矩形</li>
+        <li>圆形：border-radius: 50%;</li>
+        <li>半圆、扇形</li>
+        <li>一些奇怪的角</li>
+    </ul>
+    <p>注意：border-radius写50%，即使有边框，也是圆形；如果写宽度一半的px值，加上边框就不是圆，因为半径其实是边框值加宽度的一半。</p>
+    <p>border-radius: x / y，分别对应水平方向和垂直方向的半径。等同，border-top-left-radius: x y;，写单个角不需要/。</p>
+    <div class="container8"></div>
+    <div class="container9"></div>
 </div>
 <h3>background</h3>
 <div>
-
+    <ul>
+        <li>纹理、图案</li>
+        <li>渐变</li>
+        <li>雪碧图动画
+            <div class="i"></div>
+        </li>
+        <li>背景图尺寸适应
+            <div class="container10"></div>
+        </li>
+    </ul>
+    <p>background-position: center center;指定背景图位置</p>
+    <p>background-repeat: repeat-x水平重复，repeat-y垂直重复，no-repeat不重复。</p>
+    <p>
+        background-size: 50% 50%;，百分比相对于容器大小。100% 100%就刚好覆盖，和容器一样大。<br>
+        有可能图片会被拉伸，设置cover，覆盖整个容器画面，保持长宽比不变。<br>
+        设置contain，图片会完整显示出来，多的地方空白。
+    </p>
+    <div class="container11"></div>
 </div>
 <h3>clip-path</h3>
 <div>
-
+    <p>按路径进行裁剪</p>
+    <ul>
+        <li>对容器进行裁剪：指定容器一部分显示，一部分被裁掉。</li>
+        <li>按常见几何图形裁剪</li>
+        <li>自定义路径裁剪</li>
+    </ul>
+    <p>
+        和border-radius区别：容器占位大小不变，border-radius需调整容器的大小才能实现相同的效果。<br>
+        clip-path不改变容器定位，可以实现容器内动画。
+    </p>
+    <ul>
+        <li>方形inset
+            <div class="container12">我是熊猫</div>
+        </li>
+        <li>圆形circle
+            <div class="container13">我是熊猫</div>
+        </li>
+        <li>多边形polygon</li>
+    </ul>
 </div>
 <h3>3D-transform</h3>
 <div>

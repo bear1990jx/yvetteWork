@@ -192,7 +192,7 @@
     0 55px 0 75px #fff,
     0 55px 0 76px #000,
     0 22px 0 120px #08BDEB,
-    0 22px 0 121px #000
+    0 22px 0 121px #000;
 }
 
 /*机器猫鼻子*/
@@ -219,10 +219,89 @@
     border-bottom: solid 2px black;
 }
 
+/*text-shadow*/
+.container7 {
+    margin: 0 auto;
+    max-width: 800px;
+    font-size: 18px;
+    line-height: 2em;
+    font-family: STKaiti;
+    /*text-shadow: 1px 1px 0 #aaa;*/
+    /*text-shadow: 0 0 1px rgba(128,128,128,.2);*/
+    background-color: black;
+    text-shadow: -1px -1px 0 white,
+    -1px 1px 0 white,
+    1px -1px 0 white,
+    1px 1px 0 white,
+    0 0 2px white;
+}
 
+/*border-radius*/
+.container8 {
+    width: 100px;
+    height: 100px;
+    background-color: #ffaaaa;
+    border-radius: 10px / 20px;
+}
 
+.container9 {
+    width: 0;
+    height: 0;
+    border: 30px solid #D0104C;
+    border-radius: 40px 40px 10px 10px / 30px 30px 40px 40px;
+}
 
+/*background*/
+.i {
+    width: 20px;
+    height: 20px;
+    background: url("../images/background.png") no-repeat;
+    background-size: 20px 40px;
+    transition: background-position .4s;
+}
 
+.i:hover {
+    background-position: 0 -20px;
+}
+
+.container10 {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #aaaaff;
+    background: url("../images/panda.jpg");
+    /*background-position: center center;*/
+    background-size: 200px 100px;
+    background-repeat: repeat-x;
+}
+
+.container11 {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #aaaaff;
+    background: url("../images/panda.jpg") no-repeat center center;
+    background-size: contain;
+}
+
+/*clip-path*/
+.container12{
+    width: 400px;
+    height: 300px;
+    border: 1px solid #aaaaff;
+    background: url("../images/panda.jpg") no-repeat center center;
+    padding: 10px;
+    background-size: cover;
+    clip-path: inset(100px 50px);
+}
+
+.container13{
+    width: 400px;
+    height: 300px;
+    border: 1px solid #aaaaff;
+    background: url("../images/panda.jpg") no-repeat center center;
+    padding: 10px;
+    background-size: cover;
+    clip-path: circle(50px at 100px 100px);
+}
 
 
 
