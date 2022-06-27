@@ -303,6 +303,16 @@
     clip-path: circle(50px at 100px 100px);
 }
 
+.container14{
+    width: 400px;
+    height: 300px;
+    border: 1px solid #aaaaff;
+    background: url("../images/panda.jpg") no-repeat center center;
+    padding: 10px;
+    background-size: cover;
+    clip-path: circle(50px at 100px 100px);
+}
+
 
 
 
