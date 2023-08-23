@@ -8,7 +8,7 @@
     <meta name="author" content="Yvette"/>
     <meta name="keywords" content="html"/>
     <!--css table border-->
-    <style type="text/css">
+    <style type="text/css"><!--HTML5 type属性默认为text/css，可删 -->
         table,
         tr,
         td {
@@ -27,17 +27,18 @@
 <h3>html转义字符</h3>
 <p>基本格式: &xxxx;</p>
 <ul>
-    <li> &lt;: &amp;lt;</li>
-    <li>&gt;: &amp;gt;</li>
-    <li>blankspace: &amp;nbsp;, 是英文空格连续多个空白字符会被浏览器看作一个空格.</li>
-    <li>&: &amp;amp;</li>
+    <li> &lt;: &amp;lt; ->less than</li>
+    <li>&gt;: &amp;gt; ->greater than</li>
+    <li>Space: &amp;nbsp; ->non-breaking space（非断行空格），英文空格连续多个空白字符会被浏览器看作一个空格.</li>
+    <li>&: &amp;amp; ->ampersand</li>
     <li>copyright &copy;: &amp;copy;</li>
     <li>trademark&trade;: &amp;trade;</li>
-    <li>版权所有&reg;: &amp;reg;</li>
+    <li>版权所有&reg;: &amp;reg; ->registered</li>
 </ul>
 <h3>html注释: 不需要浏览器处理或显示, 用于以后调试, 或源码读取方便</h3>
-<p>&lt;!----&gt;里面可以包括源码, 表示这段源码暂不删除但不显示. <br/>
-    注释不能嵌套, 不能在一个注释里放另一个注释, 否则功能知道第一个结束标签.
+<p>&lt;!----&gt;里面可以包括源码, 表示这段源码暂不删除但不显示。 <br/>
+    注释不能嵌套, 不能在一个注释里放另一个注释, 否则功能直到第一个结束标签。<br/>
+    HTML使用&lt;!----&gt;作为注释标记，/* */ 在CSS和JavaScript中添加注释。
 </p>
 <h3>html元素类型</h3>
 <ol>
@@ -51,8 +52,8 @@
     <li><i>斜体italic</i>: &lt;i&gt;&lt;/i&gt;</li>
     <li><u>下划线underline</u>: &lt;u&gt;&lt;/u&gt;</li>
     <li><s>删除线strike</s>: &lt;s&gt;&lt;/s&gt;</li>
-    <li>下标<sub>1</sub>: &lt;sub&gt;&lt;/sub&gt;</li>
-    <li>上标<sup>1</sup>: &lt;sup&gt;&lt;/sup&gt;</li>
+    <li>下标<sub>1</sub>: &lt;sub&gt;&lt;/sub&gt;</li> ->subscript
+    <li>上标<sup>1</sup>: &lt;sup&gt;&lt;/sup&gt;</li> ->superscript
 </ul>
 <h3 id="title">html标题元素</h3>
 <h1>一级标题</h1>
@@ -86,11 +87,15 @@
             <p>first</p>
             <p>second</p>
         </div>
-        <p>一周畅销<span style="color: blueviolet;">榜</span></p>
+        <p>一周畅销<span style="color: #c5a7e3;">榜</span></p>
     </li>
 </ul>
-<h3>分隔线</h3>
-<p>不同属性: width宽度, color, align对齐方式(left, right, center). 没有高度, 高度需要css调. 一般分隔线用border做, 更容易调整. </p>
+<h3>分隔线 hr->horizontal rule</h3>
+<p>不同属性: width宽度, color, align对齐方式(left, right, center). 没有高度, 高度需要css调. </p>
+<p>它是一个自闭合标签，不需要闭合标签。</p>
+<p>一般分隔线用border做, 更容易调整。border是CSS属性，用于为元素添加边框。</p>
+<p>如果只是需要简单的水平分隔线效果，可以使用&lt;hr&gt;元素，它在简单情况下更方便。
+    而如果需要更多的样式控制、不仅仅是分隔线，或者需要在元素的其他边上添加边框，那么使用 CSS 的 border 属性会更具灵活性。</p>
 <hr width="500px" color="red" align="center"/>
 <hr width="50%" color="green" align="center" size="3"/>
 <h3>预格式化</h3>
@@ -111,10 +116,11 @@ JavaScript采用如下语法定义函数:
     <li>inline, 不会自动换行</li>
     <li>width设置为百分比, 改变浏览器窗口宽度会自适应, 比如width50%是浏览器宽度的50%</li>
     <li>设置了width, height会自适应, 反之同理. 强行设置宽高可能导致图片变形</li>
-    <li>alt: 图片无法显示的替代文字, title: 鼠标放上面显示的文字. alt属性是img标签必需属性, 一定要添加; title属性是img标签可选属性, 可加可不加.</li>
+    <li>alt: 图片无法显示的替代文字，alternative text.SEO（搜索引擎优化）： 搜索引擎会根据图像的alt属性来了解图像内容，从而在搜索结果中显示相关内容。</li>
+    <li>title: 鼠标放上面显示的文字. alt属性是img标签必需属性, 一定要添加; title属性是img标签可选属性, 可加可不加.</li>
     <li>绝对路径: 以协议名开头的路径</li>
     <li>相对路径: 不以协议名开头的路径, 如Micky.jpg, ./Micky.jpg, images/g.jpg, ../g.jpg, ../../../images/g.jpg</li>
-    <li>图片+图注释, 引入figure和figcaption两个元素来增强图片的语义化
+    <li>图片+图注释, 引入figure和figcaption两个元素来增强图片的语义化。
         <pre>
                 &lt;figure&gt;
                     &lt;img src="" alt="" /&gt;
@@ -124,26 +130,32 @@ JavaScript采用如下语法定义函数:
     </li>
 </ul>
 a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
-<img src="../images/Micky.jpeg" width="50%" alt=""/><br/>
-<img src="../images/Micky.jpeg" width="200px" title="Micky" alt=""/>
-<img src="../images/Micky.jpeg" width="200px" height="100px" alt=""/>
-<img src="http:www.google.com/logo.png" alt="google logo">
-<h3>超链接</h3>
-<p>./: 当前目录, 同一文件夹下也可不加./<br/>
+<img src="../images/Micky.jpeg" width="50%" alt="this is Micky"/><br/>
+<img src="../images/Micky.jpeg" width="200px" title="Micky" alt="this is Micky"/>
+<img src="../images/Micky.jpeg" width="200px" height="100px" alt="this is Micky"/>
+<img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" width="200px" alt="google logo">
+<figure>
+    <img src="../images/Micky.jpeg" width="200px" title="Micky" alt="this is Micky"/>
+    <figcaption>Micky Mouse</figcaption>
+</figure>
+<h3>超链接 href->hypertext reference</h3>
+<p>相对路径 ./: 当前目录，指向当前目录下的某个文件或目录。
+    在大多数情况下，可以直接使用文件名或相对路径，而省略 ./。因为默认情况下链接会在当前目录中查找资源。<br/>
     ../: 上一个文件夹<br/>
 </p>
-<a href="www.google.com" target="_blank">go google网站</a><br/>
-<a href="page.html">go page其他页面</a><br/>
-给<a href="mailto: yvettewang@outlook.com">管理员</a>发邮件<br/>
+<a href="https://www.google.com/" target="_blank">跳转到google网站</a><br/>
+<a href="page.html">转到page的其他页面</a><br/>
+给<a href="mailto: yvettewang@outlook.com">管理员</a>发邮件，包含邮件地址<br/>
 <a href="javascript:void(0)">链接到JS功能</a><br/>
-跳转到<a href="#title">同一页面标题</a><br/>
+跳转到<a href="#title">同一页面的某个标题</a><br/>
 <a href="#">回到最顶部, 返回顶部的空链接</a><br/>
-<a href="page.html#questionary">查看不同页面page.html中的问卷</a><br/>
+<a href="page.html#questionary">查看不同页面page.html中的问卷（某个特定的部分）</a><br/>
 <a href="Day.zip">下载资源</a>
 <h3>表格</h3>
 <ol>
     <li>显示批量的数据</li>
     <li>作页面布局——过时</li>
+    <li>colspan合并列，rowspan合并行</li>
 </ol>
 <pre>
         &lt;table&gt;
@@ -152,7 +164,7 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
             &lt;/tr&gt;
         &lt;/table&gt;
         </pre>
-<table border="1" width="500px" height="100px">
+<table border="1" width="500px">
     <tr>
         <td style="text-align:center" valign="top" colspan="3">0-0</td>
     </tr>
@@ -303,11 +315,11 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
 </footer>
 <h3>html列表</h3>
 <ol>
-    <li>无序列表: ul, UnorderedList</li>
-    <li>有序列表: ol, OrderedList</li>
-    <li>定义列表: dl, DefinitionList</li>
+    <li>无序列表: ul->UnorderedList</li>
+    <li>有序列表: ol->OrderedList</li>
+    <li>定义列表: dl->DefinitionList</li>
 </ol>
-<p>列表项: li, List Item</p>
+<p>列表项: li->List Item</p>
 <h3>表单标签——重点/难点</h3>
 <p>
     表单form: 用于<span style="color: red;">收集用户数据, 提交给服务器</span>上的某个页面, 该页面可以对表单中提交的数据进行保存或查询(php/jsp/aspx)<br/>
@@ -320,10 +332,30 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
     fieldset和legend标签给表单元素分组, legend用于定义某一组表单的标题.<br/>
     表单中实现文件上传必须满足:</p>
 <ol>
-    <li>表单中使用<span style="color: red;">&lt;input type="file" name="" //gt;</span>选择文件</li>
+    <li>表单中使用<span style="color: red;">&lt;input type="file" name=""/&gt;</span>选择文件</li>
     <li>表单必须使用POST提交<span style="color: red;">method="POST"</span></li>
     <li>表单的编码类型必须声明为<span style="color: red;">enctype="multipart/form-data"</span></li>
 </ol>
+<pre>
+  &lt;form&gt;
+    &lt;fieldset&gt;
+      &lt;legend&gt;个人信息&lt;/legend&gt;
+      &lt;label for="name"&gt;姓名：&lt;/label&gt;
+      &lt;input type="text" id="name" name="name"&gt;&lt;br&gt;
+      &lt;label for="email"&gt;邮箱：&lt;/label&gt;
+      &lt;input type="email" id="email" name="email"&gt;
+    &lt;/fieldset&gt;
+  &lt;/form&gt;
+</pre>
+<form>
+  <fieldset>
+    <legend>个人信息</legend>
+    <label for="name">姓名：</label>
+    <input type="text" id="name" name="name"><br>
+    <label for="email">邮箱：</label>
+    <input type="email" id="email" name="email">
+  </fieldset>
+</form><br>
 <form action="4.php" method="post" enctype="multipart/form-data">
     <!--提交给4.php这个页面处理, 没有这个页面就显示404-->
     <fieldset>
