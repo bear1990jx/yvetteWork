@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewpoint" content="width=device-width,initial-scale=1.0>"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0>"/>
     <link rel="stylesheet" type="text/css" href="../css/css-notes.css">
     <title>CSS Notes</title>
 </head>
@@ -13,14 +13,15 @@
 <div>
     <h4>外部样式表</h4>
     <div>
-        在head中使用link标签来引用<br/>
+        在head中使用link元素来引入外部资源，主要用于关联样式表（CSS 文件）和网站图标（favicon）。<br/>
         &lt;link rel="stylesheet" type="text/css" href="文件路径" /&gt;<br/>
-        rel: relative的缩写, 取值固定即stylesheet, 表示引入的是一个样式表文件, 即CSS文件.<br/>
-        type属性取值也是固定的, 即"text/css", 表示这是标准的CSS.
+        rel->relative（关系属性）用于定义当前文档和被链接文档之间的关系, 常用值stylesheet, 表示被链接文档是一个样式表。<br/>
+        href置顶样式表文件的路径。<br>
+        type属性取值也是固定的, 即"text/css", 表示这是标准的CSS。HTML5中使用&lt;link rel="stylesheet"&gt;，可以省略type="text/css"属性。
     </div>
     <h4>内部样式表</h4>
     <div>
-        CSS代码放在style标签内, style标签是放在head标签内部. type="text/css"是必须添加的, 表示这是标准的CSS.<br/>
+        CSS代码放在style元素内，style元素放在head元素内部。HTML5中，在&lt;style&gt;元素内部定义样式表时，不需要显式地指定type="text/css" 属性。HTML5中，浏览器会默认将没有指定type的&lt;style&gt;元素解释为 CSS 样式。<br/>
         <pre>
         &lt;style&gt;
             div{color: red;}
@@ -29,7 +30,7 @@
     </div>
     <h4>行内样式表</h4>
     <div>
-        内部样式表的CSS是在"style标签"内定义的, 而行内样式表的CSS是在"标签的style属性"中定义的. 每一个元素内部定义, 可读性和维护性很差.
+        内部样式表的CSS是在&lt;style&gt;元素内定义的, 而行内样式表的CSS是在&lt;style&gt;元素的属性中定义的. 每一个元素内部定义, 可读性和维护性很差.
     </div>
     <h4>@import导入样式表</h4>
     <p>实际开发中极少使用, 更倾向于link方式. @import先加载HTML后加载CSS, 页面用户体验非常差. link先加载CSS再加载HTML.</p>
@@ -54,13 +55,18 @@
             <li>class选择器: class名前必须加前缀., .表这是一个class选择器<br/>
                 .gender{color:red;}
             </li>
-            <li>后代选择器: 选择元素内部中所有的某一种元素, 包括子元素和其他后代元素(如孙元素). 选中孙元素(中间不用再写父元素, 直接写孙元素), 父元素不会一起被选中. 父元素和后代元素必须要用空格隔开,
+            <li>后代选择器: 后代选择器使用空格来连接两个选择器。选择元素内部中所有的某一种元素, 包括子元素和其他后代元素(如孙元素). 选中孙元素(中间不用再写父元素, 直接写孙元素), 父元素不会一起被选中. 父元素和后代元素必须要用空格隔开,
                 从而表示选中某个元素内部的后代元素.<br/>
                 #father1 div{color:red;}<br/>
                 #father2 span{color:blue;}
             </li>
             <li>群组选择器: 指的是同时对几个选择器进行相同的操作. 两个选择器之间必须要用,隔开.<br/>
                 #name,.gender,span{color:blue;}
+            </li>
+            <li>
+                伪类选择器<br>
+                :nth-child()：根据元素在其父元素中的位置来选择元素。:nth-child(1)选择任何位置的第一个子元素。前面只需要指定要选择的子元素的位置。<br>
+                :first-child：只选择父元素的第一个子元素，而不关心其他位置的元素。
             </li>
         </ul>
     </div>
@@ -80,13 +86,16 @@
         <li>M~N 兄弟选择器: 选择M元素后所有同级N元素. 兄弟选择器只选取后面的所有兄弟元素, 不包括前面的所有兄弟元素.</li>
         <li>M+N 相邻选择器: 选择M元素相邻的下一个元素, M N是同级元素.</li>
     </ul>
+    <p>注意: 后代选择器使用空格作为连接符，表示一个元素是另一个元素的后代，不论是否直接嵌套在内；子代选择器使用大于号（">"）作为连接符，只会选择直接嵌套在指定父元素内的子元素，不会选择更深层次的后代元素。</p>
     <p>注意: 兄弟选择器选取元素后面"所有"的某一类元素, 相邻选择器选取元素后面"相邻"的某一个元素.</p>
     <p>技巧: 使用相邻选择器, 可在两个元素之间实现一些效果(border, margin等)</p>
     <br>
     <div id="choose">
         <span>关于我们</span><span>联系我们</span><span>版权声明</span><span>免责声明</span><span>广告服务</span><span>意见反馈</span>
     </div>
-    <br>
+    <p>#choose span + span { border-left: 4px solid red; } 选择了span元素的下一个span元素，为其加左边框。<br>
+        #choose span { padding: 0 10px; } 选择#choose下的所有span元素，添加左右内边距10px。
+    </p>
 </div>
 <hr/>
 <h3>字体样式</h3>
@@ -121,6 +130,7 @@
         </li>
     </ul>
     <h4>CSS注释: /*注释的内容*/</h4>
+    <p>HTML注释/!----/</p>
 </div>
 <hr/>
 <h3>文本样式</h3>
@@ -131,14 +141,7 @@
             <p class="em">
                 首行缩进text-indent:2em;，p首行不会自动缩进. 初级可使用px像素值. 中文段落缩进两个字符, text-indent就是font-size的两倍.
             </p>
-            <p>常用属性left/center/right，控制文本和图片对齐方式。justify（两端对齐）本身会产生一些问题，开发中比较少用。</p>
-            <p>text-align对文字、inline元素（行内元素）以及inline-block元素（行内块元素）起作用，但对块元素不起作用。其中，img元素属于inline-block元素。</p>
-            <p>水平居中“text-align:center；”与“margin:0 auto；”的区别：</p>
-            <ul>
-                <li>“text-align:center；”实现的是文字、inline元素以及inline-block元素的水平居中。</li>
-                <li>“margin:0 auto；”实现的是块元素的水平居中。</li>
-                <li>“text-align:center；”在父元素中定义，“margin:0 auto；”在当前元素中定义。</li>
-            </ul>
+
         </li>
         <li>text-align<br/>
             水平对齐:
@@ -147,7 +150,15 @@
                 <li>center</li>
                 <li>right</li>
             </ul>
-            text-align不仅对文本有效, 对图片(img元素)也有效.
+            <p>text-align不仅对文本有效, 对图片(img元素)也有效.</p>
+            <p>常用属性left/center/right，控制文本和图片对齐方式。justify（两端对齐）本身会产生一些问题，开发中比较少用。</p>
+            <p>text-align对文字、inline元素（行内元素）以及inline-block元素（行内块元素）起作用，但对块元素不起作用。其中，img元素属于inline-block元素。</p>
+            <p>水平居中“text-align:center；”与“margin:0 auto；”的区别：</p>
+            <ul>
+                <li>“text-align:center；”实现的是文字、inline元素以及inline-block元素的水平居中。</li>
+                <li>“margin:0 auto；”实现的是块元素的水平居中。</li>
+                <li>“text-align:center；”在父元素中定义，“margin:0 auto；”在当前元素中定义。</li>
+            </ul>
         </li>
         <li>text-decoration<br/>
             文本修饰:
@@ -175,7 +186,7 @@
             值得注意的是：一个行内元素如span不是被其中的文字撑开的，而是由其中的line-height撑开的。<br>
             <p>应用：</p>
             <ul>
-                <li>对于ｐ等，设置height和line-height相等，这样文字就居中了 。</li>
+                <li>对于ｐ等，设置height和line-height相等，文字垂直居中了，即在行框内居中。height是元素的高度。</li>
                 <li>对于div中的img，可以给div设置height和line-height相等，然后给img设置vertical-align:middle;即可实现。</li>
             </ul>
             <div id="lineheight"><img src="../images/lineheight.png" alt=""></div>
@@ -184,7 +195,7 @@
                 <li>
                     height, line-height<br>
                     line-height有默认值，当没有定义line-height属性时，浏览器就会采用默认的line-height值。<br>
-                    一行文字的高度是由line-height决定，而不是由height决定的。例如在p标签中，一个p标签的文字可以有很多行，其中line-height定义的是一行文字的高度，而height定义的是整个段落的高度（p标签的高度）。<br>
+                    一行文字的高度是由line-height行框高度决定，而不是由height决定的。例如在p标签中，一个p标签的文字可以有很多行，其中line-height定义的是一行文字的高度，而height定义的是整个段落的高度（p标签的高度）。<br>
                     定义height和line-height这两个属性值相等，实现单行文字的垂直居中。<br><br>
                     <div id="line-height">
                         <div>height 50px, line-height 20px</div>
@@ -213,6 +224,11 @@
                     </div>
                     <p>子元素继承的是父元素的系数，不会直接继承父元素的line-height。</p>
                 </li>
+                <li>
+                    当父元素line-height:150%，会根据父元素的字体大小先计算出行高值然后再让子元素继承。字元素的行高等于16px（父元素font-size） * 150% = 24px<br>
+                    当父元素line-height:1.5em，会根据父元素的字体大小先计算出行高值然后再让子元素继承。子元素的行高等于16px （父元素font-size）* 1.5em = 24px<br>
+                    当父元素line-height:1.5，会根据子元素的字体大小动态计算出行高值让子元素继承。子元素行高等于30px（子元素font-size） * 1.5 = 45px
+                </li>
             </ul>
         </li>
         <li>letter-spacing/ word-spacing<br/>
@@ -233,7 +249,7 @@
 <h3>边框样式</h3>
 <div>
     <div>
-        不管是整体样式, 还是局部样式, 必须要同时设置border-width、border-style、border color这三个属性才会有效果.
+        不管是整体样式, 还是局部样式, 必须要同时设置border-width、border-style、border-                     color这三个属性才会有效果.
     </div>
     <h4>整体样式</h4>
     <div>
@@ -381,7 +397,7 @@
         <ul>
             <li>repeat 默认, 在水平方向和垂直方向上同时平铺</li>
             <li>repeat-x 只在水平方向(x轴)上平铺</li>
-            <li>repeat-y 只在垂直方向(y轴)上平铺<< /li>
+            <li>repeat-y 只在垂直方向(y轴)上平铺</li>
             <li>no-repeat 不平铺</li>
         </ul>
     </div>
@@ -474,9 +490,9 @@
                 简写:<br/>
                 <div>
                     <ul>
-                        <li>padding: 20px; 四个方向20px</li>
-                        <li>padding: 20px 40px; 上下20px, 左右40px</li>
-                        <li>padding: 20px 40px 60px 80px; 上右下左, 顺时针</li>
+                        <li>margin: 20px; 四个方向20px</li>
+                        <li>margin: 20px 40px; 上下20px, 左右40px</li>
+                        <li>margin: 20px 40px 60px 80px; 上右下左, 顺时针</li>
                     </ul>
                 </div>
             </li>
@@ -524,7 +540,7 @@
         <li>水平外边距不会叠加.</li>
         <li>垂直外边距只要在以上三种情况下叠加.</li>
         <li>外边距叠加之后的外边距高度等于发生叠加之前的两个外边距中的最大值.</li>
-        <li>外边距叠加针对的是block以及inline-块元素, 不包括inline元素. 因为inline元素的margin-top和margin-bottom设置无效.</li>
+        <li>外边距叠加针对的是block以及inline-block元素, 不包括inline元素. 因为inline元素的margin-top和margin-bottom设置无效.</li>
         <li>最好统一使用margin-top或margin-bottom, 不要混合使用, 从而降低出现问题的风险.</li>
         <li>外边距叠加的原理比较复杂, 跟BFC(块级格式上下文)有着密切的关系.</li>
     </ul>
@@ -585,8 +601,8 @@
                     position: absolute;
                     top: 50%;
                     left: 50%;
-                    margin-top: height值一半的负值;
-                    margin-left: width值一半的负值;
+                    margin-top: 子元素height值一半的负值;
+                    margin-left: 子元素width值一半的负值;
                 }
             </pre>
             <div id="margin-father">
@@ -831,6 +847,7 @@
         <div class="navi-son"></div>
     </div>
     <br>
+    <p>如果父元素不设置 position: relative;，那么子元素的定位会相对于默认的根元素（一般情况下是&lt;html&gt;元素），为了在父元素内部进行定位，需要确保父元素是一个已定位的容器。</p>
     <p>子元素没有“display:inline-block”，却可以定义width和height，因为“position:absolute”将元素转换为块元素。</p>
     <div id="navi">
         <div class="navi-father1">
@@ -879,6 +896,7 @@
             </ul>
         </li>
     </ul>
+    <p>无z-index:</p>
     <div class="D">
         <div class="A" id="A1">A</div>
         <div class="B" id="B1">B</div>
@@ -913,7 +931,7 @@
                 <li>首行缩进: text-indent:2em</li>
                 <li>em作为统一单位<br>
                     继承根元素的font-size值(即16px), 再用em换算.<br>
-                    简化: body{font-size:62.5%;}, 及默认字体大小变为16pxx62.5%=10px, 1em=10px.<br>
+                    简化: body{font-size:62.5%;}, 及默认字体大小变为16px x 62.5%=10px, 1em=10px.<br>
                     width和height以em为单位时, 比如font-size:15px, 等价于1.5em. width:150px, 并不等价于15em, 因为1em等于"当前元素"字体大小,
                     即15px, 这里width就应该等价于10em.
                 </li>
@@ -975,8 +993,8 @@
             </ul>
             <p>
                 行内样式> id选择器> class选择器>元素选择器<br>
-                常见伪元素: :before, ::after, ::first-letter, ::first-line.<br>
-                常见伪类: hover, :first-child.<br>
+                常见伪元素：::before, ::after, ::first-letter, ::first-line.<br>
+                常见伪类：:hover, :first-child.<br>
                 只有选择器权重相同, 才遵循后来居上原则.<br>
                 选择器权重的计算只针对指定样式(当前元素), 并不能用于继承样式. 先判断指定样式, 然后才考虑继承样式.
             </p>
@@ -985,9 +1003,12 @@
         <li>!important: 覆盖其他所有样式
             <p>如何覆盖!important:</p>
             <ul>
-                <li>使用相同的选择器, 再添加一条!important的CSS语句, 要放在后面.</li>
+                <li>使用相同的选择器, 再添加一条!important的CSS语句, 要放在后面，注意要在属性值和 !important 之间留一个空格。</li>
                 <li>使用更高级的选择器, 再添加一条!important的CSS语句, 可以将样式提升到最高等级, 不管这个样式在哪个样式表还是在哪个选择器中. 如果在同一样式中出现了多个!important,
                     则遵循后来者居上原则.
+                </li>
+                <li>
+                    p {color: red !important;} 将颜色设置为红色，并优先应用这个规则
                 </li>
             </ul>
         </li>
@@ -1245,7 +1266,7 @@
             </div>
             <br>
             <ul>
-                <li>不要与float：left; position:absolute; 一起使用</li>
+                <li>不要与float: left; position: absolute; 一起使用</li>
                 <li>可以实现大小不固定元素的垂直居中</li>
                 <li>margin设置无效，响应padding设置</li>
                 <li>对高度和宽度高度敏感</li>
@@ -1267,7 +1288,7 @@
                 </div>
                 <div id="text-box">
                     <span>
-                        Die sogenannten Balkontomaten sind kleinbleibende Sorten, welche problemlos im Kübel oder Topf
+                        Die sogenannten Balkontomaten sind klein bleibende Sorten, welche problemlos im Kübel oder Topf
                         wachsen. Sie sind viel kleiner und weniger ausladend als Freilandtomaten und finden so auf jedem
                         Balkon oder auf der Terrasse ihren Platz.
                     </span>
@@ -1352,7 +1373,7 @@
         <li>B</li>
         <li>C</li>
     </ul>
-    <p>“font-size:0”来去除inline-block元素的间距，“font-size:0”来去除inline-block元素的间距。</p>
+    <p>“font-size:0”来去除inline-block元素的间距。</p>
     <ul id="abc-inline-block2">
         <li>A</li>
         <li>B</li>
@@ -1379,7 +1400,8 @@
     <ul>
         <li>
             负值<br>
-            “vertical-align:-2px”表示元素相对于基线向下偏移2px。此方法常常用于解决单选框或复选框与文字垂直对齐的问题。
+            “vertical-align:-2px”表示元素相对于基线向下偏移2px。此方法常常用于解决单选框或复选框与文字垂直对齐的问题。<br>
+            值为负数时，元素会相对于基线向下移动，而正数值会相对于基线向上移动。
         </li>
         <li>
             百分比<br>
@@ -1387,7 +1409,10 @@
             假如当前元素所继承的line-height为20px，“vertical-align:50%”实际上等价于“vertical-align:10px”。vertical-align:10px”表示元素相对于基线向上偏移10px。
         </li>
         <li>
-            关键字：top、middle、baseline、bottom
+            关键字：top、middle、baseline、bottom<br>
+            将内联元素（如文字、图片等）的 vertical-align 设置为 top 时，元素的顶部边缘会与其所在行的顶部对齐，而不是与基线对齐。<br>
+            vertical-align: baseline; 会使元素的基线与所在行的基线对齐
+            <br>
             <div>
                 vertical-align
                 <img id="vertical-align1" src="../images/iconList1.png" alt="">
@@ -1416,7 +1441,7 @@
     </ul>
     <h4>应用</h4>
     <ul>
-        <li>inline元素和inline-块元素<br>
+        <li>inline元素和inline-block元素<br>
             常见的inline-block元素有两个：img元素和input元素。<br>
             <span>mianpang绵胖<span id="vertical-align-span">mianpang绵胖</span>mianpang</span>
         </li>
@@ -1472,7 +1497,7 @@
                 <textarea></textarea>
             </label>
             <p>
-                min-width, min-height：最小宽度、最小高度
+                min-width, min-height：最小宽度、最小高度<br>
                 max-width, max-height：最大宽度、最大宽度
             </p>
             <label for="textarea"></label><textarea id="textarea"></textarea>
@@ -1491,7 +1516,7 @@
             <p>相同外观：</p>
             <ul>
                 <li>使用CSS的width和height来定义textarea的大小。</li>
-                <li>使用“overflow:auto”来定义textarea的滚动条自适应</li>
+                <li>使用“overflow:auto”来定义textarea的滚动条自适应，浏览器会自动显示滚动条，只有在内容溢出时才会显示。如果内容不溢出，就不会显示滚动条。</li>
             </ul>
             <label for="textarea3"></label><textarea id="textarea3"></textarea>
         </li>
@@ -1537,6 +1562,15 @@
     <p>原理：width和height定义为0，设置较粗的边框，将其中任意三条边框或者两条边的颜色定义为transparent。这个三角形其实是border。</p>
     <h4>带边框的三角形</h4>
     <p>使用两个三角形实现：一个作为背景色（内层三角形），一个作为边框色（外层三角形），通过定位布局重叠在一起。注意，两个三角形定位要相差1像素。一般情况下，都是将内层三角形相对于外层三角形进行定位，偏移1像素。</p>
+    <p>内div和外div重叠时，重叠的是边框和padding内，下面内外边框、外div的padding为10px，内div的外边框左顶点和外div内容左顶点重合。</p>
+    <div id="triangle2">
+        <div></div>
+    </div>
+    <div id="triangle3">
+        <div></div>
+    </div>
+    <br>
+    <p>left: -29px; top: -28px;</p>
     <div id="triangle">
         <div></div>
     </div>
@@ -1562,7 +1596,11 @@
         <li>“border-radius:10px 20px 30px；”表示左上角圆角半径是10px，左下角和右上角的圆角半径都是20px，右下角圆角半径是30px</li>
         <li>“border-radius:10px 20px 30px 40px；”依次表示左上角、右上角、右下角和左下角的圆角半径</li>
     </ul>
+    <p>border-radius: 80% 90% 100% 20%;，width: 50px;，效果等同于border-radius: 40px 45px 50px 10px;</p>
     <div id="radius">6</div>
+    <div id="radius2">6</div>
+    <div id="radius3">6</div>
+    <div id="radius4">6</div>
     <h4>半圆</h4>
     <p>上半圆：高度height设为宽度width的一半，并且左上角和右上角的圆角半径定义与元素的高度一致，而右下角和左下角的圆角半径定义为0。</p>
     <div id="half-round"></div>
@@ -1607,7 +1645,7 @@
                     </li>
                 </ul>
                 </li>
-                <li>背景缩写：background: url() no-repeat 80px 40px;</li>
+                <li>背景缩写：background: url() no-repeat 80px 40px;，80px和40px是position</li>
                 <li>字体缩写：font: font-family font-size/line-height font-weight;
                     <ul>
                         <li>如果使用字体简写形式，我们至少要指定font-family和font-size属性，其他属性如果没有指定则将自动使用默认值。</li>

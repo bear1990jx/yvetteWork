@@ -14,16 +14,16 @@
     <h4>使用表格table布局</h4>
     <table class="table1">
         <tr>
-            <td class="left">table left</td>
-            <td class="right">table right</td>
+            <td class="left-td">table left</td>
+            <td class="right-td">table right</td>
         </tr>
     </table>
     <p>表格中文字自动垂直居中，可添加width调整宽度。</p>
     <h4>使用div伪装table布局</h4>
     <div class="table2">
         <div class="table-row">
-            <div class="table-cell left">div display table cell left</div>
-            <div class="table-cell right">div display table cell right</div>
+            <div class="table-cell left-td">div display table cell left</div>
+            <div class="table-cell right-td">div display table cell right</div>
         </div>
     </div>
     <p>div中文字没有垂直居中，可添加vertical-align: middle;。</p>
@@ -36,7 +36,7 @@
         <li>确定元素的显示类型：block/inline/inline-block
             <div class="block">block</div>
             <div class="inline">inline</div>
-            <div class="inline-block">inline-block</div><br>
+            <div class="inline-block">inline-block</div><br>0
             <div class="inline">inline</div>
             <div class="inline-block bottom">inline-block</div>
             <ul>
@@ -148,13 +148,13 @@
     <h4>float布局：左边向左浮动，右边给一个margin-left: 左边宽度;，把左边空出来，左右height: 100%;</h4>
     <p>两栏</p>
     <div class="container4">
-        <div class="float-left1">left</div>
+        <div class="float-left1">left 200px float</div>
         <div class="float-right">right</div>
     </div>
     <p>三栏</p>
     <div class="container4">
-        <div class="float-left1">left</div>
-        <div class="float-right2">right</div>
+        <div class="float-left1">left 200px float</div>
+        <div class="float-right2">right 200px float</div>
         <div class="float-middle">middle</div>
     </div>
     <p>注意：按照左（float）中右（float）顺序写，右绕不开中间，会导致顶上空白，先写左右，再写中间。</p>

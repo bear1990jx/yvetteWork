@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewpoint" content="width=device-width,initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>CSS Basics</title>
 </head>
 
@@ -138,7 +138,7 @@
                 <li>若行高比字体的高度高, 这个inline元素会在div中垂直居中. 垂直居中可以通过line-height来实现.</li>
                 <li>字体大小不同是按baseline基线对齐的, 不是底部. 大部分中文字体baseline就是底部, 字母baseline和底部有区别.</li>
                 <li>vertical-align: middle, 垂直居中对齐. top顶部对齐, 不一定是文字的最上部, 是按顶线对齐的, bottom同理是底线对齐, 不一定是底部.</li>
-                <li>文字加图片, 图片下有一条空白, 因为image算line, 默认按照基线对齐, 基线到文字底线还有一点距离. 偏差大小视字体大小而定, 12px字体图片缝隙3px左右(3px缝隙问题).
+                <li>文字加图片, 图片下有一条空白, 因为image算inline, 默认按照基线对齐, 基线到文字底线还有一点距离. 偏差大小视字体大小而定, 12px字体图片缝隙3px左右(3px缝隙问题).
                     两种解决方法:
                     <ol>
                         <li>vertical-align改为bottom</li>

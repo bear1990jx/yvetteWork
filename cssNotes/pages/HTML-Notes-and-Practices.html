@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewpoint" content="width=device-width,initial-scale=1.0>"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0>"/>
     <title>HTML Notes and Practices</title>
     <meta name="author" content="Yvette"/>
     <meta name="keywords" content="html"/>
@@ -24,6 +24,26 @@
     Meta data: data to describe data. <br/>
     Meta data is for chrome to catch important information.
 </p>
+<pre>
+  &lt;meta charset="UTF-8"/&gt; 指定网页使用 UTF-8 字符编码
+  &lt;meta name="viewport" content="width=device-width,initial-scale=1.0"/&gt; 视口（viewport）相关的设置
+</pre>
+<p>
+    &lt;meta&gt;元素用于在HTML文档中提供元数据，其中&lt;meta&gt;元素的name属性用于指定元数据的名称，content属性用于指定元数据的值。<br>
+
+</p>
+<h3>元素、标签、属性</h3>
+<ul>
+    <li>元素（Element）：一个元素是由开始标签、结束标签和它们之间的内容组成的。<br>
+        例如，&lt;p&gt;是一个表示段落的元素，它由&lt;p&gt;开始标签、内容和&lt;/p&gt;结束标签组成。
+    </li>
+    <li>标签（Tag）：用于标记元素的关键字。它通常由尖括号括起来，有开始标签和结束标签两种形式。
+        如&lt;p&gt;开始标签、&lt;/p&gt;结束标签。
+    </li>
+    <li>属性（Attribute）：为元素提供额外信息的键-值对。它们包含在开始标签中，以及可能影响元素的行为、外观或其他属性。
+        如在<a>元素中，href是一个属性，指定链接的URL。
+    </li>
+</ul>
 <h3>html转义字符</h3>
 <p>基本格式: &xxxx;</p>
 <ul>
@@ -138,7 +158,7 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
     <img src="../images/Micky.jpeg" width="200px" title="Micky" alt="this is Micky"/>
     <figcaption>Micky Mouse</figcaption>
 </figure>
-<h3>超链接 href->hypertext reference</h3>
+<h3>超链接 a->anchor href->hypertext reference</h3>
 <p>相对路径 ./: 当前目录，指向当前目录下的某个文件或目录。
     在大多数情况下，可以直接使用文件名或相对路径，而省略 ./。因为默认情况下链接会在当前目录中查找资源。<br/>
     ../: 上一个文件夹<br/>
@@ -356,6 +376,29 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
     <input type="email" id="email" name="email">
   </fieldset>
 </form><br>
+<p>两种input和label的写法，实现的功能相同。</p>
+<pre>
+    &lt;input type="radio" id="male" name="gender" value="male"&gt;
+    &lt;label for="male"&gt;男性&lt;/label&gt;&lt;br&gt;
+</pre>
+<p>
+    将input和label分开，使用for属性将label与input关联起来，点击 "男性" 文本区域会触发 id 为 "male" 的单选按钮的选择。
+</p>
+<pre>
+    &lt;label&gt;
+        &lt;input type="radio" name="gender" value="male"/&gt;
+        男性
+    &lt;/label&gt;
+</pre>
+<p>
+    使用了label元素将单选按钮和其文本内容一起包裹在一个元素中，点击 "male" 文本区域会触发单选按钮的选择。
+</p>
+<ul>
+    <li>input radio：单选</li>
+    <li>input checkbox：多选</li>
+    <li>select：下拉列表或选择框，可单选或多选。</li>
+    <li>textarea：文本框</li>
+</ul>
 <form action="4.php" method="post" enctype="multipart/form-data">
     <!--提交给4.php这个页面处理, 没有这个页面就显示404-->
     <fieldset>
@@ -396,16 +439,16 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
     </fieldset>
     <fieldset>
         <legend>扩展信息</legend>
-        <label>籍贯:<br/>
+        <label>籍贯:
             <select name="birthplace">
-                <option>重庆</option>
-                <option>北京</option>
-                <option>上海</option>
-                <option>广州</option>
+                <option value="cq">重庆</option>
+                <option value="bj">北京</option>
+                <option value="sh">上海</option>
+                <option value="gz">广州</option>
             </select>
         </label><br/>
-        <label>工作地点:<br/>
-            <select name="workplace" size="6">
+        <label>工作地点:<br>
+            <select name="workplace1" size="6">
                 <optgroup label="重庆市">
                     <option value="jb">江北区</option>
                     <option value="yb" selected>渝北区</option>
@@ -413,13 +456,13 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
                 </optgroup>
                 <optgroup label="北京">
                     <option value="hd">海淀区</option>
-                    <option value="dc" selected>东城区</option>
+                    <option value="dc">东城区</option>
                     <option value="cy">朝阳区</option>
                 </optgroup>
             </select>
-        </label>
-        <label>
-            <select name="workplace" size="6" multiple>
+        </label><br>
+        <label>工作地点（多选）:<br>
+            <select name="workplace2" size="6" multiple>
                 <optgroup label="重庆市">
                     <option value="jb">江北区</option>
                     <option value="yb" selected>渝北区</option>
@@ -460,10 +503,16 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
 <input type="button" value="check available">
 <input type="submit" value="submit">
 <input type="reset" value="reset">
-<input type="image" src="../images/submit-button-png.png" width="10px" alt="">
+<input type="image" src="../images/submit-button-png.png" width="80px" alt="">
 <h3>iframe</h3>
 <iframe src="page1.html" width="700px" height="300px" style="border: 0;">您的浏览器不支持嵌入式页面</iframe>
-<h3>详情</h3>
+<h3>详情：展开和折叠</h3>
+<pre>
+  &lt;details&gt;
+    &lt;summary&gt;点击查看更多信息&lt;/summary&gt;
+    &lt;p&gt;这里是更多的详细内容...&lt;/p&gt;
+  &lt;/details&gt;
+</pre>
 <details>
     <summary>front</summary>
     <p>html, css, javascript</p>
@@ -472,9 +521,18 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
     <summary>backend</summary>
     <p>php, java, aspx</p>
 </details>
-<h3>度量元素meter</h3>
+<h3>度量元素meter：表示在一个范围内的标量值的测量</h3>
+<pre>
+  &lt;meter min="0" max="100" value="50" title="50%"&gt;&lt;/meter&gt;
+</pre>
 当前下载速度:
 <meter min="0" max="100" value="50" title="50%"></meter>
+<ul>
+    <li>min最小值</li>
+    <li>max最大值</li>
+    <li>value当前值</li>
+    <li>title鼠标悬停显示内容</li>
+</ul>
 <h3>时间元素time</h3>
 <p>给机器人抓取数据使用, 页面上看不出效果, T分隔</p>
 欢迎
@@ -605,7 +663,7 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
     <tr>
         <td>&lt;img /&gt;</td>
         <td>通知浏览器此刻应该向服务器发起一个图片请求</td>
-        <td>src指定图片的URL, width/height: 像素、百分比, alt: 若图片无法显示则显示此替代文字, title</td>
+        <td>src->source 指定资源的路径，即图片的URL, width/height: 像素、百分比, alt: 若图片无法显示则显示此替代文字, title</td>
         <td>inline</td>
     </tr>
     <tr>
@@ -653,19 +711,19 @@ a<img src="../images/Micky.jpeg" width="100px" alt="this is Micky"/>b<br/>
     <tr>
         <td>&lt;dl&gt;&lt;/dl&gt;</td>
         <td>definition list</td>
-        <td></td>
+        <td>用于包裹整个定义列表，其中包含一系列术语和它们的定义</td>
         <td>block</td>
     </tr>
     <tr>
         <td>&lt;dt&gt;&lt;/dt&gt;</td>
         <td>description term</td>
-        <td></td>
+        <td>在dl元素中使用，表示一个术语或名称</td>
         <td>block</td>
     </tr>
     <tr>
-        <td>&lt;dl&gt;&lt;/dl&gt;</td>
+        <td>&lt;dd&gt;&lt;/dd&gt;</td>
         <td>definition description</td>
-        <td></td>
+        <td>在dl元素中使用，表示与相应术语相关联的定义或描述</td>
         <td>block</td>
     </tr>
     <tr>

@@ -320,8 +320,8 @@
     list-style-type: none;
     display: table;
     width: 400px;
-    /*    border: 1px dashed grey;
-        padding: 4px;*/
+    /*border: 1px dashed grey;
+    padding: 4px;*/
 }
 
 .block-table-cell {
@@ -518,7 +518,7 @@
 
 #vertical-align-img {
     display: table-cell;
-    border: 1px solid yellow;
+    border: 1px solid steelblue;
     width: 100px;
     height: 100px;
     vertical-align: middle;
@@ -613,8 +613,8 @@
 
 #get-code, #submit {
     width: 100px;
-    height: 40px;
-    border: 1px solid gray;
+    height: 38px;
+    border: 1px solid grey;
     padding: 0;
     background-color: #aaffff;
 }
@@ -624,7 +624,7 @@
     float: left;
     width: 50px;
     height: 80px;
-    border: 1px solid gray;
+    border: 1px solid grey;
     margin-left: 10px;
 }
 
@@ -700,7 +700,7 @@
 #float-wrapper5 {
     float: left;
     width: 300px;
-    border: 1px solid gray;
+    border: 1px solid grey;
 }
 
 /*::after伪元素结合“clear:both”清除浮动*/
@@ -923,7 +923,7 @@
     width: 0;
     height: 0;
     border: 30px solid;
-    border-color: transparent transparent gray transparent;
+    border-color: transparent transparent grey transparent;
 }
 
 /*内层三角形*/
@@ -937,13 +937,44 @@
     top: -28px;
 }
 
+#triangle2 {
+    width: 100px;
+    height: 100px;
+    border: 10px solid red;
+    padding: 10px;
+}
+
+#triangle2 div {
+    width:60px;
+    height: 60px;
+    border: 10px solid black;
+}
+
+/*外层三角形*/
+#triangle3 {
+    position: relative;
+    width: 0;
+    height: 0;
+    border: 30px solid;
+    border-color: transparent transparent grey transparent;
+}
+
+/*内层三角形*/
+#triangle3 div {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 29px solid;
+    border-color: transparent transparent lightpink transparent;
+}
+
 /*气泡框*/
 #wrapper-bubble {
     position: relative;
     padding: 20px 30px;
     width: 100px;
     height: 50px;
-    border: 1px solid gray;
+    border: 1px solid grey;
     /*圆角效果*/
     border-radius: 10px;
     background-color: #F8C3CD;
@@ -957,7 +988,7 @@
     width: 0;
     height: 0;
     border: 15px solid;
-    border-color: transparent transparent gray transparent;
+    border-color: transparent transparent grey transparent;
     top: -30px;
     /*三角形居中*/
     left: 50%;
@@ -979,6 +1010,37 @@
     width: 50px;
     line-height: 50px;
     border-radius: 80% 90% 100% 20%;
+    /*border-radius: 40px 45px 50px 10px;*/
+    background-color: #F75C2F;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+#radius2 {
+    width: 100px;
+    line-height: 100px;
+    border-radius: 30%;
+    background-color: #F75C2F;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+#radius3 {
+    width: 100px;
+    line-height: 50px;
+    border-radius: 30%;
+    background-color: #F75C2F;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+#radius4 {
+    width: 200px;
+    line-height: 100px;
+    border-radius: 30%;
     background-color: #F75C2F;
     font-size: 30px;
     text-align: center;
@@ -990,7 +1052,7 @@
     width: 100px;
     height: 50px;
     border-radius: 50px 50px 0 0;
-    border: 1px solid gray;
+    border: 1px solid grey;
     background-color: #F8C3CD;
 }
 
@@ -998,7 +1060,7 @@
     width: 50px;
     height: 100px;
     border-radius: 0 50px 50px 0;
-    border: 1px solid gray;
+    border: 1px solid grey;
     background-color: #F8C3CD;
 }
 
@@ -1006,7 +1068,7 @@
     width: 100px;
     height: 100px;
     border-radius: 50px 50px 50px 50px;
-    border: 1px solid gray;
+    border: 1px solid grey;
     background-color: #F8C3CD;
 }
 
@@ -1014,7 +1076,7 @@
     width: 100px;
     height: 50px;
     border-radius: 50px/25px;
-    border: 1px solid gray;
+    border: 1px solid grey;
     background-color: #F8C3CD;
 }
 
@@ -1022,7 +1084,7 @@
     width: 100px;
     height: 50px;
     border-radius: 25px;
-    border: 1px solid gray;
+    border: 1px solid grey;
     background-color: #F8C3CD;
 }
 
@@ -1031,7 +1093,7 @@
     position: relative;
     width: 200px;
     height: 160px;
-    border: 1px solid gray;
+    border: 1px solid grey;
 }
 
 #block-son {
@@ -1070,7 +1132,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 
 
 

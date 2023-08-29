@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewpoint" content="width=device-width,initial-scale=1.0>" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0>" />
     <title>CSS Basics Demo</title>
     <style>
-        /* * {
+        * {
             margin: 0px;
             padding: 0px;
-        } */
+        }
 
         #choose ul {
             list-style-type: none;
@@ -315,6 +315,17 @@
             text-align: center;
             color: white;
         }
+
+        #paratest1 {
+            font-size: 13px; height: 20px; line-height: 20px;
+        }
+        #paratest2 {
+            font-size: 13px; height: 40px; line-height: 20px;
+        }
+        #paratest3 {
+            font-size: 13px; height: 20px; line-height: 40px;
+        }
+
     </style>
 </head>
 
@@ -450,6 +461,9 @@
         <div id="third2">3</div>
     </div>
     <br>
+    <p id="paratest1">这是一段测试height 20px=line-height 20px的文字</p>
+    <p id="paratest2">这是一段测试height 40px&gt;line-height 20px的文字</p>
+    <p id="paratest3">这是一段测试height 20px&lt;line-height40px的文字</p>
     <br>
     <br>
     <br>
