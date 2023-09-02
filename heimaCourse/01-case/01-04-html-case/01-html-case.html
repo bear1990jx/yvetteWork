@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device=width, initial-scale=1.0">
+    <meta content="width=device=width, initial-scale=1.0" name="viewport">
     <title>Title</title>
 </head>
 <body>
@@ -25,11 +25,15 @@
     我是<i>倾斜i</i>的文字
 </p>
 <p>
-    我是<del>删除线del</del>的文字
+    我是
+    <del>删除线del</del>
+    的文字
     我是<s>删除线s</s>的文字
 </p>
 <p>
-    我是<ins>下划线ins</ins>的文字
+    我是
+    <ins>下划线ins</ins>
+    的文字
     我是<u>下划线u</u>的文字
 </p>
 <a href="#">空链接</a>
@@ -69,5 +73,33 @@
     <dd>微信</dd>
     <dd>小红书</dd>
 </dl>
+<form>
+    <label for="username">用户名：</label><input id="username" type="text"><br>
+    <label for="password">密码：</label><input id="password" type="password"><br>
+    性别：<input checked="checked" id="female" name="sex" type="radio"><label for="female">女</label>
+    <input id="male" name="sex" type="radio"><label for="male">男</label><br>
+    爱好：<input name="hobby" type="checkbox">吃饭
+    <input name="hobby" type="checkbox">睡觉
+    <input name="hobby" type="checkbox">亲绵胖<br>
+    <input type="submit" value="免费注册"><br>
+    <input type="reset" value="重新填写"><br>
+    <input type="button" value="获取短信验证码"><br>
+    上传头像：<input type="file"><br>
+    籍贯：
+    <select>
+        <option>北京</option>
+        <option>上海</option>
+        <option>广州</option>
+        <option>深圳</option>
+        <option selected="selected">重庆</option>
+    </select><br>
+    今日反馈：<textarea cols="50" rows="5">默认写的内容</textarea>
+</form>
 </body>
 </html>
+
+
+
+
+
+
