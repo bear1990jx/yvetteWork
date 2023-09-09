@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单列布局</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .big-div div {
+            border: 1px solid blue;
+        }
+
+        .head-div,
+        .foot-div {
+            width: 440px;
+            height: 55px;
+            background-color: #018001;
+            margin: 0 auto;
+        }
+
+        .body-div {
+            width: 440px;
+            height: 220px;
+            background-color: #9B64AA;
+            margin: 5px auto;
+
+        }
+    </style>
+</head>
+<body>
+<div class="big-div">
+    <div class="head-div">头部</div>
+    <div class="body-div">主体</div>
+    <div class="foot-div">底部</div>
+</div>
+</body>
+</html>

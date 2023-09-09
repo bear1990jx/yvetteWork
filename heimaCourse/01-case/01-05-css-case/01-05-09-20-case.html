@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见网页布局</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .top {
+      height: 50px;
+      background-color: grey;
+    }
+
+    .banner {
+      width: 980px;
+      height: 150px;
+      background-color: grey;
+      margin: 10px auto;
+    }
+
+    .box {
+      width: 980px;
+      height: 300px;
+      background-color: palegoldenrod;
+      margin: 0 auto;
+    }
+
+    .box li {
+      width: 237px;
+      height: 300px;
+      float: left;
+      background-color: #c5a7e3;
+    }
+
+    .box li+li {
+      margin-left: 10px;
+    }
+
+    .footer {
+        height: 200px;
+        background-color: grey;
+        margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="top">top</div>
+<div class="banner">banner</div>
+<div class="box">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<div class="footer">footer</div>
+</body>
+</html>

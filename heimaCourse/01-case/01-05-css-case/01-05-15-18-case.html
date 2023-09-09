@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>margin负值的运用</title>
+    <style>
+
+        .margin1,
+        .margin2,
+        .margin3 {
+            width: 100%;
+            height: 200px;
+        }
+
+        .margin1 li {
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        /*如果盒子没有定位，则鼠标经过添加相对定位。*/
+        .margin2 li {
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 200px;
+            border: 1px solid red;
+            margin-left: -1px;
+        }
+
+        .margin2 li:hover {
+            position: relative;
+            border: 1px solid blue;
+        }
+
+        /*如果li都有定位，则用z-index提高层级。*/
+        .margin3 li {
+            position: relative;
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 200px;
+            border: 1px solid red;
+            margin-left: -1px;
+        }
+
+        .margin3 li:hover {
+            /*position: relative;*/
+            border: 1px solid blue;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<ul class="margin1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<ul class="margin2">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<ul class="margin3">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+</body>
+</html>
