@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--    <link rel="stylesheet" href="https://i.icomoon.io/public/temp/fcb91c7930/UntitledProject/style.css">-->
+    <meta charset="UTF-8">
+    <title>伪元素字体图标</title>
+    <style>
+
+        /* @font-face {
+             font-family: 'icomoon';
+             src:  url('https://i.icomoon.io/public/temp/fcb91c7930/UntitledProject/icomoon.eot?cosejf');
+             src:  url('https://i.icomoon.io/public/temp/fcb91c7930/UntitledProject/icomoon.eot?cosejf#iefix') format('embedded-opentype'),
+             url('https://i.icomoon.io/public/temp/fcb91c7930/UntitledProject/icomoon.ttf?cosejf') format('truetype'),
+             url('https://i.icomoon.io/public/temp/fcb91c7930/UntitledProject/icomoon.woff?cosejf') format('woff'),
+             url('https://i.icomoon.io/public/temp/fcb91c7930/UntitledProject/icomoon.svg?cosejf#icomoon') format('svg');
+             font-weight: normal;
+             font-style: normal;
+             font-display: block;
+         }*/
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?fjv76j');
+            src: url('fonts/icomoon.eot?fjv76j#iefix') format('embedded-opentype'),
+            url('fonts/icomoon.ttf?fjv76j') format('truetype'),
+            url('fonts/icomoon.woff?fjv76j') format('woff'),
+            url('fonts/icomoon.svg?fjv76j#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        div {
+            width: 200px;
+            height: 35px;
+            border: 1px solid red;
+        }
+
+        div::after {
+            content: "";
+            font-family: 'icomoon';
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>
