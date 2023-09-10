@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-06-02-课后练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 30px;
+            overflow: hidden;
+        }
+
+        .position {
+            position: absolute;
+            left: 0;
+            width: 120px;
+            height: 60px;
+            transition: all .5s;
+        }
+
+        .logo .mi1,
+        .logo .mi2 {
+            width: 60px;
+            height: 60px;
+        }
+
+        .logo:hover .position {
+            left: -60px;
+        }
+
+        .card {
+            width: 500px;
+            height: 700px;
+            margin: 30px auto;
+        }
+
+        .card img {
+            width: 500px;
+            height: 500px;
+        }
+
+        .card h3 {
+            padding: 10px;
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+            color: #4c4c4c;
+        }
+
+        .card p {
+            padding: 20px;
+            font-size: 22px;
+            color: red;
+        }
+
+        .card p span {
+            text-decoration: line-through;
+            font-size: 16px;
+            color: #888888;
+        }
+
+        .jindutiao {
+            font-size: 14px;
+            color: #888888;
+            text-align: center;
+        }
+
+        .jindutiao span {
+            color: red;
+        }
+
+        .jindutiao .tiao {
+            display: inline-block;
+            width: 300px;
+            height: 10px;
+            border: 1px solid red;
+            border-radius: 5px;
+        }
+
+        .jindutiao .tiao .bar {
+            width: 87%;
+            height: 100%;
+            background-color: red;
+            transition: width .5s;
+        }
+
+        .jindutiao .tiao:hover .bar {
+            width: 100%;
+        }
+        
+        button {
+            margin-top: 20px;
+            width: 500px;
+            height: 50px;
+            background-color: red;
+            font-size: 26px;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+<div class="logo">
+    <div class="position">
+        <img alt="logo" class="mi1" src="mi1-logo.png"><img alt="logo" class="mi2" src="mi2-logo.png">
+    </div>
+</div>
+<div class="card">
+    <img alt="mi" src="mi.png">
+    <h3>Apple苹果iPhone 14</h3>
+    <p class="price">￥6088
+        <span>￥6988</span>
+    </p>
+    <div class="jindutiao">
+        已售<span>87%</span>
+        <div class="tiao">
+            <div class="bar"></div>
+        </div>
+        剩余<span>29</span>件
+    </div>
+    <button>立即抢购</button>
+</div>
+<div class="calender">
+
+</div>
+</body>
+</html>
