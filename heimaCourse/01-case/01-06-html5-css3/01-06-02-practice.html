@@ -7,6 +7,7 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         .logo {
@@ -96,7 +97,7 @@
         .jindutiao .tiao:hover .bar {
             width: 100%;
         }
-        
+
         button {
             margin-top: 20px;
             width: 500px;
@@ -106,6 +107,58 @@
             color: #fff;
             border: none;
             border-radius: 25px;
+        }
+
+        .calender {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            width: 140px;
+            height: 130px;
+            border: 1px solid skyblue;
+        }
+
+        .calender ul {
+            width: 140px;
+            height: 20px;
+            border-bottom: 1px solid #bfbfbf;
+        }
+
+        .calender ul li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            list-style: none;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .week li:nth-child(1),
+        .week li:nth-child(7),
+        .line1 li:nth-child(7),
+        .line2 li:nth-child(1),
+        .line2 li:nth-child(7),
+        .line3 li:nth-child(1),
+        .line3 li:nth-child(7),
+        .line4 li:nth-child(1),
+        .line4 li:nth-child(7),
+        .line5 li:nth-child(1) {
+            color: red;
+        }
+
+        .line1 li:nth-child(1),
+        .line5 li:nth-child(n+5) {
+            color: #bfbfbf;
+        }
+
+        .line1 li:nth-child(5) {
+            background-color: pink;
+            color: #fff;
+        }
+
+        .calender ul li:hover {
+            border: 1px solid pink;
         }
     </style>
 </head>
@@ -131,7 +184,59 @@
     <button>立即抢购</button>
 </div>
 <div class="calender">
-
-</div>
+    <ul class="week">
+        <li>日</li>
+        <li>一</li>
+        <li>二</li>
+        <li>三</li>
+        <li>四</li>
+        <li>五</li>
+        <li>六</li>
+    </ul>
+    <ul class="line1">
+        <li>31</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <ul class="line2">
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+    </ul>
+    <ul class="line3">
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+    </ul>
+    <ul class="line4">
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+    </ul>
+    <ul class="line5">
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
 </body>
 </html>
