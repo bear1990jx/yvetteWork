@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-02-04课后练习</title>
+    <style>
+        body {
+            background-color: #EAE9E9;
+        }
+
+        .nav {
+            width: 1200px;
+            margin: 100px auto;
+        }
+
+        a {
+            display: block;
+            float: left;
+            margin-left: 40px;
+            width: 255px;
+            height: 255px;
+            border-radius: 50%;
+            text-decoration: none;
+            color: #8E8E8E;
+        }
+
+        .container {
+            width: 255px;
+            height: 255px;
+            border: 10px solid #F5F5F5;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: all linear .5s;
+        }
+
+        .greater {
+            margin-top: 63px;
+            margin-left: 83px;
+            width: 88px;
+            height: 127px;
+            font-size: 22px;
+            text-align: center;
+            transition: all linear .5s;
+        }
+
+        .greater img {
+            width: 72px;
+        }
+
+        .greater p {
+            transition: all linear .5s;
+        }
+
+        .container:hover .greater {
+            transform: rotate(360deg) scale(1.3);
+        }
+
+        .container:hover {
+            background-color: #EBEAE8;
+        }
+
+        .container:hover .greater p {
+            color: #212121;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="nav">
+    <a href="#">
+        <div class="container">
+            <div class="greater">
+                <img alt="" src="1.png">
+                <p>讲师介绍</p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container">
+            <div class="greater">
+                <img alt="" src="2.png">
+                <p>修改作业</p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container">
+            <div class="greater">
+                <img alt="" src="3.png">
+                <p>通过考试</p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container">
+            <div class="greater">
+                <img alt="" src="4.png">
+                <p>领取证书</p>
+            </div>
+        </div>
+    </a>
+</div>
+</body>
+</html>

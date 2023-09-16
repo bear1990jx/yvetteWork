@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转换transform</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        div:first-child {
+            transform: translate(30px, 30px);
+        }
+
+        div:nth-child(2) {
+            background-color: purple;
+        }
+
+        div:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            transform: translateX(50%);
+        }
+
+        div:nth-child(4) {
+            position: relative;
+            width: 500px;
+            height: 500px
+        }
+
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            transform: translate(-50%, -50%);
+       /*     margin-top: -100px;
+            margin-left: -100px;*/
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div>
+    <p></p>
+</div>
+</body>
+</html>
